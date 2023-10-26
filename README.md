@@ -15,10 +15,6 @@
 
 [Initial draft in Google Doc](https://docs.google.com/document/d/1vS5a0ZuGoOB5-DsH-1q5Ir_-4Jd0Sol16JanCnttPiU/edit?usp=sharing)
 
-```sh
-npm create astro@latest -- --template basics
-```
-
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
@@ -31,7 +27,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
