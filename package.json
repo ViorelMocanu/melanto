@@ -11,6 +11,13 @@
 		"url": "https://github.com/ViorelMocanu/melanto"
 	},
 	"homepage": "https://melanto.ro",
+	"browserslist": [
+		"defaults"
+	],
+	"engines": {
+		"node": ">=18.0.0",
+		"pnpm": ">=8.0.0"
+	},
 	"keywords": [
 		"astro",
 		"astro3",
@@ -29,30 +36,47 @@
 		"format": "prettier --check ./**/*.{html,css,js,cjs,ts,astro,md,json,yaml} --plugin=prettier-plugin-astro",
 		"format:fix": "prettier --write ./**/*.{html,css,js,cjs,ts,astro,md,json,yaml} --plugin=prettier-plugin-astro",
 		"lint:js": "eslint ./**/*.js ./**/*.ts ./**/*.astro",
-		"lint:md": "markdownlint src/content/**/*.md",
+		"lint:md": "markdownlint ./src/**/*.md",
 		"lint:fix": "pnpm lint:js --fix . && pnpm lint:md --fix",
 		"lint": "pnpm lint:js . && pnpm lint:md",
-		"typecheck": "pnpm tsc --project tsconfig.json --noEmit"
+		"postinstall": "husky install",
+		"coverage": "pnpm test:unit --coverage",
+		"typegen:astro": "astro sync",
+		"typegen:supabase": "pnpm supabase gen types typescript --project-id \"$PUBLIC_SUPABASE_REFERENCE\" --schema public > src/types/supabase.ts --debug",
+		"test:unit": "vitest run",
+		"test:e2e": "playwright test",
+		"test": "pnpm test:unit && pnpm test:e2e",
+		"typecheck": "pnpm astro check && pnpm tsc --project tsconfig.json",
+		"upd": "pnpm up --latest --interactive && pnpm update",
+		"verify": "pnpm lint && pnpm typecheck && pnpm test:unit && pnpm format",
+		"verify:fix": "pnpm lint:fix && pnpm typecheck && pnpm test:unit && pnpm format:fix"
 	},
 	"dependencies": {
-		"@astrojs/partytown": "^2.0.0",
-		"@astrojs/prefetch": "^0.4.0",
-		"@astrojs/sitemap": "^3.0.0",
-		"astro": "^3.2.2",
-		"sass": "^1.68.0",
-		"sharp": "^0.32.6"
+		"@astrojs/check": "0.4.1",
+		"@astrojs/partytown": "2.0.3",
+		"@astrojs/sitemap": "3.0.4",
+		"astro": "4.1.2",
+		"astro-simpleanalytics-plugin": "0.3.8",
+		"astro-webmanifest": "1.0.0",
+		"sharp": "0.33.2"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^6.7.4",
-		"@typescript-eslint/parser": "^6.7.4",
-		"@vite-pwa/astro": "^0.1.3",
-		"astro": "^3.2.2",
-		"eslint": "^8.50.0",
-		"eslint-plugin-astro": "^0.29.1",
-		"eslint-plugin-jsx-a11y": "^6.7.1",
-		"markdownlint-cli": "^0.37.0",
-		"prettier": "^3.0.3",
-		"prettier-plugin-astro": "^0.12.0",
-		"typescript": "^5.2.2"
+		"@commitlint/cli": "18.4.4",
+		"@commitlint/config-conventional": "18.4.4",
+		"@typescript-eslint/eslint-plugin": "6.18.1",
+		"@typescript-eslint/parser": "6.18.1",
+		"@vitest/coverage-v8": "1.2.0",
+		"@vite-pwa/astro": "0.2.0",
+		"eslint": "8.56.0",
+		"eslint-plugin-astro": "0.31.0",
+		"eslint-plugin-jsdoc": "48.0.2",
+		"eslint-plugin-jsx-a11y": "6.8.0",
+		"husky": "8.0.3",
+		"markdownlint-cli": "0.38.0",
+		"prettier": "3.2.0",
+		"prettier-plugin-astro": "0.12.3",
+		"sass": "1.69.7",
+		"typescript": "5.3.3",
+		"vitest": "1.2.0"
 	}
 }

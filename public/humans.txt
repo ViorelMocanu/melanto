@@ -1,0 +1,21 @@
+/* TEAM */
+
+	Creator: Viorel Mocanu
+	Contact: github [at] viorelmocanu.ro
+	Twitter: @ViorelMocanu
+	LinkedIn: https://www.linkedin.com/in/viorelmocanu/
+	From: Bucharest, Romania
+
+/* THANKS */
+
+	Owner: Adrian Stanciu
+	From: Bucharest, Romania
+
+/* SITE */
+
+	Last update: 2024/01/12
+	Language: Romanian / English
+	Doctype: HTML5
+	Standards: HTML5, CSS3, SASS, TS5, ES6, Astro3, PWA
+	IDE: VSCode
+	Components: Sharp, ESLint, MarkdownLint, Prettier

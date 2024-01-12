@@ -1,0 +1,30 @@
+---
+/**
+ * Astro component for including analytics tracking.
+ * @component
+ * @example
+ * ```astro
+ * <Analytics />
+ * ```
+ * @returns {astro.AstroNode} The Astro component for analytics tracking.
+ */
+
+import { SimpleAnalytics } from 'astro-simpleanalytics-plugin';
+
+// @TODO: analyze whether we need light or latest SA script: https://docs.simpleanalytics.com/light
+---
+
+<SimpleAnalytics
+	debug={false}
+	allEnvironments={true}
+	partytown={false}
+	light={false}
+	collectDNT={true}
+	strictUTMs={false}
+	allowParams={undefined}
+	customHostname={undefined}
+	customDomain={undefined}
+	ignorePages={undefined}
+	nonUniqueHostnames="fastspring.com,stripe.com"
+	ignoreMetrics={undefined}
+/>

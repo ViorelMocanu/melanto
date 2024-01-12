@@ -2,14 +2,14 @@
 
 ## Inspiration:
 
-- [AstroWind](https://github.com/onwidget/astrowind) - [demo](https://astrowind.vercel.app/)
-- [AstroShip](https://github.com/surjithctly/astroship) - [demo](https://astroship.web3templates.com/)
-- [AstroPlate](https://github.com/zeon-studio/astroplate) - [demo](https://astroplate.netlify.app/)
-- [Bookworm](https://github.com/themefisher/bookworm-light-astro) - [demo](https://bookworm-light-astro.vercel.app/)
-- [Nebulix](https://github.com/unfolding-io/nebulix) - [demo](https://nebulix.unfolding.io/)
-- [Pinwheel](https://github.com/themefisher/pinwheel-astro) - [demo](https://pinwheel-astro.vercel.app/)
-- [VisVrs](https://github.com/isooosi/VisVrs) - [demo](https://visvrs.vercel.app/)
-- [AstroLane](https://github.com/christian-luntok/astro-lane) - [demo](https://www.astro-lane.avenuelabs.co/)
+-   [AstroWind](https://github.com/onwidget/astrowind) - [demo](https://astrowind.vercel.app/)
+-   [AstroShip](https://github.com/surjithctly/astroship) - [demo](https://astroship.web3templates.com/)
+-   [AstroPlate](https://github.com/zeon-studio/astroplate) - [demo](https://astroplate.netlify.app/)
+-   [Bookworm](https://github.com/themefisher/bookworm-light-astro) - [demo](https://bookworm-light-astro.vercel.app/)
+-   [Nebulix](https://github.com/unfolding-io/nebulix) - [demo](https://nebulix.unfolding.io/)
+-   [Pinwheel](https://github.com/themefisher/pinwheel-astro) - [demo](https://pinwheel-astro.vercel.app/)
+-   [VisVrs](https://github.com/isooosi/VisVrs) - [demo](https://visvrs.vercel.app/)
+-   [AstroLane](https://github.com/christian-luntok/astro-lane) - [demo](https://www.astro-lane.avenuelabs.co/)
 
 ## Text
 

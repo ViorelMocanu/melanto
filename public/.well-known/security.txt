@@ -1,0 +1,22 @@
+# Template from https://securitytxt.org/
+
+# Our security address
+Contact: mailto:security@melanto.ro
+
+# Expiration date of the current security.txt
+Expires: 2025-12-31T21:59:00.000Z
+
+# Our security acknowledgments page
+Acknowledgments: https://melanto.ro/hall-of-fame
+
+# Languages we speak
+Preferred-Languages: en, ro
+
+# Canonical URI
+Canonical: https://melanto.ro/.well-known/security.txt
+
+# Our security policy
+Policy: https://melanto.ro/politica-de-securitate
+
+# Contribution guidelines
+Hiring: https://github.com/ViorelMocanu/melanto/blob/main/CONTRIBUTING.md

@@ -1,0 +1,76 @@
+---
+/**
+ * Renders the website footer and highlights the active page in the footer menus, if any.
+ * @component
+ * @example
+ * ```astro
+ * <Footer activeMenu={myActiveMenu} />
+ * ```
+ * @property {Array} [activeMenu] - An optional string representing the active menu item.
+ * @returns {astro.AstroNode} The footer component.
+ */
+
+export interface Props {
+	activeMenu?: string | undefined;
+}
+
+const { activeMenu } = Astro.props satisfies Props;
+const currentYear = new Date().getFullYear();
+const yearPrint = currentYear > 2023 ? ` - ${currentYear} ` : ' ';
+---
+
+<footer class="Footer">
+	{activeMenu}
+	<div class="FooterMeta">
+		<a class="FooterHomepageLink" href="/" title="Mergi înapoi pe prima pagină a site-ului Melanto.ro">Melanto</a>
+		<p class="Copyright">
+			Copyright &copy; 2023{yearPrint} Melanto.ro. Site creat de
+			<a href="https://www.viorelmocanu.ro/" title="Vezi site-ul personal al lui Viorel Mocanu">Viorel Mocanu</a>
+		</p>
+	</div>
+	<div class="FooterList">
+		<h6 class="FooterTitle">Informații</h6>
+		<p>
+			<strong>Melanto Solutions SRL</strong><br />
+			<strong>CUI:</strong> 46708596<br />
+			<strong>Reg. Com.:</strong> J05/2583/2022<br />
+			<strong>Adresa:</strong> Rieni, Bihor, România<br />
+			<strong>Telefon:</strong>
+			<a href="tel:+40771544867" title="Sună la numărul de telefon al Melanto.ro">+40 771 544 867</a><br />
+			<strong>Email:</strong>
+			<a href="mailto:contact@melanto.ro" title="Trimite un email către Melanto.ro">contact@melanto.ro</a><br />
+			<strong>IBAN:</strong> RO00BTRL0000000000000000<br />
+			<strong>Program:</strong> Luni - Vineri, 09:00 - 17:00
+		</p>
+	</div>
+	<div class="FooterList">
+		<h6 class="FooterTitle">Materiale de lucru</h6>
+		<p>
+			<strong>Lemn:</strong> PAL, MDF, PFL, blat, etc.<br />
+			<strong>Metal:</strong> fier, oțel, aluminiu, etc.<br />
+			<strong>Plastic:</strong> plexi, policarbonat, autocolant, vopsea, etc.<br />
+			<strong>Textil:</strong> piele naturală, piele ecologică, catifea, bumbac, burete, etc. <br />
+			<strong>Sticlă:</strong> oglindă, sticlă simplă, sticlă decorativă, etc.
+		</p>
+	</div>
+	<ul class="FooterList">
+		<li class="FooterItem">
+			<a class="FooterLink" href="#">Urmărește-ne pe Instagram</a>
+		</li>
+		<li class="FooterItem">
+			<a class="FooterLink" href="/termeni-si-conditii">Termeni și condiții</a>
+		</li>
+		<li class="FooterItem">
+			<a class="FooterLink" href="/confidentialitate">Politică de confidențialitate</a>
+		</li>
+		<li class="FooterItem">
+			<a class="FooterLink" href="/cookies">Politică de cookies</a>
+		</li>
+		<li class="FooterItem">
+			<a class="FooterLink" href="https://anpc.ro/ce-este-sal/">ANPC: Soluționarea alternativă a litigiilor</a>
+		</li>
+		<li class="FooterItem">
+			<a class="FooterLink" href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=RO">ANPC: Soluționarea online a litigiilor</a>
+		</li>
+	</ul>
+</footer>

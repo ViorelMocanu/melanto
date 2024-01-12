@@ -1,0 +1,112 @@
+---
+/**
+ * Renders the website header and highlights the active page in the header main menu, if any.
+ * @component
+ * @example
+ * ```astro
+ * <Header activeMenu={myActiveMenu} />
+ * ```
+ * @property {string} [activeMenu] - An optional string representing the active menu item.
+ * @returns {astro.AstroNode} The header component.
+ */
+
+import type { BreadcrumbItem } from '@customtypes/astro';
+
+export interface Props {
+	breadcrumbArray?: BreadcrumbItem[] | undefined;
+	activeMenu?: string | undefined;
+}
+
+const { activeMenu } = Astro.props satisfies Props;
+---
+
+<header class="Header">
+	{activeMenu}
+	<div class="HeaderMain" role="toolbar">
+		<button class="MenuTrigger" type="button" id="menuTrigger" aria-expanded="false" aria-label="Deschide meniul principal" aria-haspopup="true" aria-controls="menu">
+			<span class="Icon IconHamburger">
+				<span class="HamburgerBar HamburgerBar1">&nbsp;</span>
+				<span class="HamburgerBar HamburgerBar2">&nbsp;</span>
+				<span class="HamburgerBar HamburgerBar3">&nbsp;</span>
+			</span>
+			<span class="SROnly">Deschide meniul principal</span>
+		</button>
+		<a class="Logo" href="/" title="Mergi la prima pagină a proiectului Melanto.ro">
+			<img class="LogoImage" src="/melanto-symbol.svg" width="40" height="40" alt="Melanto" />
+			<span class="LinkText">Melanto</span>
+		</a>
+		<nav class="MainMenu" id="menu" aria-labelledby="menuTrigger">
+			<ul class="MainMenuList">
+				<li class="MainMenuItem">
+					<a class="MainMenuLink" href="#hero" title="Introducere în site-ul Melanto.ro">
+						<span class="LinkText">Introducere</span>
+					</a>
+				</li>
+				<li class="MainMenuItem">
+					<a class="MainMenuLink" href="#despre-noi" title="Despre echipa, misiunea și viziunea Melanto">
+						<span class="LinkText">Despre noi</span>
+					</a>
+				</li>
+				<li class="MainMenuItem">
+					<a class="MainMenuLink" href="#portofoliu" title="Lucrări, detalii și studii de caz cu mobila pe care o produce Melanto">
+						<span class="LinkText">Portofoliu</span>
+					</a>
+				</li>
+				<li class="MainMenuItem">
+					<a class="MainMenuLink" href="#servicii" title="Ce oferim? Categorii de produse, servicii și tehnologii disponibile prin Melanto">
+						<span class="LinkText">Servicii</span>
+					</a>
+				</li>
+				<li class="MainMenuItem">
+					<a class="MainMenuLink" href="#clienti" title="Companii, instituții și persoane fizice care ne-au fost clienți, și poveștile lor">
+						<span class="LinkText">Clienți</span>
+					</a>
+				</li>
+				<li class="MainMenuItem">
+					<a class="MainMenuLink" href="#noutati" title="Ce s-a mai întâmplat nou în universul Melanto?">
+						<span class="LinkText">Noutăți</span>
+					</a>
+				</li>
+				<li class="MainMenuItem">
+					<a class="MainMenuLink" href="#contact" title="Intră în contact cu noi sau cere-ne o ofertă personalizată">
+						<span class="LinkText">Contact</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		livrare oriunde în Europa / transport și montaj inclus în preț / garanție x luni
+	</div>
+</header>
+
+<script>
+	declare global {
+		interface Window {
+			menuListeners: any;
+		}
+	}
+	window.menuListeners = function () {
+		const menuTrigger = document.getElementById('menuTrigger');
+		const body = document.body;
+
+		// la fiecare click pe butonul cu hamburger icon, adăugăm sau scoatem (deci facem toggle pe) clasa ActiveMenu în body, clasă care are niște CSS care afișează sau ascunde meniul mobil
+		menuTrigger?.addEventListener('click', function (event) {
+			event.preventDefault();
+			body.classList.toggle('ActiveMenu');
+			if (body.classList.contains('ActiveMenu')) {
+				document.body.dataset.menuOpen = 'true';
+				this.setAttribute('aria-expanded', 'true');
+				this.setAttribute('aria-label', 'Închide meniul principal');
+			} else {
+				delete document.body.dataset.menuOpen;
+				this.setAttribute('aria-expanded', 'false');
+				this.setAttribute('aria-label', 'Deschide meniul principal');
+			}
+			return false;
+		});
+	};
+	window.menuListeners();
+	// Runs on view transitions navigation
+	document.addEventListener('astro:after-swap', function () {
+		window.menuListeners();
+	});
+</script>
