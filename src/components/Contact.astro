@@ -1,0 +1,121 @@
+---
+/**
+ * Astro component for sending a contact form.
+ * @component
+ * @example
+ * ```astro
+ * <Contact />
+ * ```
+ * @returns {astro.AstroNode} The Astro component for the contact form.
+ */
+
+import sendGrid, { type MailDataRequired } from '@sendgrid/mail';
+sendGrid.setApiKey(import.meta.env.SENDGRID_API_KEY);
+
+let mesajTrimis = null;
+
+if (Astro.request.method === 'POST') {
+	try {
+		// Getting posted data from our contact form
+		const data = await Astro.request.formData();
+		const name = data.get('nume');
+		const phone = data.get('telefon');
+		const email = data.get('email');
+		const message = data.get('mesaj');
+
+		const htmlTemplate = `
+			<h1>Am primit un mesaj nou de la ${name} pe Melanto.ro</h1>
+			<p><strong>Nume:</strong> ${name}</p>
+			<p><strong>Email:</strong> ${email}</p>
+			<p><strong>Telefon:</strong> ${phone}</p>
+			<p><strong>Mesaj:</strong></p>
+			<p><pre>${message}</pre></p>
+		`;
+
+		// TODO: Do not forget to do validation and error handling over received data from your contact form.
+
+		// Sending email
+		const msg: MailDataRequired = {
+			to: 'viorel.mocanu@gmail.com',
+			from: 'contact@melanto.ro',
+			subject: `Mesaj nou pe Melanto.ro de la ${name}`,
+			text: `Nume: ${name} \nEmail: ${email} \nTelefon: ${phone} \nMesaj: ${message}`,
+			html: htmlTemplate,
+			/*
+			templateId: 'sgTemplate',
+			dynamicTemplateData: {
+				name: name,
+				email: email,
+				phone: phone,
+				message: message
+			}
+			*/
+		};
+		await sendGrid
+			.send(msg)
+			.then(() => {
+				console.log('Email trimis!');
+				mesajTrimis = true;
+			})
+			.catch((error) => {
+				mesajTrimis = false;
+				console.log(msg);
+				console.error(error);
+				console.error(error.response.body.errors);
+				console.error(error.ref.response.body.errors);
+			});
+	} catch (error) {
+		console.error(error);
+		mesajTrimis = false;
+	}
+}
+---
+
+<h2 class="SubTitle">Contactează-ne acum!</h2>
+<p class="P">Toate câmpurile sunt obligatorii. Încercăm să-ți răspundem la mesaje în cel mai scurt timp posibil, dar în general asta se întâmplă în maxim 24-48h.</p>
+<form id="contact" class="Form ContactForm" method="post">
+	<fieldset class="Fieldset">
+		<legend class="Legend">Contactează-ne</legend>
+		<label class="Label" for="nume">
+			<span class="LabelText">Nume:</span>
+			<input class="Input" type="text" id="nume" name="nume" maxlength="100" minlength="1" placeholder="Numele tău complet..." required />
+		</label>
+		<label class="Label" for="telefon">
+			<span class="LabelText">Telefon:</span>
+			<input class="Input" type="tel" id="telefon" name="telefon" pattern="[0-9]{10,15}" placeholder="Telefonul tău (numai cifre)..." required />
+		</label>
+		<label class="Label" for="email">
+			<span class="LabelText">E-mail:</span>
+			<input class="Input" type="email" id="email" name="email" placeholder="Adresa ta de mail..." required />
+		</label>
+		<label class="Label" for="mesaj">
+			<span class="LabelText">Mesaj:</span>
+			<textarea class="Textarea" id="mesaj" name="mesaj" placeholder="Mesajul tău..." required></textarea>
+		</label>
+		<button class="Button" type="submit" title="Trimite-ne mesajul acum">
+			<span class="ButtonText">Trimite mesaj &raquo;</span>
+		</button>
+	</fieldset>
+</form>
+
+{
+	mesajTrimis === true && (
+		<div class="Message MessageSuccess">
+			<h3 class="SubTitle">Mesajul tău a fost trimis cu succes!</h3>
+			<p class="P">Îți mulțumim pentru interesul acordat. În cel mai scurt timp posibil îți vom răspunde la mesaj.</p>
+		</div>
+	)
+}
+
+{
+	mesajTrimis === false && (
+		<div class="Message MessageError">
+			<h3 class="MessageTitle">Mesajul tău NU a putut fi transmis!</h3>
+			<div class="MessageBody">
+				<p class="P">
+					Ne pare rău, dar mesajul tău nu a putut fi transmis. Contactează-ne direct la <a href="mailto:contact@melanto.ro">contact@melanto.ro</a>!
+				</p>
+			</div>
+		</div>
+	)
+}

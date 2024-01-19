@@ -1,24 +1,28 @@
 import { ENV, LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL, DEBUG } from './src/config';
-import { defineConfig } from 'astro/config';
+import { defineConfig, squooshImageService } from 'astro/config';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import partytown from '@astrojs/partytown';
-import sitemap from '@astrojs/sitemap';
+import sentry from "@sentry/astro";
+// import sitemap from '@astrojs/sitemap';
+import vercelStatic from '@astrojs/vercel/serverless';
 import webmanifest from 'astro-webmanifest';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 
 // https://astro.build/config
 export default defineConfig({
 	site: URL || 'https://melanto.ro',
-	output: 'static',
+	output: 'hybrid',
 	compressHTML: ENV !== 'local' && ENV !== 'development' ? true : false,
-	prefetch: {
+	/*prefetch: {
 		defaultStrategy: 'viewport'
-	},
+	},*/
 	redirects: {
 		// '/old': '/new',
 	},
 	image: {
+		service: squooshImageService(),
 		remotePatterns: [{
 			protocol: 'https'
 		}]
@@ -57,7 +61,7 @@ export default defineConfig({
 	},
 	i18n: {
 		defaultLocale: 'ro',
-		locales: ['ro'],
+		locales: ['ro']
 	},
 	integrations: [
 		webmanifest({
@@ -81,14 +85,12 @@ export default defineConfig({
 				insertAppleTouchLinks: true,
 				iconPurpose: ['badge', 'maskable', 'monochrome']
 			}
-		}),
-		partytown({
+		}), partytown({
 			config: {
 				debug: true,
 				forward: ['dataLayer.push']
 			}
-		}),
-		sitemap({
+		}), /*sitemap({
 			customPages: ['https://melanto.ro/external-page2'],
 			filter: page => {
 				return page !== 'https://melanto.ro/dashboard/' && page !== 'https://melanto.ro/secret-vip-lounge-2/';
@@ -98,11 +100,22 @@ export default defineConfig({
 			priority: 0.7,
 			//lastmod: new Date(GLOBAL_PUB_DATE),
 			i18n: {
-				defaultLocale: 'ro',
-				locales: {
-					ro: 'ro-RO'
-				}
+			defaultLocale: 'ro',
+			locales: {
+				ro: 'ro-RO'
 			}
+			}
+		}),*/ sentry({
+			dsn: "https://b6e5cfd61e6adc839414daf452e8c4e8@o4506599007911936.ingest.sentry.io/4506599013548032",
+			/*
+			replaysSessionSampleRate: 0,
+			replaysOnErrorSampleRate: 0,
+			sourceMapsUploadOptions: {
+				project: "melanto-ro",
+				authToken: process.env.SENTRY_AUTH_TOKEN,
+			},
+			*/
 		})
-	]
+	],
+	adapter: vercelStatic()
 });

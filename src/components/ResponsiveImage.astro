@@ -44,8 +44,8 @@ let smallerHeight = image.width < width ? image.height : height;
 
 if (width > breakpoint) {
 	renderSmallImage = true;
-	smallerWidth = Math.floor(breakpoint / 2);
-	smallerHeight = Math.floor((breakpoint * height) / (2 * width));
+	smallerWidth = Math.floor(breakpoint);
+	smallerHeight = Math.floor((breakpoint * height) / width);
 }
 
 if (image.format == 'svg') {
