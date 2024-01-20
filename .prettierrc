@@ -13,7 +13,7 @@
 	"proseWrap": "never",
 	"singleQuote": true,
 	"singleAttributePerLine": false,
-	"printWidth": 180,
+	"printWidth": 1000,
 	"tabWidth": 4,
 	"htmlWhitespaceSensitivity": "css",
 	"plugins": ["prettier-plugin-astro"]

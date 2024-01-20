@@ -13,22 +13,14 @@ import cineSuntem from '@img/cine-suntem.jpg';
 <Layout title={pageTitle} description={pageDescription} template="HomePage">
 	<section class="Hero">
 		<div class="HeroContainer">
-			<h2 class="HeroTitle">Doar <strong>mobilă</strong>. Doar <strong>calitate</strong>.</h2>
+			<h2 class="HeroTitle" id="hero">Doar <strong>mobilă</strong>. Doar <strong>calitate</strong>.</h2>
 			<p class="HeroP">Viețile noastre se întâmplă în jurul mobilierului nostru.</p>
-			<p class="HeroP">
-				Noi știm cât de important e să fii înconjurat de calitate în viața ta, și vrem să ți-o livrăm prin mobilier și servicii la cele mai înalte standarde.
-			</p>
-			- cta = portofoliu
+			<p class="HeroP">Noi știm cât de important e să fii înconjurat de calitate în viața ta, și vrem să ți-o livrăm prin mobilier și servicii la cele mai înalte standarde.</p>
+			<a class="Button" href="#proces" title="Află exact cum lucrăm pentru tine">
+				<span class="ButtonText">Procesul nostru de lucru</span>
+			</a>
 		</div>
-		<ResponsiveImage
-			image={heroImage}
-			alt="Melanto este aici să-ți îndeplinească toate planurile legate de mobilă."
-			width={1200}
-			height={1508}
-			lazyLoading={true}
-			classList={['HeroImage']}
-			breakpoint={800}
-		/>
+		<ResponsiveImage image={heroImage} alt="Melanto este aici să-ți îndeplinească toate planurile legate de mobilă." width={1200} height={1508} lazyLoading={true} classList={['HeroImage']} breakpoint={800} />
 		<!--video
 			preload="none"
 			muted=""
@@ -44,219 +36,143 @@ import cineSuntem from '@img/cine-suntem.jpg';
 	</section>
 	<main class="Main">
 		<section class="Section WhoAreWe">
-			<h2 class="SubTitle">Cine suntem?</h2>
+			<h2 class="SubTitle" id="despre-noi">Cine suntem?</h2>
 			<p>Melanto e un business de familie, născut din dorința de a aduce calitatea și pasiunea pentru mobilier în casele oamenilor.</p>
-			<p>
-				Suntem o echipă tânără și extrem de motivată să livrăm mobilă și servicii la cele mai înalte standarde, care plasează clientul, dorințele și necesitățile sale în
-				centrul atenției. Ne place să credem că înainte de mobilă lucrăm cu oameni, așa că viziunea, așteptările și cerințele clienților noștri sunt extrem de importante
-				pentru noi.
-			</p>
-			<ResponsiveImage
-				image={cineSuntem}
-				alt="Cine este echipa din spatele brand-ului de mobilă Melanto?"
-				width={1200}
-				height={1200}
-				lazyLoading={true}
-				classList={['WhoWeAreImage']}
-				breakpoint={800}
-			/>
-			<p>
-				Lucrăm cu diferite materiale (lemn masiv, PAL, MDF, sticlă, etc) și furnizori de încredere (pentru materiale și accesorii) pentru că știm importanța lucrului bine
-				făcut, indiferent de buget.
-			</p>
-			<p>
-				Deși suntem la început de drum, știm că putem și vom construi lucruri mărețe împreună cu clienții noștri, fiindcă avem determinarea și dorința de a reuși, și știm
-				că nu putem face asta decât oferind respect și seriozitate tuturor colaboratorilor noștri. Vrem să fim parteneri de încredere, pentru că noi la rândul nostru punem
-				preț pe astfel de parteneriate!
-			</p>
-			<p>
-				Indiferent de mărimea sau natura proiectului, că ești arhitect, business sau persoană fizică, nouă ne plac provocările! Contactează-ne și hai să facem planurile
-				tale (sau ale clienților tăi) să devină realitate!
-			</p>
+			<p>Suntem o echipă tânără și extrem de motivată să livrăm mobilă și servicii la cele mai înalte standarde, care plasează clientul, dorințele și necesitățile sale în centrul atenției. Ne place să credem că înainte de mobilă lucrăm cu oameni, așa că viziunea, așteptările și cerințele clienților noștri sunt extrem de importante pentru noi.</p>
+			<ResponsiveImage image={cineSuntem} alt="Cine este echipa din spatele brand-ului de mobilă Melanto?" width={1200} height={1200} lazyLoading={true} classList={['WhoWeAreImage']} breakpoint={800} />
+			<p>Lucrăm cu diferite materiale (lemn masiv, PAL, MDF, sticlă, etc) și furnizori de încredere (pentru materiale și accesorii) pentru că știm importanța lucrului bine făcut, indiferent de buget.</p>
+			<p>Deși suntem la început de drum, știm că putem și vom construi lucruri mărețe împreună cu clienții noștri, fiindcă avem determinarea și dorința de a reuși, și știm că nu putem face asta decât oferind respect și seriozitate tuturor colaboratorilor noștri. Vrem să fim parteneri de încredere, pentru că noi la rândul nostru punem preț pe parteneri!</p>
+			<p>Indiferent de mărimea sau natura proiectului, că ești arhitect, business sau persoană fizică, nouă ne plac provocările! Contactează-ne și hai să facem planurile tale (sau ale clienților tăi) să devină realitate!</p>
 		</section>
 
 		<section class="Section Proiecte">
 			<h2 class="SubTitle">Ne adresăm tuturor nișelor</h2>
-			- proiecte corporate - proiecte rezidențiale - colaborări cu arhitecți
+			<ul class="ProjectList">
+				<li class="ProjectItem">
+					<h3 class="SubTitleTertiary">Proiecte corporate</h3>
+				</li>
+				<li class="ProjectItem">
+					<h3 class="SubTitleTertiary">Proiecte rezidențiale</h3>
+				</li>
+				<li class="ProjectItem">
+					<h3 class="SubTitleTertiary">Colaborări cu arhitecți</h3>
+				</li>
+			</ul>
 		</section>
 
 		<section class="Section WhatWeOffer">
-			<h2 class="SubTitle">Ce oferim?</h2>
-
+			<h2 class="SubTitle" id="servicii">Ce oferim?</h2>
 			<h3 class="SubTitleTertiary">Pasiune și profesionalism</h3>
-
-			<p>
-				E important ca atunci când alegi să faci o investiție să știi că ai lângă tine o echipă de profesioniști, oameni pe care te poți baza și care pun pasiune în ceea ce
-				fac. Noi știm asta și abia așteptăm să ți-o demonstrăm și ție când vei alege să colaborezi cu noi!
-			</p>
+			<p>E important ca atunci când alegi să faci o investiție să știi că ai lângă tine o echipă de profesioniști, oameni pe care te poți baza și care pun pasiune în ceea ce fac. Noi știm asta și abia așteptăm să ți-o demonstrăm și ție când vei alege să colaborezi cu noi!</p>
 
 			<h3 class="SubTitleTertiary">Seriozitate și sinceritate</h3>
-
-			<p>
-				Clienții noștri au parte de estimări sincere și realiste. Oferim toată seriozitatea noastră și punem preț pe ea pentru că la rândul nostru apreciem oamenii serioși
-				și ni-i dorim clienți.
-			</p>
+			<p>Clienții noștri au parte de estimări sincere și realiste. Oferim toată seriozitatea noastră și punem preț pe ea pentru că la rândul nostru apreciem oamenii serioși și ni-i dorim clienți.</p>
 
 			<h3 class="SubTitleTertiary">Atenție la detalii</h3>
-			<p>
-				Știm și noi, cum probabil știi și tu, că detaliile fac diferența. Cu atât mai mult când vine vorba de un mobilier la comandă! Noi tratăm fiecare proiect ca fiind o
-				carte de vizită, iar atenția la detalii e esențială pentru a livra la cele mai înalte standarde și a avea clienți mulțumiți.
-			</p>
+			<p>Știm și noi, cum probabil știi și tu, că detaliile fac diferența. Cu atât mai mult când vine vorba de un mobilier la comandă! Noi tratăm fiecare proiect ca fiind o carte de vizită, iar atenția la detalii e esențială pentru a livra la cele mai înalte standarde și a avea clienți mulțumiți.</p>
 
 			<h3 class="SubTitleTertiary">Program dedicat</h3>
-
 			<p>Noi credem că fiecare client merită atenția noastră exclusivă, așa că atunci când alegi să colaborezi cu noi te poți baza că o vei avea.</p>
 
 			<h3 class="SubTitleTertiary">Deplasări și măsurători incluse</h3>
-
-			<p>
-				Se spune că două perechi de ochi sunt mai bune decât una, iar timpul și experiența ne-a convins că așa e! De aceea, pentru a ne asigura că pornim proiectul tău cu
-				dreptul, înainte de a trece la proiectare și alte detalii, un coleg de-ai noștri va veni să măsoare spațiul, să discute cu dumneavoastră și să noteze toate
-				detaliile necesare care să ne ajute ulterior să ne mulăm cât mai bine pe necesitățile proiectului.
-			</p>
+			<p>Se spune că două perechi de ochi sunt mai bune decât una, iar timpul și experiența ne-a convins că așa e! De aceea, pentru a ne asigura că pornim proiectul tău cu dreptul, înainte de a trece la proiectare și alte detalii, un coleg de-ai noștri va veni să măsoare spațiul, să discute cu dumneavoastră și să noteze toate detaliile necesare care să ne ajute ulterior să ne mulăm cât mai bine pe necesitățile proiectului.</p>
 
 			<h3 class="SubTitleTertiary">Proiectare 3D</h3>
-
-			<p>
-				Luăm dorințele exprimate de tine, schițele și măsurătorile și folosind un program special de proiectare 3D, aducem la viață virtual mobilierul tău, astfel încât tu
-				să-ți faci o idee mai clară despre rezultate și să putem discuta concret pe proiect restul detaliilor. Proiectarea 3D e extrem de importantă fiindcă ne ajută atât
-				pe noi cât și pe client să surprindem în acest pas eventualele nereguli și modificări ce trebuiesc aduse proiectului.
-			</p>
+			<p>Luăm dorințele exprimate de tine, schițele și măsurătorile și folosind un program special de proiectare 3D, aducem la viață virtual mobilierul tău, astfel încât tu să-ți faci o idee mai clară despre rezultate și să putem discuta concret pe proiect restul detaliilor. Proiectarea 3D e extrem de importantă fiindcă ne ajută atât pe noi cât și pe client să surprindem în acest pas eventualele nereguli și modificări ce trebuiesc aduse proiectului.</p>
 
 			<h3 class="SubTitleTertiary">Consiliere specializată</h3>
-			<p>
-				Când nu știi ce să alegi în materie de materiale, cum să eficientizezi un spațiu printr-un design de mobilier practic sau pur și simplu n-ai nicio viziune despre
-				cum ai vrea să arate mobila ta, mai bine te bazezi pe noi! Pe tot parcursul colaborării noastre oferim clienților noștri consultanță în realizarea proiectului și
-				sfaturi experimentate.
-			</p>
+			<p>Când nu știi ce să alegi în materie de materiale, cum să eficientizezi un spațiu printr-un design de mobilier practic sau pur și simplu n-ai nicio viziune despre cum ai vrea să arate mobila ta, mai bine te bazezi pe noi! Pe tot parcursul colaborării noastre oferim clienților noștri consultanță în realizarea proiectului și sfaturi experimentate.</p>
 
 			<h3 class="SubTitleTertiary">Transport și montaj cu propria echipă</h3>
 			<p>
-				<q>Cine se aseamănă, se-adună</q>, dar voi știți asta deja! Și noi o știm, și de aceea am format o echipă de oameni profesioniști, serioși și atenți la detalii care
-				să ne ajute cu transportul și montajul pieselor noastre de mobilier.
+				<q>Cine se aseamănă, se-adună</q>, dar voi știți asta deja! Și noi o știm, și de aceea am format o echipă de oameni profesioniști, serioși și atenți la detalii care să ne ajute cu transportul și montajul pieselor noastre de mobilier.
 			</p>
 
 			<h3 class="SubTitleTertiary">Garanție la toate produsele</h3>
 			<p>Fiindcă avem încredere în furnizorii noștri și știm că mobilierul nostru este unul de calitate, oferim clienților noștri garanția lucrului bine făcut.</p>
 
 			<h3 class="SubTitleTertiary">Flexibilitate în proiecte</h3>
-			<p>
-				Ne place mobila și nu ne dăm înapoi de la nicio provocare! Proiectăm și realizăm mobilier de diferite tipuri, stiluri și pentru diferite bugete, atât pt pers fizice
-				cât și pentru arhitecți sau clienți business.
-			</p>
+			<p>Ne place mobila și nu ne dăm înapoi de la nicio provocare! Proiectăm și realizăm mobilier de diferite tipuri, stiluri și pentru diferite bugete, atât pt pers fizice cât și pentru arhitecți sau clienți business.</p>
 		</section>
 
 		<section class="Section Process">
-			<h2 class="SubTitle">PROCESUL MELANTO (în 7 pași)</h2>
+			<h2 class="SubTitle" id="proces">Procesul Melanto (în 8 pași)</h2>
 			<ol class="List Pasi">
-				<li class="ListItem Pas"><strong>Pasul 1:</strong> Ne contactezi fie telefonic fie completând formularul de pe site și stabilim o întâlnire.</li>
-				<li class="ListItem Pas"><strong>Pasul 2:</strong> Discutăm detaliile proiectului tău ( necesități, dorințe, așteptări, buget, timp, exemple).</li>
 				<li class="ListItem Pas">
-					<strong>Pasul 3:</strong> Facem o vizită pentru măsurarea spațiului și unde e posibil venim cu mostre pentru stabilirea materialelor / culorilor dorite.
+					<h3 class="SubTitleTertiary">Pasul 1</h3>
+					<p>Ne contactezi fie telefonic fie completând formularul de pe site și stabilim o întâlnire.</p>
 				</li>
-				<li class="ListItem Pas"><strong>Pasul 4:</strong> Proiectăm 3D.</li>
 				<li class="ListItem Pas">
-					<strong>Pasul 5:</strong> Discutăm pe proiect și stabilim detaliile finale. Oferim în această etapă și o estimare finală a costului și se face plata avansului.
+					<h3 class="SubTitleTertiary">Pasul 2</h3>
+					<p>Discutăm detaliile proiectului tău ( necesități, dorințe, așteptări, buget, timp, exemple).</p>
 				</li>
-				<li class="ListItem Pas"><strong>Pasul 6:</strong> Proiectul intră în producție.</li>
-				<li class="ListItem Pas"><strong>Pasul 7:</strong> Livrarea și montajul.</li>
-				<li class="ListItem Pas"><strong>Pasul 8:</strong> <em>(opțional)</em> Clientul ne lasă feedback pe site în secțiunea Testimoniale / pe Google Maps.</li>
+				<li class="ListItem Pas">
+					<h3 class="SubTitleTertiary">Pasul 3</h3>
+					<p>Facem o vizită pentru măsurarea spațiului și unde e posibil venim cu mostre pentru stabilirea materialelor / culorilor dorite.</p>
+				</li>
+				<li class="ListItem Pas">
+					<h3 class="SubTitleTertiary">Pasul 4</h3>
+					<p>Proiectăm 3D.</p>
+				</li>
+				<li class="ListItem Pas">
+					<h3 class="SubTitleTertiary">Pasul 5</h3>
+					<p>Discutăm pe proiect și stabilim detaliile finale. Oferim în această etapă și o estimare finală a costului și se face plata avansului.</p>
+				</li>
+				<li class="ListItem Pas">
+					<h3 class="SubTitleTertiary">Pasul 6</h3>
+					<p>Proiectul intră în producție.</p>
+				</li>
+				<li class="ListItem Pas">
+					<h3 class="SubTitleTertiary">Pasul 7</h3>
+					<p>Livrarea și montajul.</p>
+				</li>
+				<li class="ListItem Pas">
+					<h3 class="SubTitleTertiary">Pasul 8</h3>
+					<p><em>(opțional)</em> Clientul ne lasă feedback pe site în secțiunea Testimoniale / pe Google Maps.</p>
+				</li>
 			</ol>
 		</section>
 
 		<section class="Section Types">
-			<h2 class="SubTitle">Tipuri de proiecte</h2>
+			<h2 class="SubTitle" id="tipuri">Tipuri de proiecte</h2>
 
 			<h3 class="SubTitleTertiary">Mobilier de bucătărie</h3>
-			<p>
-				Se spune că bucătăria este spațiul cel mai folosit dintr-o casă, în care ne petrecem o bună bucată din timpul zilei. Noi credem că o bucătărie e o investiție și
-				este esențial ca aceasta să se muleze perfect pe stilul tău de viață, estetica dorită dar și bugetul tău, și ne străduim în proiectele noastre să le prioritizăm pe
-				fiecare în parte.
-			</p>
-			<p>
-				Așa că indiferent de spațiul pe care-l ai, că e vorba de o garsonieră sau de o casă cu o mulțime de metri pătrați și cerințe extra de la bucătăria ta, că-ți plac
-				bucătăriile open space sau vrei să ai confortul unei bucătării separate de restul casei, că-ți place design-ul modern, minimalist și vrei tehnologie de ultimă
-				generație sau alegi clasicul, noi putem să-ți realizăm bucătăria visurilor tale! Lucrăm cu diferite tipuri de materiale pentru a ne asigura că putem acoperi orice
-				buget fără să facem rabat de la calitate sau aspect și putem personaliza pana la ultimul detaliu orice proiect.
-			</p>
+			<p>Se spune că bucătăria este spațiul cel mai folosit dintr-o casă, în care ne petrecem o bună bucată din timpul zilei. Noi credem că o bucătărie e o investiție și este esențial ca aceasta să se muleze perfect pe stilul tău de viață, estetica dorită dar și bugetul tău, și ne străduim în proiectele noastre să le prioritizăm pe fiecare în parte.</p>
+			<p>Așa că indiferent de spațiul pe care-l ai, că e vorba de o garsonieră sau de o casă cu o mulțime de metri pătrați și cerințe extra de la bucătăria ta, că-ți plac bucătăriile open space sau vrei să ai confortul unei bucătării separate de restul casei, că-ți place design-ul modern, minimalist și vrei tehnologie de ultimă generație sau alegi clasicul, noi putem să-ți realizăm bucătăria visurilor tale! Lucrăm cu diferite tipuri de materiale pentru a ne asigura că putem acoperi orice buget fără să facem rabat de la calitate sau aspect și putem personaliza pana la ultimul detaliu orice proiect.</p>
 
 			<h3 class="SubTitleTertiary">Mobilier living</h3>
-			<p>
-				Living-ul e camera de socializare, camera în care te relaxezi cu familia sau prietenii și în care confortul ar trebui să primeze. E important ca mobilierul de
-				living pe care îl ai în vedere să fie practic, dar și să-ți inspire un mediu relaxant, și noi credem că stăpânim de minune acest echilibru!
-			</p>
+			<p>Living-ul e camera de socializare, camera în care te relaxezi cu familia sau prietenii și în care confortul ar trebui să primeze. E important ca mobilierul de living pe care îl ai în vedere să fie practic, dar și să-ți inspire un mediu relaxant, și noi credem că stăpânim de minune acest echilibru!</p>
 
 			<h3 class="SubTitleTertiary">Mobilier dining</h3>
-			<p>
-				O masă e mai mult decât o masă. E locul unde poți să-ți începi ziua, unde poți lucra (dacă alegi să o faci de acasă), locul unde iei o cină cu familia sau prietenii
-				și mai ales locul unde te strângi împreună cu cei dragi în seri de boardgames sau evenimente speciale din viața ta. O masă de dining e sufletul casei tale, și de
-				aceea credem că e important ca ea să fie proiectată la cele mai înalte standarde, pentru a-ți asigura confortul, fără a face o secundă rabat de la practicalitate.
-				Noi putem să te ajutăm să ai un mobilier de dining care să-ți fie sufletul casei, tu doar trebuie să te bucuri de el!
-			</p>
+			<p>O masă e mai mult decât o masă. E locul unde poți să-ți începi ziua, unde poți lucra (dacă alegi să o faci de acasă), locul unde iei o cină cu familia sau prietenii și mai ales locul unde te strângi împreună cu cei dragi în seri de boardgames sau evenimente speciale din viața ta. O masă de dining e sufletul casei tale, și de aceea credem că e important ca ea să fie proiectată la cele mai înalte standarde, pentru a-ți asigura confortul, fără a face o secundă rabat de la practicalitate. Noi putem să te ajutăm să ai un mobilier de dining care să-ți fie sufletul casei, tu doar trebuie să te bucuri de el!</p>
 
 			<h3 class="SubTitleTertiary">Mobilier dormitor</h3>
-			<p>
-				Se zice că timpul ți-l petreci ori în pat ori în pantofi, așa că ar trebui să investești în ambele. Noi la pantofi nu ne pricepem, dar îți putem proiecta patul
-				visurilor tale, care să fie croit special pe preferințele, nevoile și așteptările tale de la un pat perfect. Mai mult, că vorbim despre dormitoare matrimoniale,
-				dormitoare de oaspeți, dormitoare ale membrilor adolescenți sau seniori ai familiei, știm cum să aducem intimitatea și confortul în orice spațiu de acest fel
-				proiectat, în timp ce ne mulăm pe așteptările și stilul de viață al beneficiarului. Astfel, clienții noștri au tot timpul dormitoare care sunt oaze de liniște în
-				care se retrag cu drag, la finalul zilei.
-			</p>
+			<p>Se zice că timpul ți-l petreci ori în pat ori în pantofi, așa că ar trebui să investești în ambele. Noi la pantofi nu ne pricepem, dar îți putem proiecta patul visurilor tale, care să fie croit special pe preferințele, nevoile și așteptările tale de la un pat perfect. Mai mult, că vorbim despre dormitoare matrimoniale, dormitoare de oaspeți, dormitoare ale membrilor adolescenți sau seniori ai familiei, știm cum să aducem intimitatea și confortul în orice spațiu de acest fel proiectat, în timp ce ne mulăm pe așteptările și stilul de viață al beneficiarului. Astfel, clienții noștri au tot timpul dormitoare care sunt oaze de liniște în care se retrag cu drag, la finalul zilei.</p>
 
 			<h3 class="SubTitleTertiary">Mobilier pentru depozitare</h3>
-			<p>
-				Orice locuință are nevoie de spații practice. Unele și credem noi cele mai importante dintre acestea sunt spațiile de tip hol, cămară, garaj, boxă sau pod, spații
-				unde putem crea soluții de depozitare astfel încât să redăm clienților noștri luxul unui spațiu aerisit, ne-aglomerat, ușor de întreținut dar și organizat în
-				același timp! Dacă ești în căutare de mobilier de depozitare sau soluții pentru spații de natura asta, contactează-ne și hai să-ți facem viața mai organizată!
-			</p>
+			<p>Orice locuință are nevoie de spații practice. Unele și credem noi cele mai importante dintre acestea sunt spațiile de tip hol, cămară, garaj, boxă sau pod, spații unde putem crea soluții de depozitare astfel încât să redăm clienților noștri luxul unui spațiu aerisit, ne-aglomerat, ușor de întreținut dar și organizat în același timp! Dacă ești în căutare de mobilier de depozitare sau soluții pentru spații de natura asta, contactează-ne și hai să-ți facem viața mai organizată!</p>
 
 			<h3 class="SubTitleTertiary">Mobilier dressing</h3>
-			<p>
-				Îmbrăcămintea, încălțămintea, accesoriile, lenjeriile, etc. joacă un rol important în viața noastră, și fie că ne place să recunoaștem sau nu, ocupă de cele mai
-				multe ori destul de mult spațiu în casele noastre! Nouă ne place să proiectăm soluții de stocare pentru astfel de obiecte, pe care le putem integra fie într-o
-				cameră specială tip dressing fie într-un dormitor sau o altă zonă a locuinței stabilită de clienții noștri. Putem să ne adaptăm la orice design, spațiu și nevoie
-				practică, așa că dă-ne un semn când te gândești c-ai vrea un dressing nou!
-			</p>
+			<p>Îmbrăcămintea, încălțămintea, accesoriile, lenjeriile, etc. joacă un rol important în viața noastră, și fie că ne place să recunoaștem sau nu, ocupă de cele mai multe ori destul de mult spațiu în casele noastre! Nouă ne place să proiectăm soluții de stocare pentru astfel de obiecte, pe care le putem integra fie într-o cameră specială tip dressing fie într-un dormitor sau o altă zonă a locuinței stabilită de clienții noștri. Putem să ne adaptăm la orice design, spațiu și nevoie practică, așa că dă-ne un semn când te gândești c-ai vrea un dressing nou!</p>
 
 			<h3 class="SubTitleTertiary">Mobilier camera copilului / spații pentru copii (grădinițe, creșe, școli)</h3>
 			<p>Proiectăm mobilier pentru camere de copii, <strong>inclusiv de tip Montessori</strong>!</p>
-			<p>
-				Înțelegem cât de important e ca astfel de proiecte să fie gândite în simț practic, să fie sigure și ușor de utilizat dar și de plăcut de micul sau mai marele membru
-				al familiei. Indiferent de vârstă, nevoile pe care spațiul trebuie să le îndeplinească, sau buget, încercăm prin fiecare proiect să-i oferim copilului dumneavoastră
-				un univers în care să se simtă bine, care să-i inspire creativitatea și în care să se poată dezvolta armonios.
-			</p>
+			<p>Înțelegem cât de important e ca astfel de proiecte să fie gândite în simț practic, să fie sigure și ușor de utilizat dar și de plăcut de micul sau mai marele membru al familiei. Indiferent de vârstă, nevoile pe care spațiul trebuie să le îndeplinească, sau buget, încercăm prin fiecare proiect să-i oferim copilului dumneavoastră un univers în care să se simtă bine, care să-i inspire creativitatea și în care să se poată dezvolta armonios.</p>
 
 			<h3 class="SubTitleTertiary">Mobilier bibliotecă</h3>
-			<p>
-				Cărțile sunt importante pentru noi, și ne place să construim mobilierul perfect pentru ca ele să-și poată găsi locul de cinste în casele clienților noștri! Putem
-				veni în ajutorul bibliotecilor, librăriilor, școlilor sau persoanelor care au nevoie de soluții de stocare pentru cărți, soluții eficiente dar și estetice.
-			</p>
+			<p>Cărțile sunt importante pentru noi, și ne place să construim mobilierul perfect pentru ca ele să-și poată găsi locul de cinste în casele clienților noștri! Putem veni în ajutorul bibliotecilor, librăriilor, școlilor sau persoanelor care au nevoie de soluții de stocare pentru cărți, soluții eficiente dar și estetice.</p>
 
 			<h3 class="SubTitleTertiary">Mobilier exterior</h3>
-			<p>
-				Terasele, balcoanele, foișoarele sunt deseori spații neglijate din punct de vedere al mobilierului, însă noi credem că un mobilier corect conceput pentru astfel de
-				zone, unde îmbinăm latura practică cu cea estetică, aduc reale plusuri spațiilor dumneavoastră. Merită să investiți în lucrurile care vă aduc mici bucurii, iar
-				spațiile de relaxare de exterior sunt legătura noastră cu natura și poate principala sursă de energie.
-			</p>
+			<p>Terasele, balcoanele, foișoarele sunt deseori spații neglijate din punct de vedere al mobilierului, însă noi credem că un mobilier corect conceput pentru astfel de zone, unde îmbinăm latura practică cu cea estetică, aduc reale plusuri spațiilor dumneavoastră. Merită să investiți în lucrurile care vă aduc mici bucurii, iar spațiile de relaxare de exterior sunt legătura noastră cu natura și poate principala sursă de energie.</p>
 
 			<h3 class="SubTitleTertiary">Mobilier colaborare arhitect/ designer interior</h3>
-			<p>
-				Ne plac oamenii creativi, care își iubesc meseria și o fac bine, prin urmare atunci când vine vorba de mobilă întotdeauna ne-am înțeles de minune cu arhitecții și
-				designerii de interior. Din astfel de colaborări unde fiecare vine cu expertiza și experiența în domeniul lui, iau naștere unele dintre cele mai frumoase proiecte
-				care sunt încununate cu zambetele de satisfacție ale clientului atunci când ce-și imagina pentru spațiul respectiv devine realitate.
-			</p>
+			<p>Ne plac oamenii creativi, care își iubesc meseria și o fac bine, prin urmare atunci când vine vorba de mobilă întotdeauna ne-am înțeles de minune cu arhitecții și designerii de interior. Din astfel de colaborări unde fiecare vine cu expertiza și experiența în domeniul lui, iau naștere unele dintre cele mai frumoase proiecte care sunt încununate cu zambetele de satisfacție ale clientului atunci când ce-și imagina pentru spațiul respectiv devine realitate.</p>
 
 			<h3 class="SubTitleTertiary">Mobilier spații comerciale</h3>
-			<p>
-				Acceptăm și proiecte pentru spații comerciale de diferite tipuri, pentru mai multe detalii și o ofertă personalizată contactați-ne telefonic sau prin formularul de
-				pe site.
-			</p>
+			<p>Acceptăm și proiecte pentru spații comerciale de diferite tipuri, pentru mai multe detalii și o ofertă personalizată contactați-ne telefonic sau prin formularul de pe site.</p>
 
 			<h3 class="SubTitleTertiary">Mobilier de serie proiecte imobiliare</h3>
-			<p>
-				Proiectăm și mobilier de serie pentru proiecte imobiliare. Pentru mai multe detalii și o ofertă personalizată contactați-ne telefonic sau prin formularul de pe
-				site.
-			</p>
+			<p>Proiectăm și mobilier de serie pentru proiecte imobiliare. Pentru mai multe detalii și o ofertă personalizată contactați-ne telefonic sau prin formularul de pe site.</p>
 		</section>
 
 		<section class="Section Stats">
@@ -265,9 +181,11 @@ import cineSuntem from '@img/cine-suntem.jpg';
 		</section>
 
 		<section class="Section QandA">
-			<h2 class="SubTitle">Întrebări frecvente</h2>
+			<h2 class="SubTitle" id="intrebari">Întrebări frecvente</h2>
 			<dl class="List ListQA">
-				<dt class="Question">De ce să aleg Melanto?</dt>
+				<dt class="Question">
+					<h3 class="SubTitleTertiary">De ce să aleg Melanto?</h3>
+				</dt>
 				<dd class="Answer">
 					<p>Alege Melanto dacă vrei calitate, o echipă serioasă și motivată să livreze cel mai bun mobilier indiferent de buget. Alege-ne dacă îți plac:</p>
 					<ul>
@@ -282,42 +200,46 @@ import cineSuntem from '@img/cine-suntem.jpg';
 						<li>o gamă de finisaje și accesorii diversificată</li>
 					</ul>
 				</dd>
-				<dt class="Question">Executați mobilă la comandă?</dt>
+				<dt class="Question">
+					<h3 class="SubTitleTertiary">Executați mobilă la comandă?</h3>
+				</dt>
 				<dd class="Answer">
 					<p>
-						Da, executăm mobilă la comandă din lemn masiv, MDF, PAL, pentru apartamente și case, spații comerciale sau proiecte imobiliare. Pentru mai multe detalii
-						vizitează secțiunea TIPURI DE PROIECTE de pe site.
+						Da, executăm mobilă la comandă din lemn masiv, MDF, PAL, pentru apartamente și case, spații comerciale sau proiecte imobiliare. Pentru mai multe detalii vizitează secțiunea <a href="#tipuri">Tipuri de proiecte</a> de pe site.
 					</p>
 				</dd>
-				<dt class="Question">Faceți mobila și după schițele sau modelul clientului?</dt>
+				<dt class="Question">
+					<h3 class="SubTitleTertiary">Faceți mobila și după schițele sau modelul clientului?</h3>
+				</dt>
 				<dd class="Answer">
-					<p>
-						Tot timpul în procesul nostru de proiectare plecăm de la schițele și dorințele clientului, iar ulterior construim pe acestea proiectarea 3D. Apelăm la
-						proiectarea 3D pentru a ne asigura că aducem clientului o imagine cât mai clară a cum va arăta mobilierul lui în spațiul de care dispunem, și totodată acest
-						proces ajută și la stabilirea mai clară a uneo detalii de natură practică și estetică. Considerăm că proiectarea 3D e un pas vital pentru reușita oricărui
-						proiect, de aceea noi nu ne bazăm exclusiv pe schițele inițiale ale clientului.
-					</p>
+					<p>Tot timpul în procesul nostru de proiectare plecăm de la schițele și dorințele clientului, iar ulterior construim pe acestea proiectarea 3D. Apelăm la proiectarea 3D pentru a ne asigura că aducem clientului o imagine cât mai clară a cum va arăta mobilierul lui în spațiul de care dispunem, și totodată acest proces ajută și la stabilirea mai clară a uneo detalii de natură practică și estetică. Considerăm că proiectarea 3D e un pas vital pentru reușita oricărui proiect, de aceea noi nu ne bazăm exclusiv pe schițele inițiale ale clientului.</p>
 				</dd>
-				<dt class="Question">Vă deplasați la locație pentru măsurători?</dt>
+				<dt class="Question">
+					<h3 class="SubTitleTertiary">Ce se întâmplă după ce obțin oferta de preț pentru mobila la comandă?</h3>
+				</dt>
+				<dd class="Answer">
+					<p>Odată stabilită oferta de preț, aceasta este valabilă 5 zile lucrătoare. Dacă clientul o agreează se trece la următorul pas din PROCESUL MELANTO (vezi secțiunea pe site) iar dacă există dorința din partea clientului de a modifica valoarea ei, se discută înlocuirea unor materiale sau accesorii pentru ca proiectul să fie mai aproape de bugetul real al clientului.</p>
+				</dd>
+				<dt class="Question">
+					<h3 class="SubTitleTertiary">Vă deplasați la locație pentru măsurători?</h3>
+				</dt>
 				<dd class="Answer">
 					<p>Întotdeauna. Acest pas face parte din procesul nostru, pe care-l puteți analiza integral la secțiunea PROCESUL MELANTO de pe site.</p>
 				</dd>
-				<dt class="Question">Oferiți montaj și transport?</dt>
+				<dt class="Question">
+					<h3 class="SubTitleTertiary">Oferiți montaj și transport?</h3>
+				</dt>
 				<dd class="Answer">
 					<p>Da, oferim ambele, cu echipă proprie. Mai multe detalii găsiți la secțiunea CE OFERIM de pe site.</p>
-				</dd>
-				<dt class="Question">Ce se întâmplă după ce obțin oferta de preț pentru mobila la comandă?</dt>
-				<dd class="Answer">
-					<p>
-						Odată stabilită oferta de preț, aceasta este valabilă 5 zile lucrătoare. Dacă clientul o agreează se trece la următorul pas din PROCESUL MELANTO (vezi
-						secțiunea pe site) iar dacă există dorința din partea clientului de a modifica valoarea ei, se discută înlocuirea unor materiale sau accesorii pentru ca
-						proiectul să fie mai aproape de bugetul real al clientului.
-					</p>
 				</dd>
 			</dl>
 		</section>
 		<section class="Section Contact">
-			<Contact />
+			<div class="ContactContainer">
+				<h2 class="SubTitle" id="contact">Contactează-ne acum!</h2>
+				<p class="P">Toate câmpurile sunt obligatorii. Încercăm să-ți răspundem la mesaje în cel mai scurt timp posibil, dar în general asta se întâmplă în maxim 24-48h.</p>
+				<Contact />
+			</div>
 		</section>
 	</main>
 </Layout>
