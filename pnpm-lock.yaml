@@ -5,6 +5,9 @@ settings:
     excludeLinksFromLockfile: false
 
 dependencies:
+    '@alwaysmeticulous/recorder-loader':
+        specifier: ^2.98.0
+        version: 2.98.0
     '@astrojs/check':
         specifier: 0.4.1
         version: 0.4.1(prettier-plugin-astro@0.12.3)(prettier@3.2.4)(typescript@5.3.3)
@@ -94,6 +97,10 @@ packages:
         resolution: { integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA== }
         engines: { node: '>=0.10.0' }
         dev: true
+
+    /@alwaysmeticulous/recorder-loader@2.98.0:
+        resolution: { integrity: sha512-9ALzDjtxv+ttPDkcyVbtYgGz/6IdJNNzz6AuqK4FIDx89row1ql8XulBNNPBx5n0kl2rb6xKnS+lZCQY0f+AIQ== }
+        dev: false
 
     /@ampproject/remapping@2.2.1:
         resolution: { integrity: sha512-lFMjJTrFL3j7L9yBxwYfCq2k6qqwHyzuUl/XBnif78PWTJYyL/dfowQHWE3sp6U6ZzqWiiIZnpTMO96zhkjwtg== }
