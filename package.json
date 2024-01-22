@@ -52,7 +52,6 @@
 		"verify:fix": "pnpm lint:fix && pnpm typecheck && pnpm test:unit && pnpm format:fix"
 	},
 	"dependencies": {
-		"@alwaysmeticulous/recorder-loader": "^2.98.0",
 		"@astrojs/check": "0.4.1",
 		"@astrojs/partytown": "2.0.4",
 		"@astrojs/sitemap": "3.0.5",
