@@ -116,3 +116,23 @@ const { activeMenu } = Astro.props satisfies Props;
 		window.menuListeners();
 	});
 </script>
+<script>
+	// @ts-nocheck
+	function handleMenuIntersection(entries) {
+		entries.forEach((entry) => {
+			const section = entry.target;
+			if (entry.isIntersecting) {
+				document.querySelector('a[href="#' + section.id + '"]')?.parentNode.classList.add('Active');
+			} else {
+				document.querySelector('a[href="#' + section.id + '"]')?.parentNode.classList.remove('Active');
+			}
+		});
+	}
+	const menuObserver = new IntersectionObserver(handleMenuIntersection, {
+		threshold: [0.1, 0.75],
+	});
+	const sections = document.querySelectorAll('.NavTarget');
+	sections.forEach((section) => {
+		menuObserver.observe(section);
+	});
+</script>

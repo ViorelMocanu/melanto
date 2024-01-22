@@ -82,7 +82,7 @@ const legacyImage = await getImage({
 	src: image,
 	width: width,
 	height: height,
-	format: 'png',
+	format: 'jpeg',
 });
 ---
 
@@ -93,9 +93,9 @@ const legacyImage = await getImage({
 			<source type="image/webp" srcset={webpImage.src} media={`(min-width: ${breakpoint}px)`} />
 			{renderSmallImage && <source type="image/avif" srcset={avifSmallImage.src} media="(min-width: 1px)" />}
 			{renderSmallImage && <source type="image/webp" srcset={webpSmallImage.src} media="(min-width: 1px)" />}
-			<source type="image/png" srcset={legacyImage.src} />
-			{lazyLoading && <Image src={image} alt={alt} width={width} height={height} format="png" {...attrs} loading="lazy" decoding="async" />}
-			{!lazyLoading && <Image src={image} alt={alt} width={width} height={height} format="png" {...attrs} loading="eager" decoding="sync" />}
+			<source type="image/jpeg" srcset={legacyImage.src} />
+			{lazyLoading && <Image src={image} alt={alt} width={width} height={height} format="jpeg" {...attrs} loading="lazy" decoding="async" />}
+			{!lazyLoading && <Image src={image} alt={alt} width={width} height={height} format="jpeg" {...attrs} loading="eager" decoding="sync" />}
 		</picture>
 	) : lazyLoading ? (
 		<img src={image.src} width={width} height={height} alt={alt} loading="lazy" decoding="async" class:list={classList} {...attrs} />

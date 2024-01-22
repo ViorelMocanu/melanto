@@ -187,14 +187,12 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 		.MessageBody p { margin: 0; }
 
 /* Structural classes */
-.Framework {
-	@media (min-width: $desktop) { margin: 0 1rem; }
-}
+.Framework { display: block; }
 	.Header { height: 3.5rem;
 		@media (min-width: $desktop) { height: auto; position: sticky; top: 0; z-index: 10; transition: top 0.25s ease-in; }
 	}
 		.HeaderMain { display: flex; flex-direction: row; justify-content: space-between; width: 100%; position: fixed; top: 0; background-color: rgba(10, 10, 10, 0.75); background: linear-gradient( to bottom, rgba(10, 10, 10, 1) 0%, rgba(10, 10, 10, 0.75) 75%, rgba(10, 10, 10, 0.33) 100%); z-index: 11; transition: top 0.25s ease-in;
-			@media (min-width: $desktop) { display: grid; grid-template-columns: auto 1fr; row-gap: 0; column-gap: 1rem; width: auto; position: static; top: unset; padding: 1rem 0; z-index: unset; max-width: 2100px; margin: 0 auto; }
+			@media (min-width: $desktop) { display: grid; grid-template-columns: auto 1fr; row-gap: 0; column-gap: 1rem; width: auto; position: static; top: unset; padding: 1rem; z-index: unset; max-width: 2100px; margin: 0 auto; }
 		}
 			.MenuTrigger { display: block; width: 3.5rem; padding: 0.75rem; position: relative; background: transparent; border: none; text-align: center; cursor: pointer;
 				@media (min-width: $desktop) { display: none; }
@@ -271,7 +269,8 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 				@media (min-width: 1400px) { width: 1400px; }
 			}
 	.Main { display: block; margin: 1rem;
-		@media (min-width: $desktop) { max-width: 2100px; margin: 1rem auto; }
+		@media (min-width: $desktop) { max-width: 2100px; margin: 1rem; }
+		@media (min-width: 2132px) { margin: 1rem auto; }
 	}
 		.SubTitle { display: block; font-family: $fonts-serif; font-weight: 700; font-size: 2rem; line-height: 1em; font-style: italic; margin: 0 0 1rem;
 			@media (min-width: 800px) { font-size: clamp(2rem, 1rem + 2vw, 7rem); }
@@ -288,38 +287,9 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 		.List { display: block; list-style-type: none; margin: 0; padding: 0; }
 			.ListItem { display: block; margin: 0 0 1rem; }
 				.ListItem strong { display: block; font-family: $fonts-condensed; font-weight: 200; font-size: 2rem; line-height: 1em; text-transform: uppercase; margin: 0 0 1rem; }
-		.QandA { padding: 2rem 1rem; }
-			.QandA .SubTitle {
-				@media (min-width: $desktop) { margin: 0; }
-			}
-			.ListQA {
-				@media (min-width: $desktop) { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2rem; row-gap: 0; }
-			}
-				.Question { display: block; }
-					.Question .SubTitleTertiary { margin: 2rem 0 1rem;
-						@media (min-width: $desktop) { margin: 2rem 0 0; }
-					}
-				.Answer { margin: 0; padding: 0; }
-				.Question:nth-of-type(2n+1), .Answer:nth-of-type(2n+1) {
-					@media (min-width: $desktop) { grid-column: 1; }
-				}
-				.Question:nth-of-type(2n), .Answer:nth-of-type(2n) {
-					@media (min-width: $desktop) { grid-column: 2; }
-				}
-				.Question:nth-of-type(2) {
-					@media (min-width: $desktop) { grid-row: 1; }
-				}
-				.Question:nth-of-type(4) {
-					@media (min-width: $desktop) { grid-row: 3; }
-				}
-				.Question:nth-of-type(6) {
-					@media (min-width: $desktop) { grid-row: 5; }
-				}
-		.Section { display: block; padding: 2rem 0; }
-		.Proiecte { text-align: center; }
-			.Proiecte .ProjectList { display: flex; flex-direction: column; gap: 1rem; margin: 0; padding: 0; list-style-type: none;
-				@media (min-width: $desktop) { display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 2rem; row-gap: 1rem; }
-			}
+
+		.Section { display: block; padding: 2rem 0; overflow: hidden; }
+
 		.WhoAreWe { display: block; padding: 2rem 0;
 			@media (min-width: 800px) { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1rem; row-gap: 1rem; position: relative; overflow: hidden; padding: 2rem 1rem; }
 			@media (min-width: $desktop) { grid-template-columns: 1fr 1fr 1fr; padding: 2rem 0; column-gap: 2rem; }
@@ -353,6 +323,90 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					/*@media (min-width: 2100px) { position: static; left: unset; width: unset; }*/
 				}
 
+		.Proiecte { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; text-align: center; background: var(--dark-200); }
+			.Proiecte .ProjectList { display: flex; flex-direction: column; gap: 1rem; margin: 0; padding: 0; list-style-type: none;
+				@media (min-width: $desktop) { display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 2rem; row-gap: 1rem; }
+				@media (min-width: 1400px) { margin: 0 5vw; column-gap: 5vw; }
+			}
+				.Proiecte .ProjectItem { display: block; position: relative;
+					@media (min-width: 500px) { padding: 0 0 1rem; margin: 0 0 1rem; }
+					@media (min-width: $desktop) { padding: 0; margin: 0; }
+				}
+					.Proiecte .Video { display: block; width: 100%; height: auto; }
+					.Proiecte .ProjectContainer { display: block;
+						@media (min-width: 500px) { background: rgba(0, 0, 0, 0.85); padding: 1rem; position: absolute; left: 1rem; bottom: 0; width: calc(50% - 3rem); }
+						@media (min-width: 750px) { margin: 0 0 -1rem; left: 2rem; font-size: 1.25rem; line-height: 1.5em; }
+						@media (min-width: $desktop) { background: transparent; padding: 0; position: static; left: unset; bottom: unset; width: unset; margin: 0; font-size: 1rem; line-height: 1.5em; }
+					}
+						.ProjectContainer .ProjectP { display: block; font-size: inherit; line-height: inherit;
+							@media (min-width: 500px) { margin: 0; text-align: left; }
+							@media (min-width: $desktop) { margin: 1rem 0; text-align: center; }
+						}
+
+		.WhatWeOffer {  }
+
+		.Process { position: relative; }
+			.ProcessImage { display: block; max-width: 100%; width: 100%; height: auto; margin: 1rem 0;
+				@media (min-width: 400px) { position: absolute; z-index: 0; margin: 0; }
+				@media (min-width: 800px) { top: calc(25% - 6vw); }
+				@media (min-width: $desktop) { width: 100%; top: unset; left: unset; }
+			}
+			.Pasi { display: block;
+				@media (min-width: 400px) { background: rgba(0, 0, 0, 0.85); margin: 10rem 1rem 1rem; padding: 1rem; position: relative; z-index: 1; }
+				@media (min-width: 500px) { margin-top: calc(10rem + 25vw); }
+				@media (min-width: 800px) { margin-top: 2rem; margin-right: 61.8%; }
+				@media (min-width: $desktop) { display: grid; grid-template-columns: repeat(auto-fill, minmax(18em, 1fr)); gap: 3vw; margin: 0; padding: 3vw; background: transparent; }
+			}
+				.Process .Pas { display: block;
+					@media (min-width: 500px) { display: flex; flex-direction: row; gap: 1rem; }
+					@media (min-width: 800px) { flex-direction: column; gap: 0; }
+					@media (min-width: $desktop) { padding: 1.5vw; background: rgba(0, 0, 0, 0.85); }
+				}
+					.Pas .SubTitleTertiary {
+						@media (min-width: 500px) { width: 2em; font-size: 3rem; white-space: nowrap; flex-shrink: 0; }
+						@media (min-width: 800px) { margin: 0; }
+					}
+					.Process .Pas p {
+						@media (min-width: 500px) { margin: 0 0 1rem; }
+					}
+
+		.Types {  }
+			.Types .ProjectTypeList { display: block;
+				@media (min-width: 800px) { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2rem; row-gap: 1rem; }
+			}
+				.Types .ProjectTypeItem { display: block; }
+					.TypeImage { display: block; margin: 1rem 0; }
+
+		.Stats {  }
+
+		.QandA { padding: 2rem 1rem; }
+			.QandA .SubTitle {
+				@media (min-width: $desktop) { margin: 0; }
+			}
+			.ListQA {
+				@media (min-width: $desktop) { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2rem; row-gap: 0; }
+			}
+				.Question { display: block; }
+					.Question .SubTitleTertiary { margin: 2rem 0 1rem;
+						@media (min-width: $desktop) { margin: 2rem 0 0; }
+					}
+				.Answer { margin: 0; padding: 0; }
+				.Question:nth-of-type(2n+1), .Answer:nth-of-type(2n+1) {
+					@media (min-width: $desktop) { grid-column: 1; }
+				}
+				.Question:nth-of-type(2n), .Answer:nth-of-type(2n) {
+					@media (min-width: $desktop) { grid-column: 2; }
+				}
+				.Question:nth-of-type(2) {
+					@media (min-width: $desktop) { grid-row: 1; }
+				}
+				.Question:nth-of-type(4) {
+					@media (min-width: $desktop) { grid-row: 3; }
+				}
+				.Question:nth-of-type(6) {
+					@media (min-width: $desktop) { grid-row: 5; }
+				}
+
 		.Contact { background: var(--accent-400); padding: 2rem; margin: 0 -1rem;
 			@media (min-width: $desktop) { padding: 3rem 0; }
 		}
@@ -362,8 +416,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 				.Contact p { margin: 0; }
 
 	.Footer { display: block; padding: 0; overflow: hidden; position: relative;
-		@media (min-width: 500px) {  }
-		@media (min-width: $desktop) { max-width: 2100px; margin: 0 auto; }
+		@media (min-width: 800px) { display: grid; grid-template-columns: repeat(auto-fill, minmax(24em, 1fr)); gap: 2vw; max-width: 2100px; margin: 0 auto; }
 	}
 		.FooterMeta { display: block; }
 			.FooterMeta .Logo { padding: 0; }

@@ -1,0 +1,33 @@
+---
+/**
+ * Renders a video based on the provided props.
+ * @component
+ * @example
+ * ```astro
+ * <Video cls="VideoCorporate" poster="../img/melanto-corporate.jpg" webm="../img/melanto-corporate.webm" mp4="../img/melanto-corporate.mp4" track="" />
+ * ```
+ * @property {String} [cls] - The class of the video.
+ * @property {String} poster - The poster image of the video.
+ * @property {String} webm - The webm version of the video.
+ * @property {String} mp4 - The mp4 version of the video.
+ * @property {String} [track] - The track of the video.
+ * @returns {astro.AstroNode} The rendered Astro node containing the video.
+ */
+
+export interface Props {
+	cls?: string | undefined;
+	poster: string;
+	webm: string;
+	mp4: string;
+	track?: string | undefined;
+}
+
+const { cls, poster, webm, mp4, track, ...attrs } = Astro.props satisfies Props;
+---
+
+<video class:list={['Video', cls]} preload="none" muted="muted" loop="loop" poster={poster} width="640" height="360" {...attrs}>
+	<source src={webm} type="video/webm" />
+	<source src={mp4} type="video/mp4" />
+	<track src={track} kind="captions" srclang="ro" label="Română" default />
+	<p>Browserul tău nu suportă formate video, așa că dacă vrei, poți <a href={mp4}>downloada video-ul de aici</a>.</p>
+</video>
