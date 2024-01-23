@@ -176,7 +176,7 @@ a:active { color: var(--light-800); text-decoration: none; }
 .DesktopOnlyBlock { display: none;
 	@media (min-width: $desktop) { display: block; }
 }
-.SROnly { clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%); height: 1px; width: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; }
+.SROnly { clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%); height: 1px; width: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; background: black; color: white; }
 .visually-hidden { position: absolute; overflow: hidden; clip: rect(0 0 0 0); width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; }
 a#skip { @extend .SROnly; }
 a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; height: auto; }
