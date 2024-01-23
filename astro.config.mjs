@@ -13,7 +13,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // https://astro.build/config
 export default defineConfig({
 	site: URL || 'https://melanto.ro',
-	output: 'server',
+	output: 'hybrid',
 	compressHTML: ENV !== 'local' && ENV !== 'development' ? true : false,
 	/*prefetch: {
 		defaultStrategy: 'viewport'
