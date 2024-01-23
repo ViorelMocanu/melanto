@@ -109,6 +109,17 @@ const { activeMenu } = Astro.props satisfies Props;
 			}
 			return false;
 		});
+
+		// La fiecare click pe butoanele din meniul principal, ascunde meniul mobil
+		const menuLinks = document.querySelectorAll('.MainMenuLink');
+		menuLinks.forEach((menuLink) => {
+			menuLink.addEventListener('click', function () {
+				body.classList.remove('ActiveMenu');
+				delete document.body.dataset.menuOpen;
+				menuTrigger?.setAttribute('aria-expanded', 'false');
+				menuTrigger?.setAttribute('aria-label', 'Deschide meniul principal');
+			});
+		});
 	};
 	window.menuListeners();
 	// Runs on view transitions navigation
