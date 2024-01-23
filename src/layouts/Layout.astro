@@ -28,7 +28,7 @@
 
 import '@style';
 import { ACCENT_COLOR, CONTACT_EMAIL, ENV, FACEBOOK_APP_ID, LANGUAGE, LANGUAGE_EXTENDED, OG_IMAGE, OG_IMAGE_ALT, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, TWITTER_CREATOR, TWITTER_SITE } from '@config';
-import Analytics from '@components/Analytics.astro';
+import AppAnalytics from '@components/AppAnalytics.astro';
 import type { BreadcrumbItem } from '@customtypes/astro';
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
@@ -118,6 +118,6 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION, ogImage = OG_IMAGE, 
 			<Footer activeMenu={activeMenu} />
 			<p class="TemporaryMessage">Template: <strong>{template}</strong> built at <em>{buildDate}</em> on ENV = <strong>{ENV}</strong>.</p>
 		</div>
-		<Analytics />
+		<AppAnalytics />
 	</body>
 </html>
