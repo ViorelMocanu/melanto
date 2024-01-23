@@ -161,7 +161,7 @@ a:active { color: var(--light-800); text-decoration: none; }
 			@media (min-width: $desktop) { font-size: 1.5rem; line-height: 1.5em; }
 		}
 		.Input {  }
-		.Textarea {  }
+		.Textarea { min-height: 10rem; }
 		.Button { display: block; padding: 0.75rem; border: 1px solid var(--dark-400); background: var(--dark-200); cursor: pointer; color: var(--light-600); font-weight: bold; border-radius: 1rem; font-size: 1.5rem; line-height: 1em; text-decoration: none; }
 		.Form .Button { width: 100%; min-width: max-content; max-width: 50vw; margin: 1.5rem 0 0; box-sizing: border-box; font-size: 2rem; line-height: 1em; }
 		.Button:hover { background: var(--accent-800); color: var(--light-900); }
