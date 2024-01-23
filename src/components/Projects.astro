@@ -1,0 +1,49 @@
+---
+import Video from '@components/Video.astro';
+---
+
+<section class="Section Proiecte">
+	<h2 class="SubTitle">Ne adresăm tuturor nișelor</h2>
+	<ul class="ProjectList">
+		<li class="ProjectItem">
+			<h3 class="SubTitleTertiary">Proiecte corporate</h3>
+			<Video cls="VideoCorporate" poster="../img/melanto-corporate.jpg" webm="../img/melanto-corporate.webm" mp4="../img/melanto-corporate.mp4" track="../img/melanto-corporate.vtt" />
+			<div class="ProjectContainer">
+				<p class="ProjectP">Colaborăm cu companii și instituții pentru a le înțelege nevoile și livrăm mobilier optimizat ca timp și costuri pentru a acoperi cerințele corporate.</p>
+			</div>
+		</li>
+		<li class="ProjectItem">
+			<h3 class="SubTitleTertiary">Proiecte rezidențiale</h3>
+			<Video cls="VideoResidential" poster="../img/melanto-residential.jpg" webm="../img/melanto-residential.webm" mp4="../img/melanto-residential.mp4" track="../img/melanto-residential.vtt" />
+			<div class="ProjectContainer">
+				<p class="ProjectP">Proiectele rezidențiale implică livrarea unei cantități considerabile de mobilă într-un interval scurt de timp, instalare cu mai multe echipe și garanție pentru clienții finali.</p>
+			</div>
+		</li>
+		<li class="ProjectItem">
+			<h3 class="SubTitleTertiary">Colaborări cu arhitecți</h3>
+			<Video cls="VideoArchitects" poster="../img/melanto-arhitect.jpg" webm="../img/melanto-arhitect.webm" mp4="../img/melanto-arhitect.mp4" track="../img/melanto-arhitect.vtt" />
+			<div class="ProjectContainer">
+				<p class="ProjectP">Iubim un proiect care îmbină estetica și practicalitatea. De aceea, ne provocăm de fiecare dată să colaborăm cu cei mai creativi arhitecți pentru a crea mobilier unic și funcțional.</p>
+			</div>
+		</li>
+	</ul>
+	<script is:inline>
+		// @ts-nocheck
+		function handleIntersection(entries) {
+			entries.forEach((entry) => {
+				const video = entry.target;
+				if (entry.isIntersecting) {
+					video.play();
+					entry.target.setAttribute('autoplay', 'autoplay');
+				}
+			});
+		}
+		const observer = new IntersectionObserver(handleIntersection, {
+			threshold: 1.0,
+		});
+		const videos = document.querySelectorAll('.Video');
+		videos.forEach((video) => {
+			observer.observe(video);
+		});
+	</script>
+</section>

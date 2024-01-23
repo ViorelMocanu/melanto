@@ -1,0 +1,18 @@
+---
+import ResponsiveImage from '@components/ResponsiveImage.astro';
+import imgHero from '@img/hero-image.jpg';
+---
+
+<section class="NavTarget Hero" id="hero">
+	<div class="HeroContainerBox">
+		<div class="HeroContainer">
+			<h2 class="HeroTitle">Doar <strong>mobilă</strong>. Doar <strong>calitate</strong>.</h2>
+			<p class="HeroP">Viețile noastre se întâmplă în jurul mobilierului nostru.</p>
+			<p class="HeroP">Noi știm cât de important e să fii înconjurat de calitate în viața ta, și vrem să ți-o livrăm prin mobilier și servicii la cele mai înalte standarde.</p>
+			<a class="Button" href="#proces" title="Află exact cum lucrăm pentru tine">
+				<span class="ButtonText">Procesul nostru de lucru</span>
+			</a>
+		</div>
+	</div>
+	<ResponsiveImage image={imgHero} alt="Melanto este aici să-ți îndeplinească toate planurile legate de mobilă." width={1200} height={1508} lazyLoading={false} classList={['HeroImage']} breakpoint={800} />
+</section>

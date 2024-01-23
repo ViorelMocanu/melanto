@@ -1,0 +1,44 @@
+---
+import ResponsiveImage from '@components/ResponsiveImage.astro';
+import imgProcesulMelanto from '@img/procesul-melanto.jpg';
+---
+
+<section class="Section NavTarget Process" id="proces">
+	<h2 class="SubTitle">Procesul Melanto</h2>
+	<h3 class="SubTitleTertiary">...în 8 pași clari:</h3>
+	<ResponsiveImage image={imgProcesulMelanto} alt="Care sunt pașii prin care trecem pentru a satisface nevoile fiecărui client în parte?" width={2560} height={1707} lazyLoading={true} classList={['ProcessImage']} breakpoint={1100} />
+	<ol class="List Pasi">
+		<li class="ListItem Pas">
+			<h3 class="SubTitleTertiary">Pasul 1</h3>
+			<p><a href="tel:0040771544867">Ne contactezi fie telefonic (la <strong>+40 771 544 867</strong>)</a> fie <a href="#contact">completând formularul de pe site</a> și stabilim o întâlnire.</p>
+		</li>
+		<li class="ListItem Pas">
+			<h3 class="SubTitleTertiary">Pasul 2</h3>
+			<p>Discutăm detaliile proiectului tău ( necesități, dorințe, așteptări, buget, timp, exemple).</p>
+		</li>
+		<li class="ListItem Pas">
+			<h3 class="SubTitleTertiary">Pasul 3</h3>
+			<p>Facem o vizită pentru măsurarea spațiului și unde e posibil venim cu mostre pentru stabilirea materialelor / culorilor dorite.</p>
+		</li>
+		<li class="ListItem Pas">
+			<h3 class="SubTitleTertiary">Pasul 4</h3>
+			<p>Proiectăm 3D.</p>
+		</li>
+		<li class="ListItem Pas">
+			<h3 class="SubTitleTertiary">Pasul 5</h3>
+			<p>Discutăm pe proiect și stabilim detaliile finale. Oferim în această etapă și o estimare finală a costului și se face plata avansului.</p>
+		</li>
+		<li class="ListItem Pas">
+			<h3 class="SubTitleTertiary">Pasul 6</h3>
+			<p>Proiectul intră în producție.</p>
+		</li>
+		<li class="ListItem Pas">
+			<h3 class="SubTitleTertiary">Pasul 7</h3>
+			<p>Livrarea și montajul.</p>
+		</li>
+		<li class="ListItem Pas">
+			<h3 class="SubTitleTertiary">Pasul 8</h3>
+			<p><em>(opțional)</em> Clientul ne lasă feedback pe site în secțiunea Testimoniale / pe Google Maps.</p>
+		</li>
+	</ol>
+</section>

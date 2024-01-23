@@ -10,24 +10,26 @@
 	--light-600: #bdbdbd;
 	--light-800: #FDFDFD;
 	--light-900: #ffffff;
-	--accent-400: #6a0094;
-	--accent-800: #DB80FF;
+	--accent-400: #a86121;
+	--accent-800: #e79f53;
 
 	--bg: #000000;
-	--clr-1: #333F15;
-	--clr-2: #699400;
+	--clr-1: var(--light-600);
+	--clr-2: var(--accent-800);
 	--clr-3: var(--accent-400);
 	--clr-4: var(--accent-800);
 
 	--blur: 1rem;
 	--fs: clamp(3rem, 8vw, 7rem);
 	--ls: clamp(-1.75px, -0.25vw, -3.5px);
+	--transition: 0.25s;
 }
 /* SCSS Variables */
 $desktop: 1100px;
 $fonts-serif: 'Fraunces', 'Lucida Bright', 'Book Antiqua', 'Cambria', 'Century Schoolbook L', Georgia, serif;
-$fonts-condensed: 'Sofia Sans Extra Condensed', 'Ubuntu Condensed', Impact, sans-serif;
-$fonts: 'Inter', 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$fonts-condensed: 'Sofia Sans Extra Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+/*$fonts-condensed: 'Sofia Sans Extra Condensed', 'Ubuntu Condensed', Impact, sans-serif;*/
+/*$fonts: 'Inter', 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
 /*@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,700&family=Inter:wght@400;700&family=Sofia+Sans+Extra+Condensed:wght@200&display=swap');*/
 
 @font-face {
@@ -63,6 +65,7 @@ $fonts: 'Inter', 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/*
 @font-face {
 	font-family: 'Inter';
 	font-style: normal;
@@ -95,6 +98,7 @@ $fonts: 'Inter', 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	src: url('../font/inter-latin.woff2') format('woff2');
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+*/
 
 @font-face {
 	font-family: 'Sofia Sans Extra Condensed';
@@ -114,7 +118,7 @@ $fonts: 'Inter', 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 /* Custom CSS reset */
-html { background: var(--dark-150); color: var(--light-600); font-family: $fonts; font-size: 16px; line-height: 1.25; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 3.5rem;
+html { background: var(--dark-150); color: var(--light-600); font-family: $fonts-condensed; font-size: 16px; line-height: 1.25; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 3.5rem;
 	@media (min-width: $desktop) { scroll-padding-top: 5.75rem; }
 }
 body { padding: 0; background: var(--dark-150); color: var(--light-800); margin: 0; overflow-x: hidden; }
@@ -135,31 +139,33 @@ pre {
 	@media (min-width: $desktop) { max-width: 71vw; overflow-x: auto; text-wrap: wrap; }
 }
 
-.TemporaryMessage { display: block; padding: 1rem; margin: 0; background: black; text-align: center; }
+.TemporaryMessage { display: none; padding: 1rem; margin: 0; background: black; text-align: center; }
 
 a { color: var(--light-900); text-decoration: underline; }
 a:hover { color: var(--accent-800); text-decoration: none; }
 a:active { color: var(--light-800); text-decoration: none; }
 .Link { @extend a; }
 
-.Form { display: block; }
+.Form { display: block; font-size: 1.5rem; line-height: 1.5em; }
 	.Fieldset { display: block; margin: 0; padding: 0; border: none; }
 		.Legend { @extend .SROnly; }
-		.Label { display: block; cursor: pointer; margin: 1rem 0; }
+		.Label { display: block; cursor: pointer; margin: 0; }
 			.LabelText { display: block; padding: 0.5rem 0;
 				@media (min-width: $desktop) { font-size: 1.5rem; line-height: 1.5em; }
 			}
 		.Label:hover { color: var(--light-600); }
 		.CheckboxLabel { display: flex; flex-direction: row; gap: 1rem; }
 			.LabelText { display: block; }
-		.Input, .Textarea { display: block; width: 100%; appearance: none; padding: 0.5rem; border: none; font-family: $fonts; font-size: 1rem; line-height: 1.5em; border-radius: 0.25rem; box-sizing: border-box;
+		.Input, .Textarea { display: block; width: 100%; appearance: none; padding: 0.5rem; border: none; font-family: $fonts-condensed; font-size: 1.5rem; line-height: 1.5em; border-radius: 0.25rem; box-sizing: border-box;
 			@media (min-width: $desktop) { font-size: 1.5rem; line-height: 1.5em; }
 		}
 		.Input {  }
 		.Textarea {  }
-		.Button { display: block; padding: 0.75rem; border: 1px solid var(--dark-150); background: var(--light-600); color: var(--dark-100); font-weight: bold; border-radius: 1rem; font-size: 1.5rem; line-height: 1em; text-decoration: none; }
+		.Button { display: block; padding: 0.75rem; border: 1px solid var(--dark-400); background: var(--dark-200); cursor: pointer; color: var(--light-600); font-weight: bold; border-radius: 1rem; font-size: 1.5rem; line-height: 1em; text-decoration: none; }
+		.Form .Button { width: 100%; min-width: max-content; max-width: 50vw; margin: 1.5rem 0 0; box-sizing: border-box; font-size: 2rem; line-height: 1em; }
 		.Button:hover { background: var(--accent-800); color: var(--light-900); }
-		.Button:active { background: var(--accent-400); color: var(--light-900); border-color: var(--light-900); }
+		.Button:active { scale: 0.9; background: var(--accent-400); color: var(--light-900); border-color: var(--light-900); }
+			.ButtonText {  }
 
 /* Utility classes */
 [hidden], .Hidden { display: none; }
@@ -239,34 +245,40 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 						}
 						.MainMenuLink:hover { background: var(--accent-400); color: var(--light-900); }
 						.Active > .MainMenuLink { background: var(--accent-400); color: var(--light-900); }
-	.Hero { display: flex; min-height: 130vw; position: relative; align-items: stretch; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+	.Hero { display: flex; min-height: 130vw; position: relative; align-items: stretch; justify-content: flex-end; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 		@media (min-width: 500px) { min-height: 43rem; text-shadow: none; }
+		@media (min-width: 800px) { justify-content: flex-end; }
 		@media (min-width: $desktop) { min-height: 61.8vw; }
 		@media (min-width: 1400px) { min-height: 55rem; max-width: 2100px; margin: 0 auto; }
 	}
-		.HeroContainer { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 1rem; width: 100%; position: relative; z-index: 1; padding: 1rem; color: var(--light-600); }
-			.HeroTitle { display: block; max-width: 21rem; margin: 0 0 1rem; padding: 0; text-wrap: balance; font-family: $fonts-serif; font-style: italic; font-size: 3rem; line-height: 1em; position: relative; overflow: hidden;
-				@media (min-width: 800px) { max-width: 7em; font-size: clamp(3rem, calc(1rem + 4vw), 10rem); }
+		.HeroContainerBox { display: flex; flex-direction: row; align-items: center; justify-content: flex-start; }
+			.HeroContainer { display: flex; flex-direction: column; align-items: stretch; justify-content: center; gap: 1rem; max-width: 20rem; position: relative; z-index: 1; padding: 2rem 1rem; color: var(--light-600);
+				@media (min-width: 800px) { max-width: 26rem; }
+				@media (min-width: $desktop) { max-width: 34vw; }
 			}
-				.HeroTitle strong { color: var(--accent-800);
-					@media (min-width: 800px) { background: linear-gradient( to right, #7953cd 20%, #00affa 30%, #0190cd 70%, #764ada 80%); background-clip: text; text-fill-color: transparent; color: transparent; background-size: 500% auto; animation: textShine 5s ease-in-out infinite alternate; }
+				.HeroTitle { display: block; margin: 0 0 1rem; padding: 0; text-wrap: balance; font-family: $fonts-serif; font-style: italic; font-size: 3rem; line-height: 1em; position: relative; overflow: hidden;
+					@media (min-width: 800px) { font-size: clamp(3rem, calc(1rem + 4vw), 10rem); }
 				}
-				@keyframes textShine {
-					0% { background-position: 0% 50%; }
-					100% { background-position: 100% 50%; }
+					.HeroTitle strong, .SubTitle strong, .Logo:hover .LinkText { color: var(--accent-800);
+						@media (min-width: 800px) { background: linear-gradient( to right, var(--accent-400) 20%, var(--accent-800) 30%, var(--light-900) 70%, var(--accent-400) 80%); background-clip: text; text-fill-color: transparent; color: transparent; background-size: 500% auto; animation: textShine 5s ease-in-out infinite alternate; }
+					}
+					@keyframes textShine {
+						0% { background-position: 0% 50%; }
+						100% { background-position: 100% 50%; }
+					}
+				.HeroContainer .HeroP { display: block; margin: 0; font-size: 1.5rem; line-height: 1.5em;
+					@media (min-width: 800px) { padding: 0 3em 0 0; font-size: clamp(1.5rem, calc(0.5rem + 1.25vw), 3rem); }
 				}
-			.HeroContainer .HeroP { display: block; max-width: 21rem; margin: 0;
-				@media (min-width: 800px) { max-width: 20em; padding: 0 3em 0 0; font-size: clamp(0.91rem, calc(0.25rem + 1.25vw), 3rem); }
-			}
-			.HeroContainer .Button { width: 100%; margin: 1rem 0; box-sizing: border-box; text-align: center; font-size: 1rem; line-height: 1em; text-shadow: none;
-				@media (min-width: 380px) { width: unset; min-width: 21rem; font-size: 1.5rem; line-height: 1em; }
-				@media (min-width: 800px) { width: 100%; min-width: unset; max-width: 13em; margin-right: 1em; font-size: clamp(1.5rem, 0.5rem + 2vw, 5rem); }
-			}
+				.HeroContainer .Button { width: max-content; margin: 1rem 0; box-sizing: border-box; text-align: center; font-size: 1.5rem; line-height: 1em; text-shadow: none;
+					@media (min-width: 380px) { font-size: 1.5rem; line-height: 1em; }
+					@media (min-width: 800px) { width: 83%; margin-right: 1em; font-size: clamp(1.5rem, 0.5rem + 2vw, 5rem); }
+				}
 		.HeroImage { display: block; position: absolute; top: 0; left: 0; bottom: 0; z-index: 0;
 			@media (min-width: 800px) { width: 100%; overflow: hidden; }
 		}
-		.HeroImage:after { content: ' '; display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; z-index: 0; background: linear-gradient(to right, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 0.85) 100%); }
-			.HeroImage img { opacity: 0.85; object-fit: cover; max-width: unset; max-height: 100%; width: auto; height: unset;
+		.HeroImage:after { content: ' '; display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; z-index: 0; background: linear-gradient(to right, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 0.95) 90%); }
+			.HeroImage img { opacity: 0.5; object-fit: cover; max-width: unset; max-height: 100%; width: auto; height: unset;
+				@media (min-width: 500px) { opacity: 0.85; }
 				@media (min-width: 800px) { width: 100%; max-height: unset; position: absolute; bottom: 0; }
 				@media (min-width: 1400px) { width: 1400px; }
 			}
@@ -281,16 +293,18 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 		.SubTitleTertiary { display: block; font-family: $fonts-condensed; font-weight: 200; font-size: 2rem; line-height: 1em; margin: 0 0 1rem;
 			@media (min-width: 800px) { font-size: clamp(2rem, 1rem + 2vw, 7rem); }
 		}
-		.Section p, .Section li { display: block; margin: 1em 0; font-size: 1rem; line-height: 1.5em;
-			@media (min-width: 800px) { font-size: clamp(1rem, 0.25rem + 1vw, 3rem); }
+		.Section p, .Section li { display: block; margin: 1em 0; font-size: 1.5rem; line-height: 1.5em;
+			@media (min-width: 800px) { font-size: clamp(1.5rem, 0.5rem + 1vw, 3rem); }
 		}
 		.Section ul { display: block; margin: 1rem 0; padding: 0; list-style-position: outside; }
 			.Section li { display: list-item; margin: 0; }
 		.List { display: block; list-style-type: none; margin: 0; padding: 0; }
 			.ListItem { display: block; margin: 0 0 1rem; }
-				.ListItem strong { display: block; font-family: $fonts-condensed; font-weight: 200; font-size: 2rem; line-height: 1em; text-transform: uppercase; margin: 0 0 1rem; }
+				/*.ListItem strong { display: block; font-family: $fonts-condensed; font-weight: 200; font-size: 2rem; line-height: 1em; text-transform: uppercase; margin: 0 0 1rem; }*/
 
-		.Section { display: block; padding: 2rem 0; overflow: hidden; }
+		.Section { display: block; padding: 2rem 0; overflow: hidden;
+			@media (min-width: 800px) { padding: 5vw 0; }
+		}
 
 		.WhoAreWe { display: block; padding: 2rem 0;
 			@media (min-width: 800px) { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1rem; row-gap: 1rem; position: relative; overflow: hidden; padding: 2rem 1rem; }
@@ -316,7 +330,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 				@media (min-width: $desktop) { grid-row: 4; }
 			}
 			.WhoWeAreImage { display: block; margin: 1rem 0;
-				@media (min-width: 800px) { margin: 0; opacity: 0.5; grid-column: 3; grid-row: 1 / 7; }
+				@media (min-width: 800px) { margin: 0; opacity: 0.5; grid-column: 3; grid-row: 1 / 6; }
 				/*@media (min-width: $desktop) { grid-row: 1 / 4; }*/
 			}
 				.WhoWeAreImage img {
@@ -336,18 +350,39 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 				}
 					.Proiecte .Video { display: block; width: 100%; height: auto; }
 					.Proiecte .ProjectContainer { display: block;
-						@media (min-width: 500px) { background: rgba(0, 0, 0, 0.85); padding: 1rem; position: absolute; left: 1rem; bottom: 0; width: calc(50% - 3rem); }
-						@media (min-width: 750px) { margin: 0 0 -1rem; left: 2rem; font-size: 1.25rem; line-height: 1.5em; }
+						@media (min-width: 500px) { background: rgba(0, 0, 0, 0.85); padding: 1rem; position: absolute; left: 1rem; bottom: 0; width: calc(100% - 4rem); }
+						@media (min-width: 750px) { width: calc(50% - 3rem); margin: 0 0 -1rem; left: 2rem; font-size: 1.25rem; line-height: 1.5em; }
 						@media (min-width: $desktop) { background: transparent; padding: 0; position: static; left: unset; bottom: unset; width: unset; margin: 0; font-size: 1rem; line-height: 1.5em; }
 					}
-						.ProjectContainer .ProjectP { display: block; font-size: inherit; line-height: inherit;
+						.ProjectContainer .ProjectP { display: block; font-size: 1.5rem; line-height: 1.5em;
 							@media (min-width: 500px) { margin: 0; text-align: left; }
 							@media (min-width: $desktop) { margin: 1rem 0; text-align: center; }
 						}
 
 		.WhatWeOffer {  }
+			.WhatWeOffer .SubTitle {
+				@media (min-width: 1600px) { text-align: center; }
+			}
+			.WhatWeOffer .Oferta { display: block; margin: 2rem 0 0;
+				@media (min-width: $desktop) { display: grid; grid-template-columns: 1fr 1fr; column-gap: 3vw; row-gap: 1rem; }
+				@media (min-width: 1600px) { grid-template-columns: 1fr 1fr 1fr; }
+			}
+				.WhatWeOffer .OfertaItem { display: block; margin: 1rem 0;
+					@media (min-width: 350px) { display: flex; flex-direction: row; gap: 2vw; align-items: flex-start; }
+				}
+				.WhatWeOffer .OfertaItem:last-of-type { margin-bottom: 0;
+					@media (min-width: 1600px) { grid-column: 2; }
+				}
+					.OfertaImage { display: block; margin: 0 0 1rem;
+						@media (min-width: 350px) { width: 8vw; max-width: 8rem; height: auto; }
+						@media (min-width: 1600px) { width: 5vw; max-width: 8rem; }
+					}
+					.WhatWeOffer .OfertaItem:last-of-type p { margin-bottom: 0; }
 
 		.Process { position: relative; }
+			.Process .SubTitle, .Process > .SubTitleTertiary {
+				@media (min-width: $desktop) { text-align: center; }
+			}
 			.ProcessImage { display: block; max-width: 100%; width: 100%; height: auto; margin: 1rem 0;
 				@media (min-width: 400px) { position: absolute; z-index: 0; margin: 0; }
 				@media (min-width: 800px) { top: calc(25% - 6vw); }
@@ -364,7 +399,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					@media (min-width: 800px) { flex-direction: column; gap: 0; }
 					@media (min-width: $desktop) { padding: 1.5vw; background: rgba(0, 0, 0, 0.85); }
 				}
-					.Pas .SubTitleTertiary {
+					.Pas .SubTitleTertiary { color: var(--accent-800);
 						@media (min-width: 500px) { width: 2em; font-size: 3rem; white-space: nowrap; flex-shrink: 0; }
 						@media (min-width: 800px) { margin: 0; }
 					}
@@ -373,15 +408,32 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					}
 
 		.Types {  }
+			.Types .SubTitle {
+				@media (min-width: $desktop) { text-align: center; }
+			}
 			.Types .ProjectTypeList { display: block;
 				@media (min-width: 800px) { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2rem; row-gap: 1rem; }
+				@media (min-width: $desktop) { column-gap: 4vw; margin: 0 2vw; }
 			}
-				.Types .ProjectTypeItem { display: block; }
-					.TypeImage { display: block; margin: 1rem 0; }
+				.Types .ProjectTypeItem { display: block; margin: 2rem 0; }
+					.TypeImage { display: block; margin: 1.5rem 0; }
 
-		.Stats {  }
+		.Stats { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; background: var(--dark-200); }
+			.Stats .SubTitle { text-align: center; }
+			.Stats .StatsList { display: flex; flex-direction: row; flex-wrap: wrap; gap: 2rem; justify-content: center; margin: 1rem 0 0;
+				@media (min-width: $desktop) { margin-top: 3vw; gap: 5vw; }
+			}
+				.Stats .StatsItem { display: flex; flex-direction: column; gap: 0.5rem; width: 100%; text-align: center;
+					@media (min-width: 550px) { flex-grow: 1; width: auto; }
+				}
+					.StatsNumber { font-size: 5rem; line-height: 0.75em; font-family: $fonts-serif; font-weight: 700; font-style: italic;
+						@media (min-width: $desktop) { font-size: clamp(7rem, calc(3rem + 6vw), 12rem); }
+					}
+					.StatsText { font-size: 1.5rem; line-height: 1em;
+						@media (min-width: $desktop) { font-size: clamp(3rem, calc(1.5rem + 3vw), 5rem); }
+					}
 
-		.QandA { padding: 2rem 1rem; }
+		.QandA { padding-left: 1rem; padding-right: 1rem; }
 			.QandA .SubTitle {
 				@media (min-width: $desktop) { margin: 0; }
 			}
@@ -413,19 +465,25 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 			@media (min-width: $desktop) { padding: 3rem 0; }
 		}
 			.ContactContainer { display: block;
-				@media (min-width: $desktop) { max-width: 46vw; margin: 0 auto; }
+				@media (min-width: $desktop) { max-width: 50vw; margin: 0 auto; }
 			}
 				.Contact p { margin: 0; }
 
 	.Footer { display: block; padding: 0; overflow: hidden; position: relative;
-		@media (min-width: 800px) { display: grid; grid-template-columns: repeat(auto-fill, minmax(24em, 1fr)); gap: 2vw; max-width: 2100px; margin: 0 auto; }
+		@media (min-width: 800px) { display: grid; grid-template-columns: repeat(auto-fill, minmax(14em, 1fr)); column-gap: 2vw; max-width: 2100px; margin: 0 auto; }
+		@media (min-width: $desktop) { grid-template-columns: repeat(4, 1fr); }
 	}
 		.FooterMeta { display: block; }
 			.FooterMeta .Logo { padding: 0; }
 		.FooterSection, .FooterMeta { display: block; margin: 2rem 0; padding: 0 2rem; }
-			.FooterP { display: block; margin: 1rem 0; }
+			.FooterP { display: block; margin: 1rem 0;
+				@media (min-width: 1200px) { font-size: 1.5rem; line-height: 1.5em; }
+			}
+			.FooterP:last-of-type { margin-bottom: 0; }
 		.FooterList { display: block; margin: 1rem 0; padding: 0; list-style-position: outside; }
-			.FooterItem {  }
+			.FooterItem {
+				@media (min-width: 1200px) { font-size: 1.5rem; line-height: 1.5em; }
+			}
 				.FooterLink { display: block; }
 				.Active > .FooterLink { color: var(--accent-400); }
 		.aurora { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; z-index: 2; mix-blend-mode: darken; pointer-events: none; }

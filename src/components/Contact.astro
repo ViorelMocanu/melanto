@@ -70,49 +70,55 @@ if (Astro.request.method === 'POST') {
 }
 ---
 
-<form id="contactForm" class="Form ContactForm" method="post">
-	<fieldset class="Fieldset">
-		<legend class="Legend">Contactează-ne</legend>
-		<label class="Label" for="nume">
-			<span class="LabelText">Nume:</span>
-			<input class="Input" type="text" id="nume" name="nume" maxlength="100" minlength="1" placeholder="Numele tău complet..." required />
-		</label>
-		<label class="Label" for="telefon">
-			<span class="LabelText">Telefon:</span>
-			<input class="Input" type="tel" id="telefon" name="telefon" pattern="[0-9]{10,15}" placeholder="Telefonul tău (numai cifre)..." required />
-		</label>
-		<label class="Label" for="email">
-			<span class="LabelText">E-mail:</span>
-			<input class="Input" type="email" id="email" name="email" placeholder="Adresa ta de mail..." required />
-		</label>
-		<label class="Label" for="mesaj">
-			<span class="LabelText">Mesaj:</span>
-			<textarea class="Textarea" id="mesaj" name="mesaj" placeholder="Mesajul tău..." required></textarea>
-		</label>
-		<button class="Button" type="submit" title="Trimite-ne mesajul acum">
-			<span class="ButtonText">Trimite mesaj &raquo;</span>
-		</button>
-	</fieldset>
-</form>
+<section class="Section NavTarget Contact" id="contact">
+	<div class="ContactContainer">
+		<h2 class="SubTitle">Contactează-ne acum!</h2>
+		<p class="P">Toate câmpurile sunt obligatorii. Încercăm să-ți răspundem la mesaje în cel mai scurt timp posibil, dar în general asta se întâmplă în maxim 24-48h.</p>
+		<form id="contactForm" class="Form ContactForm" method="post">
+			<fieldset class="Fieldset">
+				<legend class="Legend">Contactează-ne</legend>
+				<label class="Label" for="nume">
+					<span class="LabelText">Nume:</span>
+					<input class="Input" type="text" id="nume" name="nume" maxlength="100" minlength="1" placeholder="Numele tău complet..." required />
+				</label>
+				<label class="Label" for="telefon">
+					<span class="LabelText">Telefon:</span>
+					<input class="Input" type="tel" id="telefon" name="telefon" pattern="[0-9]{10,15}" placeholder="Telefonul tău (numai cifre)..." required />
+				</label>
+				<label class="Label" for="email">
+					<span class="LabelText">E-mail:</span>
+					<input class="Input" type="email" id="email" name="email" placeholder="Adresa ta de mail..." required />
+				</label>
+				<label class="Label" for="mesaj">
+					<span class="LabelText">Mesaj:</span>
+					<textarea class="Textarea" id="mesaj" name="mesaj" placeholder="Mesajul tău..." required></textarea>
+				</label>
+				<button class="Button" type="submit" title="Trimite-ne mesajul acum">
+					<span class="ButtonText">Trimite mesaj &raquo;</span>
+				</button>
+			</fieldset>
+		</form>
 
-{
-	mesajTrimis === true && (
-		<div class="Message MessageSuccess">
-			<h3 class="SubTitle">Mesajul tău a fost trimis cu succes!</h3>
-			<p class="P">Îți mulțumim pentru interesul acordat. În cel mai scurt timp posibil îți vom răspunde la mesaj.</p>
-		</div>
-	)
-}
+		{
+			mesajTrimis === true && (
+				<div class="Message MessageSuccess">
+					<h3 class="SubTitle">Mesajul tău a fost trimis cu succes!</h3>
+					<p class="P">Îți mulțumim pentru interesul acordat. În cel mai scurt timp posibil îți vom răspunde la mesaj.</p>
+				</div>
+			)
+		}
 
-{
-	mesajTrimis === false && (
-		<div class="Message MessageError">
-			<h3 class="MessageTitle">Mesajul tău NU a putut fi transmis!</h3>
-			<div class="MessageBody">
-				<p class="P">
-					Ne pare rău, dar mesajul tău nu a putut fi transmis. Contactează-ne direct la <a href="mailto:contact@melanto.ro">contact@melanto.ro</a>!
-				</p>
-			</div>
-		</div>
-	)
-}
+		{
+			mesajTrimis === false && (
+				<div class="Message MessageError">
+					<h3 class="MessageTitle">Mesajul tău NU a putut fi transmis!</h3>
+					<div class="MessageBody">
+						<p class="P">
+							Ne pare rău, dar mesajul tău nu a putut fi transmis. Contactează-ne direct la <a href="mailto:contact@melanto.ro">contact@melanto.ro</a>!
+						</p>
+					</div>
+				</div>
+			)
+		}
+	</div>
+</section>
