@@ -13,6 +13,11 @@ import sendGrid, { type MailDataRequired } from '@sendgrid/mail';
 sendGrid.setApiKey(import.meta.env.SENDGRID_API_KEY);
 
 let mesajTrimis = null;
+const errors = { name: '', email: '', phone: '', message: '' };
+
+function isValidEmail(email: string) {
+	return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 
 if (Astro.request.method === 'POST') {
 	try {
@@ -22,6 +27,19 @@ if (Astro.request.method === 'POST') {
 		const phone = data.get('telefon');
 		const email = data.get('email');
 		const message = data.get('mesaj');
+
+		if (typeof name !== 'string' || name.length < 3) {
+			errors.name += 'Te rugăm să introduci un nume valid. ';
+		}
+		if (typeof email !== 'string' || !isValidEmail(email)) {
+			errors.email += 'Email-ul tău nu e valid. ';
+		}
+		if (typeof phone !== 'string' || phone.length < 10) {
+			errors.phone += 'Telefonul trebuie să aibă minim 10 cifre. ';
+		}
+		if (typeof message !== 'string' || message.length < 10) {
+			errors.message += 'Te rugăm să introduci un mesaj valid. ';
+		}
 
 		const htmlTemplate = `
 			<h1>Am primit un mesaj nou de la ${name} pe Melanto.ro</h1>
@@ -74,24 +92,28 @@ if (Astro.request.method === 'POST') {
 	<div class="ContactContainer">
 		<h2 class="SubTitle">Contactează-ne acum!</h2>
 		<p class="P">Toate câmpurile sunt obligatorii. Încercăm să-ți răspundem la mesaje în cel mai scurt timp posibil, dar în general asta se întâmplă în maxim 24-48h.</p>
-		<form id="contactForm" class="Form ContactForm" method="post" action="/">
+		<form id="contactForm" class="Form ContactForm" method="post" action="/api/index.ts">
 			<fieldset class="Fieldset">
 				<legend class="Legend">Contactează-ne</legend>
-				<label class="Label" for="nume">
+				<label class:list={['Label', { Error: errors.name }]} for="nume">
 					<span class="LabelText">Nume:</span>
 					<input class="Input" type="text" id="nume" name="nume" maxlength="100" minlength="1" placeholder="Numele tău complet..." required autocomplete="name" />
+					{errors.name && <p class="Error">{errors.name}</p>}
 				</label>
-				<label class="Label" for="telefon">
+				<label class:list={['Label', { Error: errors.phone }]} for="telefon">
 					<span class="LabelText">Telefon:</span>
 					<input class="Input" type="tel" id="telefon" name="telefon" pattern="[0-9]{10,15}" placeholder="Telefonul tău (numai cifre)..." required autocomplete="tel" />
+					{errors.phone && <p class="Error">{errors.phone}</p>}
 				</label>
-				<label class="Label" for="email">
+				<label class:list={['Label', { Error: errors.email }]} for="email">
 					<span class="LabelText">E-mail:</span>
 					<input class="Input" type="email" id="email" name="email" placeholder="Adresa ta de mail..." required autocomplete="email" />
+					{errors.email && <p class="Error">{errors.email}</p>}
 				</label>
-				<label class="Label" for="mesaj">
+				<label class:list={['Label', { Error: errors.message }]} for="mesaj">
 					<span class="LabelText">Mesaj:</span>
 					<textarea class="Textarea" id="mesaj" name="mesaj" placeholder="Mesajul tău..." required></textarea>
+					{errors.message && <p class="Error">{errors.message}</p>}
 				</label>
 				<button class="Button" type="submit" title="Trimite-ne mesajul acum">
 					<span class="ButtonText">Trimite mesaj &raquo;</span>

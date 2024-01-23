@@ -5,7 +5,7 @@ import path from 'path';
 // import partytown from '@astrojs/partytown';
 // import sentry from "@sentry/astro";
 // import sitemap from '@astrojs/sitemap';
-import vercelStatic from '@astrojs/vercel/serverless';
+import vercelServerless from '@astrojs/vercel/serverless';
 import webmanifest from 'astro-webmanifest';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -13,7 +13,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // https://astro.build/config
 export default defineConfig({
 	site: URL || 'https://melanto.ro',
-	output: 'hybrid',
+	output: 'server',
 	compressHTML: ENV !== 'local' && ENV !== 'development' ? true : false,
 	/*prefetch: {
 		defaultStrategy: 'viewport'
@@ -115,5 +115,10 @@ export default defineConfig({
 			},
 		})*/
 	],
-	adapter: vercelStatic()
+	adapter: vercelServerless({
+		webAnalytics: {
+			enabled: true,
+		},
+		maxDuration: 8,
+	})
 });

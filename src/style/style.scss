@@ -154,6 +154,7 @@ a:active { color: var(--light-800); text-decoration: none; }
 				@media (min-width: $desktop) { font-size: 1.5rem; line-height: 1.5em; }
 			}
 		.Label:hover { color: var(--light-600); }
+		.Error { display: block; padding: 1rem; margin: 0.5rem 0; background: rgba(255, 0, 0, 1); color: var(--light-900); }
 		.CheckboxLabel { display: flex; flex-direction: row; gap: 1rem; }
 			.LabelText { display: block; }
 		.Input, .Textarea { display: block; width: 100%; appearance: none; padding: 0.5rem; border: none; font-family: $fonts-condensed; font-size: 1.5rem; line-height: 1.5em; border-radius: 0.25rem; box-sizing: border-box;
