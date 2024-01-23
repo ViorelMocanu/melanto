@@ -54,15 +54,14 @@ if (Astro.request.method === 'POST') {
 		await sendGrid
 			.send(msg)
 			.then(() => {
+				// @ts-ignore
 				console.log('Email trimis!');
 				mesajTrimis = true;
 			})
 			.catch((error) => {
 				mesajTrimis = false;
-				console.log(msg);
-				console.error(error);
-				console.error(error.response.body.errors);
-				console.error(error.ref.response.body.errors);
+				// @ts-ignore
+				console.error(error, msg, error.response.body.errors, error.ref.response.body.errors);
 			});
 	} catch (error) {
 		console.error(error);

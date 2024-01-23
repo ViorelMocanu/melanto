@@ -3,25 +3,24 @@ import Contact from '@components/Contact.astro';
 import Layout from '@layouts/Layout.astro';
 import ResponsiveImage from '@components/ResponsiveImage.astro';
 import Video from '@components/Video.astro';
+import imgCineSuntem from '@img/cine-suntem.jpg';
+import imgHero from '@img/hero-image.jpg';
+import imgMobilaArhitect from '@img/melanto-mobilier-arhitect.jpg';
+import imgMobilaBiblioteca from '@img/melanto-mobilier-biblioteca.jpg';
+import imgMobilaBucatarie from '@img/melanto-mobilier-bucatarie.jpg';
+import imgMobilaComercial from '@img/melanto-mobilier-comercial.jpg';
+import imgMobilaCopii from '@img/melanto-mobilier-copii.jpg';
+import imgMobilaDepozitare from '@img/melanto-mobilier-depozitare.jpg';
+import imgMobilaDining from '@img/melanto-mobilier-dining.jpg';
+import imgMobilaDormitor from '@img/melanto-mobilier-dormitor.jpg';
+import imgMobilaDressing from '@img/melanto-mobilier-dressing.jpg';
+import imgMobilaExterior from '@img/melanto-mobilier-exterior.jpg';
+import imgMobilaLiving from '@img/melanto-mobilier-living.jpg';
+import imgMobilaProiecte from '@img/melanto-mobilier-proiecte.jpg';
+import imgProcesulMelanto from '@img/procesul-melanto.jpg';
 
 const pageTitle = 'Melanto.ro - Doar mobilă. Doar calitate.';
 const pageDescription = 'Știm cât de important e să fii înconjurat de calitate în viața ta, și vrem să ți-o livrăm prin mobilier și servicii la cele mai înalte standarde.';
-
-import heroImage from '@img/hero-image.jpg';
-import cineSuntem from '@img/cine-suntem.jpg';
-import procesulMelanto from '@img/procesul-melanto.jpg';
-import mobilaBucatarie from '@img/melanto-mobilier-bucatarie.jpg';
-import mobilaLiving from '@img/melanto-mobilier-living.jpg';
-import mobilaDining from '@img/melanto-mobilier-dining.jpg';
-import mobilaDormitor from '@img/melanto-mobilier-dormitor.jpg';
-import mobilaDepozitare from '@img/melanto-mobilier-depozitare.jpg';
-import mobilaDressing from '@img/melanto-mobilier-dressing.jpg';
-import mobilaCopii from '@img/melanto-mobilier-copii.jpg';
-import mobilaBiblioteca from '@img/melanto-mobilier-biblioteca.jpg';
-import mobilaExterior from '@img/melanto-mobilier-exterior.jpg';
-import mobilaArhitect from '@img/melanto-mobilier-arhitect.jpg';
-import mobilaComercial from '@img/melanto-mobilier-comercial.jpg';
-import mobilaProiecte from '@img/melanto-mobilier-proiecte.jpg';
 ---
 
 <Layout title={pageTitle} description={pageDescription} template="HomePage">
@@ -34,14 +33,14 @@ import mobilaProiecte from '@img/melanto-mobilier-proiecte.jpg';
 				<span class="ButtonText">Procesul nostru de lucru</span>
 			</a>
 		</div>
-		<ResponsiveImage image={heroImage} alt="Melanto este aici să-ți îndeplinească toate planurile legate de mobilă." width={1200} height={1508} lazyLoading={false} classList={['HeroImage']} breakpoint={800} />
+		<ResponsiveImage image={imgHero} alt="Melanto este aici să-ți îndeplinească toate planurile legate de mobilă." width={1200} height={1508} lazyLoading={false} classList={['HeroImage']} breakpoint={800} />
 	</section>
 	<main class="Main">
 		<section class="Section NavTarget WhoAreWe" id="despre-noi">
 			<h2 class="SubTitle">Cine suntem?</h2>
 			<p>Melanto e un business de familie, născut din dorința de a aduce calitatea și pasiunea pentru mobilier în casele oamenilor.</p>
 			<p>Suntem o echipă tânără și extrem de motivată să livrăm mobilă și servicii la cele mai înalte standarde, care plasează clientul, dorințele și necesitățile sale în centrul atenției. Ne place să credem că înainte de mobilă lucrăm cu oameni, așa că viziunea, așteptările și cerințele clienților noștri sunt extrem de importante pentru noi.</p>
-			<ResponsiveImage image={cineSuntem} alt="Cine este echipa din spatele brand-ului de mobilă Melanto?" width={1200} height={1200} lazyLoading={true} classList={['WhoWeAreImage']} breakpoint={800} />
+			<ResponsiveImage image={imgCineSuntem} alt="Cine este echipa din spatele brand-ului de mobilă Melanto?" width={1200} height={1200} lazyLoading={true} classList={['WhoWeAreImage']} breakpoint={800} />
 			<p>Lucrăm cu diferite materiale (lemn masiv, PAL, MDF, sticlă, etc) și furnizori de încredere (pentru materiale și accesorii) pentru că știm importanța lucrului bine făcut, indiferent de buget.</p>
 			<p>Deși suntem la început de drum, știm că putem și vom construi lucruri mărețe împreună cu clienții noștri, fiindcă avem determinarea și dorința de a reuși, și știm că nu putem face asta decât oferind respect și seriozitate tuturor colaboratorilor noștri. Vrem să fim parteneri de încredere, pentru că noi la rândul nostru punem preț pe parteneri!</p>
 			<p>Indiferent de mărimea sau natura proiectului, că ești arhitect, business sau persoană fizică, nouă ne plac provocările! Contactează-ne și hai să facem planurile tale (sau ale clienților tăi) să devină realitate!</p>
@@ -130,7 +129,7 @@ import mobilaProiecte from '@img/melanto-mobilier-proiecte.jpg';
 
 		<section class="Section NavTarget Process" id="proces">
 			<h2 class="SubTitle">Procesul Melanto (în 8 pași)</h2>
-			<ResponsiveImage image={procesulMelanto} alt="Care sunt pașii prin care trecem pentru a satisface nevoile fiecărui client în parte?" width={2560} height={1707} lazyLoading={true} classList={['ProcessImage']} breakpoint={1100} />
+			<ResponsiveImage image={imgProcesulMelanto} alt="Care sunt pașii prin care trecem pentru a satisface nevoile fiecărui client în parte?" width={2560} height={1707} lazyLoading={true} classList={['ProcessImage']} breakpoint={1100} />
 			<ol class="List Pasi">
 				<li class="ListItem Pas">
 					<h3 class="SubTitleTertiary">Pasul 1</h3>
@@ -172,64 +171,64 @@ import mobilaProiecte from '@img/melanto-mobilier-proiecte.jpg';
 
 			<ul class="List ProjectTypeList">
 				<li class="Item ProjectTypeItem">
-					<ResponsiveImage image={mobilaBucatarie} alt="Exemple de mobilier de bucătărie pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
+					<ResponsiveImage image={imgMobilaBucatarie} alt="Exemple de mobilier de bucătărie pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
 					<h3 class="SubTitleTertiary">Mobilier de bucătărie</h3>
 					<p class="P">Se spune că bucătăria este spațiul cel mai folosit dintr-o casă, în care ne petrecem o bună bucată din timpul zilei. Noi credem că o bucătărie e o investiție și este esențial ca aceasta să se muleze perfect pe stilul tău de viață, estetica dorită dar și bugetul tău, și ne străduim în proiectele noastre să le prioritizăm pe fiecare în parte.</p>
 					<p class="P">Așa că indiferent de spațiul pe care-l ai, că e vorba de o garsonieră sau de o casă cu o mulțime de metri pătrați și cerințe extra de la bucătăria ta, că-ți plac bucătăriile open space sau vrei să ai confortul unei bucătării separate de restul casei, că-ți place design-ul modern, minimalist și vrei tehnologie de ultimă generație sau alegi clasicul, noi putem să-ți realizăm bucătăria visurilor tale! Lucrăm cu diferite tipuri de materiale pentru a ne asigura că putem acoperi orice buget fără să facem rabat de la calitate sau aspect și putem personaliza pana la ultimul detaliu orice proiect.</p>
 				</li>
 				<li class="Item ProjectTypeItem">
-					<ResponsiveImage image={mobilaLiving} alt="Exemple de mobilier de living pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
+					<ResponsiveImage image={imgMobilaLiving} alt="Exemple de mobilier de living pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
 					<h3 class="SubTitleTertiary">Mobilier living</h3>
 					<p class="P">Living-ul e camera de socializare, camera în care te relaxezi cu familia sau prietenii și în care confortul ar trebui să primeze. E important ca mobilierul de living pe care îl ai în vedere să fie practic, dar și să-ți inspire un mediu relaxant, și noi credem că stăpânim de minune acest echilibru!</p>
 				</li>
 				<li class="Item ProjectTypeItem">
-					<ResponsiveImage image={mobilaDining} alt="Exemple de mobilier de dining pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
+					<ResponsiveImage image={imgMobilaDining} alt="Exemple de mobilier de dining pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
 					<h3 class="SubTitleTertiary">Mobilier dining</h3>
 					<p class="P">O masă e mai mult decât o masă. E locul unde poți să-ți începi ziua, unde poți lucra (dacă alegi să o faci de acasă), locul unde iei o cină cu familia sau prietenii și mai ales locul unde te strângi împreună cu cei dragi în seri de boardgames sau evenimente speciale din viața ta. O masă de dining e sufletul casei tale, și de aceea credem că e important ca ea să fie proiectată la cele mai înalte standarde, pentru a-ți asigura confortul, fără a face o secundă rabat de la practicalitate. Noi putem să te ajutăm să ai un mobilier de dining care să-ți fie sufletul casei, tu doar trebuie să te bucuri de el!</p>
 				</li>
 				<li class="Item ProjectTypeItem">
-					<ResponsiveImage image={mobilaDormitor} alt="Exemple de mobilier de dormitor pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
+					<ResponsiveImage image={imgMobilaDormitor} alt="Exemple de mobilier de dormitor pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
 					<h3 class="SubTitleTertiary">Mobilier dormitor</h3>
 					<p class="P">Se zice că timpul ți-l petreci ori în pat ori în pantofi, așa că ar trebui să investești în ambele. Noi la pantofi nu ne pricepem, dar îți putem proiecta patul visurilor tale, care să fie croit special pe preferințele, nevoile și așteptările tale de la un pat perfect. Mai mult, că vorbim despre dormitoare matrimoniale, dormitoare de oaspeți, dormitoare ale membrilor adolescenți sau seniori ai familiei, știm cum să aducem intimitatea și confortul în orice spațiu de acest fel proiectat, în timp ce ne mulăm pe așteptările și stilul de viață al beneficiarului. Astfel, clienții noștri au tot timpul dormitoare care sunt oaze de liniște în care se retrag cu drag, la finalul zilei.</p>
 				</li>
 				<li class="Item ProjectTypeItem">
-					<ResponsiveImage image={mobilaDepozitare} alt="Exemple de mobilier de depozitare pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
+					<ResponsiveImage image={imgMobilaDepozitare} alt="Exemple de mobilier de depozitare pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
 					<h3 class="SubTitleTertiary">Mobilier pentru depozitare</h3>
 					<p class="P">Orice locuință are nevoie de spații practice. Unele și credem noi cele mai importante dintre acestea sunt spațiile de tip hol, cămară, garaj, boxă sau pod, spații unde putem crea soluții de depozitare astfel încât să redăm clienților noștri luxul unui spațiu aerisit, ne-aglomerat, ușor de întreținut dar și organizat în același timp! Dacă ești în căutare de mobilier de depozitare sau soluții pentru spații de natura asta, contactează-ne și hai să-ți facem viața mai organizată!</p>
 				</li>
 				<li class="Item ProjectTypeItem">
-					<ResponsiveImage image={mobilaDressing} alt="Exemple de mobilier de dressing pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
+					<ResponsiveImage image={imgMobilaDressing} alt="Exemple de mobilier de dressing pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
 					<h3 class="SubTitleTertiary">Mobilier dressing</h3>
 					<p class="P">Îmbrăcămintea, încălțămintea, accesoriile, lenjeriile, etc. joacă un rol important în viața noastră, și fie că ne place să recunoaștem sau nu, ocupă de cele mai multe ori destul de mult spațiu în casele noastre! Nouă ne place să proiectăm soluții de stocare pentru astfel de obiecte, pe care le putem integra fie într-o cameră specială tip dressing fie într-un dormitor sau o altă zonă a locuinței stabilită de clienții noștri. Putem să ne adaptăm la orice design, spațiu și nevoie practică, așa că dă-ne un semn când te gândești c-ai vrea un dressing nou!</p>
 				</li>
 				<li class="Item ProjectTypeItem">
-					<ResponsiveImage image={mobilaCopii} alt="Exemple de mobilier pentru camera copiilor pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
+					<ResponsiveImage image={imgMobilaCopii} alt="Exemple de mobilier pentru camera copiilor pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
 					<h3 class="SubTitleTertiary">Mobilier camera copilului / spații pentru copii (grădinițe, creșe, școli)</h3>
 					<p class="P">Proiectăm mobilier pentru camere de copii, <strong>inclusiv de tip Montessori</strong>!</p>
 					<p class="P">Înțelegem cât de important e ca astfel de proiecte să fie gândite în simț practic, să fie sigure și ușor de utilizat dar și de plăcut de micul sau mai marele membru al familiei. Indiferent de vârstă, nevoile pe care spațiul trebuie să le îndeplinească, sau buget, încercăm prin fiecare proiect să-i oferim copilului dumneavoastră un univers în care să se simtă bine, care să-i inspire creativitatea și în care să se poată dezvolta armonios.</p>
 				</li>
 				<li class="Item ProjectTypeItem">
-					<ResponsiveImage image={mobilaBiblioteca} alt="Exemple de mobilier de bibliotecă pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
+					<ResponsiveImage image={imgMobilaBiblioteca} alt="Exemple de mobilier de bibliotecă pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
 					<h3 class="SubTitleTertiary">Mobilier stil bibliotecă</h3>
 					<p class="P">Cărțile sunt importante pentru noi, și ne place să construim mobilierul perfect pentru ca ele să-și poată găsi locul de cinste în casele clienților noștri! Putem veni în ajutorul bibliotecilor, librăriilor, școlilor sau persoanelor care au nevoie de soluții de stocare pentru cărți, soluții eficiente dar și estetice.</p>
 				</li>
 				<li class="Item ProjectTypeItem">
-					<ResponsiveImage image={mobilaExterior} alt="Exemple de mobilier de exterior pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
+					<ResponsiveImage image={imgMobilaExterior} alt="Exemple de mobilier de exterior pe care ți-l poate face și ție Melanto" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
 					<h3 class="SubTitleTertiary">Mobilier exterior</h3>
 					<p class="P">Terasele, balcoanele, foișoarele sunt deseori spații neglijate din punct de vedere al mobilierului, însă noi credem că un mobilier corect conceput pentru astfel de zone, unde îmbinăm latura practică cu cea estetică, aduc reale plusuri spațiilor dumneavoastră. Merită să investiți în lucrurile care vă aduc mici bucurii, iar spațiile de relaxare de exterior sunt legătura noastră cu natura și poate principala sursă de energie.</p>
 				</li>
 				<li class="Item ProjectTypeItem">
-					<ResponsiveImage image={mobilaArhitect} alt="Exemple de mobilier construit în colaborare cu un arhitect sau designer de interior pe care Melanto îl poate livra" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
+					<ResponsiveImage image={imgMobilaArhitect} alt="Exemple de mobilier construit în colaborare cu un arhitect sau designer de interior pe care Melanto îl poate livra" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
 					<h3 class="SubTitleTertiary">Mobilier colaborare arhitect / designer interior</h3>
 					<p class="P">Ne plac oamenii creativi, care își iubesc meseria și o fac bine, prin urmare atunci când vine vorba de mobilă întotdeauna ne-am înțeles de minune cu arhitecții și designerii de interior. Din astfel de colaborări unde fiecare vine cu expertiza și experiența în domeniul lui, iau naștere unele dintre cele mai frumoase proiecte care sunt încununate cu zambetele de satisfacție ale clientului atunci când ce-și imagina pentru spațiul respectiv devine realitate.</p>
 				</li>
 				<li class="Item ProjectTypeItem">
-					<ResponsiveImage image={mobilaComercial} alt="Exemple de mobilier pentru spații comerciale și zone publice pe care Melanto îl poate executa" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
+					<ResponsiveImage image={imgMobilaComercial} alt="Exemple de mobilier pentru spații comerciale și zone publice pe care Melanto îl poate executa" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
 					<h3 class="SubTitleTertiary">Mobilier spații comerciale</h3>
 					<p class="P">Acceptăm și proiecte pentru spații comerciale de diferite tipuri, pentru mai multe detalii și o ofertă personalizată contactați-ne telefonic sau prin formularul de pe site.</p>
 				</li>
 				<li class="Item ProjectTypeItem">
-					<ResponsiveImage image={mobilaProiecte} alt="Exemple de mobilier de serie pentru proiecte imobiliare pe care Melanto îl poate executa" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
+					<ResponsiveImage image={imgMobilaProiecte} alt="Exemple de mobilier de serie pentru proiecte imobiliare pe care Melanto îl poate executa" width={1600} height={1068} lazyLoading={true} classList={['TypeImage']} breakpoint={1100} />
 					<h3 class="SubTitleTertiary">Mobilier de serie proiecte imobiliare</h3>
 					<p class="P">Proiectăm și mobilier de serie pentru proiecte imobiliare. Pentru mai multe detalii și o ofertă personalizată contactați-ne telefonic sau prin formularul de pe site.</p>
 				</li>
