@@ -248,7 +248,9 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 			.HeroTitle { display: block; max-width: 21rem; margin: 0 0 1rem; padding: 0; text-wrap: balance; font-family: $fonts-serif; font-style: italic; font-size: 3rem; line-height: 1em; position: relative; overflow: hidden;
 				@media (min-width: 800px) { max-width: 7em; font-size: clamp(3rem, calc(1rem + 4vw), 10rem); }
 			}
-				.HeroTitle strong { background: linear-gradient( to right, #7953cd 20%, #00affa 30%, #0190cd 70%, #764ada 80%); background-clip: text; text-fill-color: transparent; color: transparent; background-size: 500% auto; animation: textShine 5s ease-in-out infinite alternate; }
+				.HeroTitle strong { color: var(--accent-800);
+					@media (min-width: 800px) { background: linear-gradient( to right, #7953cd 20%, #00affa 30%, #0190cd 70%, #764ada 80%); background-clip: text; text-fill-color: transparent; color: transparent; background-size: 500% auto; animation: textShine 5s ease-in-out infinite alternate; }
+				}
 				@keyframes textShine {
 					0% { background-position: 0% 50%; }
 					100% { background-position: 100% 50%; }

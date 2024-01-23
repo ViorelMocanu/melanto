@@ -2,8 +2,8 @@ import { ENV, LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL,
 import { defineConfig, squooshImageService } from 'astro/config';
 import { fileURLToPath } from 'url';
 import path from 'path';
-import partytown from '@astrojs/partytown';
-import sentry from "@sentry/astro";
+// import partytown from '@astrojs/partytown';
+// import sentry from "@sentry/astro";
 // import sitemap from '@astrojs/sitemap';
 import vercelStatic from '@astrojs/vercel/serverless';
 import webmanifest from 'astro-webmanifest';
@@ -85,12 +85,12 @@ export default defineConfig({
 				insertAppleTouchLinks: true,
 				iconPurpose: ['badge', 'maskable', 'monochrome']
 			}
-		}), partytown({
+		}), /*partytown({
 			config: {
 				debug: true,
 				forward: ['dataLayer.push']
 			}
-		}), /*sitemap({
+		}),*/ /*sitemap({
 			customPages: ['https://melanto.ro/external-page2'],
 			filter: page => {
 				return page !== 'https://melanto.ro/dashboard/' && page !== 'https://melanto.ro/secret-vip-lounge-2/';
@@ -105,17 +105,15 @@ export default defineConfig({
 				ro: 'ro-RO'
 			}
 			}
-		}),*/ sentry({
+		}),*/ /*sentry({
 			dsn: "https://b6e5cfd61e6adc839414daf452e8c4e8@o4506599007911936.ingest.sentry.io/4506599013548032",
-			/*
 			replaysSessionSampleRate: 0,
 			replaysOnErrorSampleRate: 0,
 			sourceMapsUploadOptions: {
 				project: "melanto-ro",
 				authToken: process.env.SENTRY_AUTH_TOKEN,
 			},
-			*/
-		})
+		})*/
 	],
 	adapter: vercelStatic()
 });
