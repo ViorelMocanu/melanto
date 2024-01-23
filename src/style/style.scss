@@ -182,11 +182,15 @@ a#skip { @extend .SROnly; }
 a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; height: auto; }
 .Icon { display: inline-block; width: 1.5rem; height: 1.5rem; overflow: hidden; }
 
-.Message { display: block; position: fixed; top: 3.5rem; left: 0; width: 100%; margin: 0; padding: 1rem; background: var(--dark-200);
+.Message { display: block; position: fixed; top: 3.5rem; left: 0; width: 100vw; box-sizing: border-box; margin: 0; padding: 1rem; background: var(--dark-200); z-index: 2;
 	@media (min-width: $desktop) {  }
 }
 .Message.MessageError { background: rgba(25,0,0,1); }
 .Message.MessageSuccess { background: rgba(0,25,0,1); }
+.Message.MessageHidden { display: none; }
+	.CloseMessage { display: block; width: 1em; height: 1em; float: right; margin: 0 0 0.5rem 1rem; font-size: 3rem; line-height: 1em; text-align: center; background: transparent; color: var(--light-900); border: none; }
+	.CloseMessage:hover { background: var(--accent-800); color: var(--dark-100); }
+	.CloseMessage:active { background: var(--accent-400); color: var(--light-900); }
 	.MessageTitle { display: block; margin: 0; padding: 0.5rem 1rem; background: var(--accent-400); color: var(--light-900); }
 	.MessageError .MessageTitle { background: rgba(255,0,0,0.75); }
 	.MessageSuccess .MessageTitle { background: rgba(0,255,0,0.75); }

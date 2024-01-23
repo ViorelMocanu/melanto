@@ -40,6 +40,7 @@ if (Astro.request.method === 'POST') {
 		if (typeof message !== 'string' || message.length < 10) {
 			errors.message += 'Te rugăm să introduci un mesaj valid. ';
 		}
+		const hasErrors = Object.values(errors).some((msg) => msg);
 
 		const htmlTemplate = `
 			<h1>Am primit un mesaj nou de la ${name} pe Melanto.ro</h1>
@@ -69,20 +70,26 @@ if (Astro.request.method === 'POST') {
 			}
 			*/
 		};
-		await sendGrid
-			.send(msg)
-			.then(() => {
-				// @ts-ignore
-				console.log('Email trimis!');
-				mesajTrimis = true;
-			})
-			.catch((error) => {
-				mesajTrimis = false;
-				// @ts-ignore
-				console.error(error, msg, error.response.body.errors, error.ref.response.body.errors);
-			});
+		if (!hasErrors) {
+			await sendGrid
+				.send(msg)
+				.then(() => {
+					// @ts-ignore
+					console.log('Email trimis!');
+					mesajTrimis = true;
+				})
+				.catch((error) => {
+					mesajTrimis = false;
+					// @ts-ignore
+					console.error(error, msg, error.response.body.errors, error.ref.response.body.errors);
+				});
+		} else {
+			return Astro.redirect('/#contact');
+		}
 	} catch (error) {
-		console.error(error);
+		if (error instanceof Error) {
+			console.error(error.message);
+		}
 		mesajTrimis = false;
 	}
 }
@@ -92,7 +99,7 @@ if (Astro.request.method === 'POST') {
 	<div class="ContactContainer">
 		<h2 class="SubTitle">Contactează-ne acum!</h2>
 		<p class="P">Toate câmpurile sunt obligatorii. Încercăm să-ți răspundem la mesaje în cel mai scurt timp posibil, dar în general asta se întâmplă în maxim 24-48h.</p>
-		<form id="contactForm" class="Form ContactForm" method="post" action="/api/index.ts">
+		<form id="contactForm" class="Form ContactForm" method="POST">
 			<fieldset class="Fieldset">
 				<legend class="Legend">Contactează-ne</legend>
 				<label class:list={['Label', { Error: errors.name }]} for="nume">
@@ -124,6 +131,9 @@ if (Astro.request.method === 'POST') {
 		{
 			mesajTrimis === true && (
 				<div class="Message MessageSuccess">
+					<button class="CloseMessage" title="Închide acest mesaj">
+						<span class="ButtonText">&times;</span>
+					</button>
 					<h3 class="SubTitle">Mesajul tău a fost trimis cu succes!</h3>
 					<p class="P">Îți mulțumim pentru interesul acordat. În cel mai scurt timp posibil îți vom răspunde la mesaj.</p>
 				</div>
@@ -133,14 +143,29 @@ if (Astro.request.method === 'POST') {
 		{
 			mesajTrimis === false && (
 				<div class="Message MessageError">
-					<h3 class="MessageTitle">Mesajul tău NU a putut fi transmis!</h3>
-					<div class="MessageBody">
-						<p class="P">
-							Ne pare rău, dar mesajul tău nu a putut fi transmis. Contactează-ne direct la <a href="mailto:contact@melanto.ro">contact@melanto.ro</a>!
-						</p>
-					</div>
+					<button class="CloseMessage" title="Închide acest mesaj">
+						<span class="ButtonText">&times;</span>
+					</button>
+					<h3 class="SubTitle">Mesajul tău NU a putut fi transmis!</h3>
+					<p class="P">
+						Ne pare rău, dar mesajul tău nu a putut fi transmis. Contactează-ne direct la <a href="mailto:contact@melanto.ro">contact@melanto.ro</a>!
+					</p>
 				</div>
 			)
 		}
+
+		<script>
+			// hide the message after 10 seconds or when the user clicks the close button
+			const message = document.querySelector('.Message');
+			if (message && message !== null) {
+				setTimeout(() => {
+					message.classList.add('MessageHidden');
+				}, 10000);
+				const closeButton = message.querySelector('.CloseMessage');
+				closeButton?.addEventListener('click', () => {
+					message.classList.add('MessageHidden');
+				});
+			}
+		</script>
 	</div>
 </section>
