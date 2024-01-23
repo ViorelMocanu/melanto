@@ -118,8 +118,8 @@ $fonts-condensed: 'Sofia Sans Extra Condensed', 'Helvetica Neue', Helvetica, Ari
 }
 
 /* Custom CSS reset */
-html { background: var(--dark-150); color: var(--light-600); font-family: $fonts-condensed; font-size: 16px; line-height: 1.25; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 3.5rem;
-	@media (min-width: $desktop) { scroll-padding-top: 5.75rem; }
+html { background: var(--dark-150); color: var(--light-600); font-family: $fonts-condensed; font-size: 16px; line-height: 1.25; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 1.5rem; overflow-x: hidden;
+	@media (min-width: $desktop) { scroll-padding-top: 3.75rem; }
 }
 body { padding: 0; background: var(--dark-150); color: var(--light-800); margin: 0; overflow-x: hidden; }
 .ActiveMenu, .ActiveSubnav { overflow: hidden;
