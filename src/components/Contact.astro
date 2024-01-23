@@ -79,15 +79,15 @@ if (Astro.request.method === 'POST') {
 				<legend class="Legend">Contactează-ne</legend>
 				<label class="Label" for="nume">
 					<span class="LabelText">Nume:</span>
-					<input class="Input" type="text" id="nume" name="nume" maxlength="100" minlength="1" placeholder="Numele tău complet..." required />
+					<input class="Input" type="text" id="nume" name="nume" maxlength="100" minlength="1" placeholder="Numele tău complet..." required autocomplete="name" />
 				</label>
 				<label class="Label" for="telefon">
 					<span class="LabelText">Telefon:</span>
-					<input class="Input" type="tel" id="telefon" name="telefon" pattern="[0-9]{10,15}" placeholder="Telefonul tău (numai cifre)..." required />
+					<input class="Input" type="tel" id="telefon" name="telefon" pattern="[0-9]{10,15}" placeholder="Telefonul tău (numai cifre)..." required autocomplete="tel" />
 				</label>
 				<label class="Label" for="email">
 					<span class="LabelText">E-mail:</span>
-					<input class="Input" type="email" id="email" name="email" placeholder="Adresa ta de mail..." required />
+					<input class="Input" type="email" id="email" name="email" placeholder="Adresa ta de mail..." required autocomplete="email" />
 				</label>
 				<label class="Label" for="mesaj">
 					<span class="LabelText">Mesaj:</span>
