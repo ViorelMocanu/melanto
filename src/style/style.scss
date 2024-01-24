@@ -38,7 +38,7 @@ $fonts-condensed: 'Sofia Sans Extra Condensed', 'Helvetica Neue', Helvetica, Ari
   font-weight: 700;
   font-display: swap;
   src: url('../font/fraunces-italic-bold-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02AF;
 }
 @font-face {
   font-family: 'Fraunces';
@@ -54,7 +54,7 @@ $fonts-condensed: 'Sofia Sans Extra Condensed', 'Helvetica Neue', Helvetica, Ari
   font-weight: 700;
   font-display: swap;
   src: url('../font/fraunces-normal-bold-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02AF;
 }
 @font-face {
   font-family: 'Fraunces';
@@ -72,7 +72,7 @@ $fonts-condensed: 'Sofia Sans Extra Condensed', 'Helvetica Neue', Helvetica, Ari
 	font-weight: 400;
 	font-display: swap;
 	src: url('../font/inter-latin-ext.woff2') format('woff2');
-	unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	unicode-range: U+0100-02AF;
 }
 @font-face {
 	font-family: 'Inter';
@@ -88,7 +88,7 @@ $fonts-condensed: 'Sofia Sans Extra Condensed', 'Helvetica Neue', Helvetica, Ari
 	font-weight: 700;
 	font-display: swap;
 	src: url('../font/inter-latin-ext.woff2') format('woff2');
-	unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	unicode-range: U+0100-02AF;
 }
 @font-face {
 	font-family: 'Inter';
@@ -106,7 +106,7 @@ $fonts-condensed: 'Sofia Sans Extra Condensed', 'Helvetica Neue', Helvetica, Ari
 	font-weight: 200;
 	font-display: swap;
 	src: url('../font/sofia-sans-extra-condensed-latin-ext.woff2') format('woff2');
-	unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	unicode-range: U+0100-02AF;
 }
 @font-face {
 	font-family: 'Sofia Sans Extra Condensed';
@@ -136,7 +136,7 @@ h1 { margin: 0; font-size: 2.25rem; line-height: 1em;
 	@media (min-width: $desktop) { font-size: 3.5rem; line-height: 1em; letter-spacing: -0.01em; }
 }
 pre {
-	@media (min-width: $desktop) { max-width: 71vw; overflow-x: auto; text-wrap: wrap; }
+	@media (min-width: $desktop) { max-width: 71vw; overflow-x: auto; text-wrap: balance; }
 }
 
 .TemporaryMessage { display: none; padding: 1rem; margin: 0; background: black; text-align: center; }
