@@ -39,3 +39,5 @@ export const OG_IMAGE = 'https://melanto.ro/ogimage.jpg';
 export const OG_IMAGE_ALT = 'Melanto - Doar mobilă. Doar calitate.'; //	🛑 @TODO: OG Image ALT
 export const GLOBAL_PUB_DATE = '2024-01-24T19:35:55+03:00';
 export const PAGE_SIZE = 10;
+export const PUBLIC_RECEIVER_EMAIL_1 = import.meta.env.PUBLIC_RECEIVER_EMAIL_1;
+export const PUBLIC_RECEIVER_EMAIL_2 = import.meta.env.PUBLIC_RECEIVER_EMAIL_2;

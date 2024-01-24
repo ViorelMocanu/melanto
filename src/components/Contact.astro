@@ -10,6 +10,8 @@
  */
 
 import sendGrid, { type MailDataRequired } from '@sendgrid/mail';
+import { PUBLIC_RECEIVER_EMAIL_1, PUBLIC_RECEIVER_EMAIL_2 } from '@config';
+
 sendGrid.setApiKey(import.meta.env.SENDGRID_API_KEY);
 
 let mesajTrimis = null;
@@ -55,7 +57,7 @@ if (Astro.request.method === 'POST') {
 
 		// Sending email
 		const msg: MailDataRequired = {
-			to: 'viorel.mocanu@gmail.com',
+			to: PUBLIC_RECEIVER_EMAIL_1,
 			from: 'contact@melanto.ro',
 			subject: `Mesaj nou pe Melanto.ro de la ${name}`,
 			text: `Nume: ${name} \nEmail: ${email} \nTelefon: ${phone} \nMesaj: ${message}`,
@@ -70,6 +72,13 @@ if (Astro.request.method === 'POST') {
 			}
 			*/
 		};
+		const msg2: MailDataRequired = {
+			to: PUBLIC_RECEIVER_EMAIL_2,
+			from: 'contact@melanto.ro',
+			subject: `Mesaj nou pe Melanto.ro de la ${name}`,
+			text: `Nume: ${name} \nEmail: ${email} \nTelefon: ${phone} \nMesaj: ${message}`,
+			html: htmlTemplate,
+		};
 		if (!hasErrors) {
 			await sendGrid
 				.send(msg)
@@ -82,6 +91,18 @@ if (Astro.request.method === 'POST') {
 					mesajTrimis = false;
 					// @ts-ignore
 					console.error(error, msg, error.response.body.errors, error.ref.response.body.errors);
+				});
+			await sendGrid
+				.send(msg2)
+				.then(() => {
+					// @ts-ignore
+					console.log('Email trimis!');
+					mesajTrimis = true;
+				})
+				.catch((error) => {
+					mesajTrimis = false;
+					// @ts-ignore
+					console.error(error, msg2, error.response.body.errors, error.ref.response.body.errors);
 				});
 		} else {
 			return Astro.redirect('/#contact');

@@ -23,7 +23,7 @@ const { activeMenu } = Astro.props satisfies Props;
 <header class="Header">
 	{activeMenu}
 	<div class="HeaderMain" role="toolbar">
-		<a class="Logo" href="/#hero" title="Mergi la prima pagină a proiectului Melanto.ro">
+		<a class="Logo" href="/" title="Mergi la prima pagină a proiectului Melanto.ro">
 			<svg class="LogoSymbol" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 532.64 468" fill="currentColor">
 				<path d="M0,16.76c5.43,42.97,10.86,85.95,16.29,128.92,29.72-3.75,59.51-6.82,89.33-9.23l3.14-37.68c.62-8.13,0-14.2-1.88-18.19-1.88-3.99-5.48-6.84-10.79-8.57l-10.09-3.05c-3.91-1.25-6.81-3.09-8.68-5.51-1.88-2.42-2.82-5.52-2.82-9.27,0-9.07,5.87-13.61,17.6-13.61h78.38c8.29,0,14.98,1.72,20.06,5.16,5.08,3.44,9.58,10.33,13.49,20.65l25.48,63.92c27.05-.5,54.1-.45,81.15.15l24.08-63.13c3.75-10.17,8.17-17.17,13.26-21,5.08-3.83,12.08-5.75,21-5.75h79.32c5.94,0,10.33,1.17,13.14,3.52,2.82,2.35,4.22,5.71,4.22,10.09,0,3.6-.94,6.61-2.82,9.03-1.88,2.43-4.62,4.27-8.21,5.51l-10.33,3.29c-5.16,1.72-8.65,3.95-10.44,6.69-1.8,2.74-2.47,7.08-2,13.02l3.22,45.39c27.12,2.3,54.21,5.15,81.24,8.57,5.43-42.97,10.86-85.95,16.29-128.92C355.79-5.59,176.84-5.59,0,16.76Z"></path>
 				<path d="M445.25,280.36c17.8,1.73,35.57,3.7,53.33,5.94,5.43-42.97,10.86-85.94,16.28-128.91-26.26-3.32-52.57-6.1-78.91-8.36l9.3,131.34Z"></path>
@@ -42,32 +42,32 @@ const { activeMenu } = Astro.props satisfies Props;
 		<nav class="MainMenu" id="menu" aria-labelledby="menuTrigger">
 			<ul class="MainMenuList">
 				<li class="MainMenuItem">
-					<a class="MainMenuLink" href="#despre-noi" title="Despre echipa, misiunea și viziunea Melanto">
+					<a class="MainMenuLink" href="/#despre-noi" title="Despre echipa, misiunea și viziunea Melanto">
 						<span class="LinkText">Despre noi</span>
 					</a>
 				</li>
 				<li class="MainMenuItem">
-					<a class="MainMenuLink" href="#servicii" title="Ce oferim? Categorii de produse, servicii și tehnologii disponibile prin Melanto">
+					<a class="MainMenuLink" href="/#servicii" title="Ce oferim? Categorii de produse, servicii și tehnologii disponibile prin Melanto">
 						<span class="LinkText">Servicii</span>
 					</a>
 				</li>
 				<li class="MainMenuItem">
-					<a class="MainMenuLink" href="#proces" title="Care e procesul prin care ajungem de la nevoia ta la produsul final?">
+					<a class="MainMenuLink" href="/#proces" title="Care e procesul prin care ajungem de la nevoia ta la produsul final?">
 						<span class="LinkText">Proces creativ</span>
 					</a>
 				</li>
 				<li class="MainMenuItem">
-					<a class="MainMenuLink" href="#tipuri" title="Tipuri de proiecte pe care le oferim pentru companii, instituții și persoane fizice">
+					<a class="MainMenuLink" href="/#tipuri" title="Tipuri de proiecte pe care le oferim pentru companii, instituții și persoane fizice">
 						<span class="LinkText">Tipuri de proiecte</span>
 					</a>
 				</li>
 				<li class="MainMenuItem">
-					<a class="MainMenuLink" href="#intrebari" title="Răspunsuri la cele mai frecvente întrebări pe care le primim despre Melanto">
+					<a class="MainMenuLink" href="/#intrebari" title="Răspunsuri la cele mai frecvente întrebări pe care le primim despre Melanto">
 						<span class="LinkText">Întrebări frecvente</span>
 					</a>
 				</li>
 				<li class="MainMenuItem">
-					<a class="MainMenuLink" href="#contact" title="Intră în contact cu noi sau cere-ne o ofertă personalizată">
+					<a class="MainMenuLink" href="/#contact" title="Intră în contact cu noi sau cere-ne o ofertă personalizată">
 						<span class="LinkText">Contact</span>
 					</a>
 				</li>
@@ -92,10 +92,10 @@ const { activeMenu } = Astro.props satisfies Props;
 	}
 	window.menuListeners = function () {
 		const menuTrigger = document.getElementById('menuTrigger');
-		const body = document.body;
 
 		// la fiecare click pe butonul cu hamburger icon, adăugăm sau scoatem (deci facem toggle pe) clasa ActiveMenu în body, clasă care are niște CSS care afișează sau ascunde meniul mobil
 		menuTrigger?.addEventListener('click', function (event) {
+			const body = document.body;
 			event.preventDefault();
 			body.classList.toggle('ActiveMenu');
 			if (body.classList.contains('ActiveMenu')) {
@@ -114,36 +114,38 @@ const { activeMenu } = Astro.props satisfies Props;
 		const menuLinks = document.querySelectorAll('.MainMenuLink');
 		menuLinks.forEach((menuLink) => {
 			menuLink.addEventListener('click', function () {
+				const body = document.body;
 				body.classList.remove('ActiveMenu');
 				delete document.body.dataset.menuOpen;
 				menuTrigger?.setAttribute('aria-expanded', 'false');
 				menuTrigger?.setAttribute('aria-label', 'Deschide meniul principal');
 			});
 		});
+
+		function handleMenuIntersection(entries: any) {
+			entries.forEach((entry: any) => {
+				const section = entry.target;
+				const link = document.querySelector('a[href="/#' + section.id + '"]');
+				if (entry && entry.isIntersecting && link) {
+					// @ts-ignore
+					link?.parentNode?.classList.add('Active');
+				} else {
+					// @ts-ignore
+					link?.parentNode?.classList.remove('Active');
+				}
+			});
+		}
+		const menuObserver = new IntersectionObserver(handleMenuIntersection, {
+			threshold: [0.1, 0.75],
+		});
+		const sections = document.querySelectorAll('.NavTarget');
+		sections.forEach((section) => {
+			menuObserver.observe(section);
+		});
 	};
 	window.menuListeners();
 	// Runs on view transitions navigation
 	document.addEventListener('astro:after-swap', function () {
 		window.menuListeners();
-	});
-</script>
-<script>
-	// @ts-nocheck
-	function handleMenuIntersection(entries) {
-		entries.forEach((entry) => {
-			const section = entry.target;
-			if (entry.isIntersecting) {
-				document.querySelector('a[href="#' + section.id + '"]')?.parentNode.classList.add('Active');
-			} else {
-				document.querySelector('a[href="#' + section.id + '"]')?.parentNode.classList.remove('Active');
-			}
-		});
-	}
-	const menuObserver = new IntersectionObserver(handleMenuIntersection, {
-		threshold: [0.1, 0.75],
-	});
-	const sections = document.querySelectorAll('.NavTarget');
-	sections.forEach((section) => {
-		menuObserver.observe(section);
 	});
 </script>

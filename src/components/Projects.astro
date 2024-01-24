@@ -27,23 +27,34 @@ import Video from '@components/Video.astro';
 			</div>
 		</li>
 	</ul>
-	<script is:inline>
-		// @ts-nocheck
-		function handleIntersection(entries) {
-			entries.forEach((entry) => {
-				const video = entry.target;
-				if (entry.isIntersecting) {
-					video.play();
-					entry.target.setAttribute('autoplay', 'autoplay');
-				}
-			});
+	<script>
+		declare global {
+			interface Window {
+				videoAutoplay: any;
+			}
 		}
-		const observer = new IntersectionObserver(handleIntersection, {
-			threshold: 1.0,
-		});
-		const videos = document.querySelectorAll('.Video');
-		videos.forEach((video) => {
-			observer.observe(video);
+		window.videoAutoplay = function () {
+			function handleIntersection(entries: any) {
+				entries.forEach((entry: any) => {
+					const video = entry.target;
+					if (entry.isIntersecting) {
+						video.play();
+						entry.target.setAttribute('autoplay', 'autoplay');
+					}
+				});
+			}
+			const observer = new IntersectionObserver(handleIntersection, {
+				threshold: 1.0,
+			});
+			const videos = document.querySelectorAll('.Video');
+			videos.forEach((video) => {
+				observer.observe(video);
+			});
+		};
+		window.videoAutoplay();
+		// Runs on view transitions navigation
+		document.addEventListener('astro:after-swap', function () {
+			window.videoAutoplay();
 		});
 	</script>
 </section>
