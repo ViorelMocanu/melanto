@@ -4,7 +4,7 @@
 Contact: mailto:security@melanto.ro
 
 # Expiration date of the current security.txt
-Expires: 2025-12-31T21:59:00.000Z
+Expires: 2025-01-23T21:59:00.000Z
 
 # Our security acknowledgments page
 Acknowledgments: https://melanto.ro/hall-of-fame
