@@ -13,8 +13,8 @@
 			"type": "image/png"
 		}
 	],
-	"theme_color": "#6a0094",
-	"background_color": "#6a0094",
+	"theme_color": "#a86121",
+	"background_color": "#e79f53",
 	"start_url": "https://melanto.ro",
 	"display": "standalone"
 }
