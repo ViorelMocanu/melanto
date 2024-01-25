@@ -1,0 +1,19 @@
+{
+	"name": "contribute.json",
+	"description": "A file that describes how to contribute to Melanto.ro",
+	"repository": {
+		"url": "https://github.com/ViorelMocanu/melanto",
+		"license": "GPL-3.0"
+	},
+	"bugs": {
+		"list": "https://github.com/ViorelMocanu/melanto/issues",
+		"report": "https://github.com/ViorelMocanu/melanto/issues"
+	},
+	"participate": {
+		"docs": "https://github.com/ViorelMocanu/melanto/blob/main/CONTRIBUTING.md"
+	},
+	"urls": {
+		"prod": "https://melanto.ro"
+	},
+	"keywords": ["melanto", "furniture", "Romania", "Romanian", "Astro", "TypeScript"]
+}

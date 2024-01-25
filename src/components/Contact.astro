@@ -9,8 +9,8 @@
  * @returns {astro.AstroNode} The Astro component for the contact form.
  */
 
-import sendGrid, { type MailDataRequired } from '@sendgrid/mail';
 import { PUBLIC_RECEIVER_EMAIL_1, PUBLIC_RECEIVER_EMAIL_2 } from '@config';
+import sendGrid, { type MailDataRequired } from '@sendgrid/mail';
 
 sendGrid.setApiKey(import.meta.env.SENDGRID_API_KEY);
 
