@@ -1,0 +1,19 @@
+---
+import Contact from '@components/Contact.astro';
+import Layout from '@layouts/Layout.astro';
+
+const pageTitle = 'Cine a contribuit la securitatea site-ului Melanto.ro';
+const pageDescription = 'Află topul contribuitorilor la securitatea site-ului Melanto.ro, cărora le mulțumim pentru ajutorul acordat.';
+---
+
+<Layout title={pageTitle} description={pageDescription} template="TextPage">
+	<h1 class="PageTitle">Security hall of fame</h1>
+	<main class="Main">
+		<section class="TextSection">
+			<p>Momentan nu există contribuitori...</p>
+			<p>Dacă ai găsit un bug sau o problemă de securitate, vezi <a href="/.well-known/security.txt">security.txt</a> sau <a href="/politica-de-securitate">Politica de securitate</a> pentru detalii de contribuție.</p>
+			<p>Mulțumim!</p>
+		</section>
+	</main>
+	<Contact />
+</Layout>

@@ -23,6 +23,8 @@ export interface Props {
 }
 
 const { cls, poster, webm, mp4, track, ...attrs } = Astro.props satisfies Props;
+
+// @TODO: Decide whether to explore https://adrianroselli.com/2023/12/media-queries-in-html-video.html or not
 ---
 
 <video class:list={['Video', cls]} preload="none" muted="muted" loop="loop" poster={poster} width="640" height="360" {...attrs}>

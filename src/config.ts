@@ -18,8 +18,6 @@ if (PUBLIC_APP_ENV === 'local' || PUBLIC_APP_ENV === 'development') {
 }
 const PUBLIC_APP_URL = u;
 
-// @TODO: make variables below asynchronous
-
 // My static config variables
 export const ENV = PUBLIC_APP_ENV;
 export const DEBUG = PUBLIC_APP_DEBUG;

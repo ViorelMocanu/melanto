@@ -128,7 +128,7 @@ body { padding: 0; background: var(--dark-150); color: var(--light-800); margin:
 img { max-width: 100%; height: auto; border-style: none; } // max-inline-size: 100%; block-size: auto;
 table { border-collapse: collapse; }
 textarea { white-space: revert; }
-abbr[title] { border-bottom: none;  text-decoration: underline;  text-decoration: underline dotted; }
+abbr[title] { border-bottom: none; text-decoration: underline dotted; }
 button, input, optgroup, select, textarea { font-family: inherit; font-size: 1rem; line-height: 1.25; margin: 0; }
 button { cursor: pointer; }
 button, input { overflow: visible; }
@@ -147,6 +147,7 @@ a:active { color: var(--light-800); text-decoration: none; }
 .Link { @extend a; }
 
 .Form { display: block; font-size: 1.5rem; line-height: 1.5em; }
+.Form:has(:user-invalid), .Form:has(.Error) { border: 1px solid red; }
 	.Fieldset { display: block; margin: 0; padding: 0; border: none; }
 		.Legend { @extend .SROnly; }
 		.Label { display: block; cursor: pointer; margin: 0; }
@@ -289,12 +290,15 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 			}
 	.PageTitle { display: block; max-width: calc(40rem + 15vw); margin: 0 auto; padding: 0.5em 1rem 0; text-wrap: balance; font-family: $fonts-serif; font-style: italic; font-size: 3rem; line-height: 1.5em; position: relative; overflow: hidden;
 		@media (min-width: 800px) { font-size: clamp(4rem, calc(1.5rem + 4vw), 12rem); }
+		@media (min-width: 2200px) { max-width: 61.8vw; }
 	}
 	.Main { display: block; margin: 1rem;
 		@media (min-width: $desktop) { max-width: 2100px; margin: 1rem; }
 		@media (min-width: 2132px) { margin: 1rem auto; }
 	}
-	.TextPage .Main { max-width: calc(40rem + 15vw); margin: 0 auto; padding: 0 1rem; }
+	.TextPage .Main { max-width: calc(40rem + 15vw); margin: 0 auto; padding: 0 1rem;
+		@media (min-width: 2200px) { max-width: 61.8vw; }
+	}
 		.SubTitle { display: block; font-family: $fonts-serif; font-weight: 700; font-size: 2rem; line-height: 1em; font-style: italic; margin: 0 0 1rem;
 			@media (min-width: 800px) { font-size: clamp(2rem, 1rem + 2vw, 7rem); }
 			@media (min-width: $desktop) { font-size: clamp(3rem, 1rem + 4vw, 10rem); }
@@ -305,9 +309,11 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 		.SubTitleTertiary { display: block; font-family: $fonts-condensed; font-weight: 200; font-size: 2rem; line-height: 1em; margin: 0 0 1rem;
 			@media (min-width: 800px) { font-size: clamp(2rem, 1rem + 2vw, 7rem); }
 		}
-		.Section p, .Section li, .TextPage .Main p, .TextPage .Main li { display: block; margin: 1em 0; font-size: 1.5rem; line-height: 1.5em;
+		.Section p, .Section li, .TextPage .Main p, .TextPage .Main li, .TextPage .Main table { display: block; margin: 1em 0; font-size: 1.5rem; line-height: 1.5em;
 			@media (min-width: 800px) { font-size: clamp(1.5rem, 0.5rem + 1vw, 3rem); }
 		}
+		.TextPage .Main table { display: table; width: 100%; table-layout: auto; text-align: left; font-feature-settings: "tnum"; }
+			.TextPage .Main th, .TextPage .Main td { padding: 0 1rem 0 0; }
 		.Section ul { display: block; margin: 1rem 0; padding: 0; list-style-position: outside; }
 			.Section li { display: list-item; margin: 0; }
 		.TextPage .Main ul, .TextPage .Main ol { display: block; margin: 1rem 0; padding: 0; list-style-position: outside; }

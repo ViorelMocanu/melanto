@@ -53,8 +53,6 @@ if (Astro.request.method === 'POST') {
 			<p><pre>${message}</pre></p>
 		`;
 
-		// TODO: Do not forget to do validation and error handling over received data from your contact form.
-
 		// Sending email
 		const msg: MailDataRequired = {
 			to: PUBLIC_RECEIVER_EMAIL_1,

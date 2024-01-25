@@ -1,0 +1,78 @@
+---
+import Contact from '@components/Contact.astro';
+import Layout from '@layouts/Layout.astro';
+
+const pageTitle = 'Politica de securitate pentru site-ul Melanto.ro';
+const pageDescription = 'Află care este politica de securitate pe care o implementăm pentru site-ul Melanto.ro.';
+---
+
+<Layout title={pageTitle} description={pageDescription} template="TextPage">
+	<h1 class="PageTitle">Politică de securitate</h1>
+	<main class="Main">
+		<section class="TextSection">
+			<h2 class="SubTitle">1. Introducere</h2>
+			<p>Bun venit pe pagina de Politica de Securitate a website-ului Melanto. Această politică are scopul de a vă informa cu privire la măsurile noastre de securitate și cum protejăm informațiile dumneavoastră.</p>
+		</section>
+		<section class="TextSection">
+			<h2 class="SubTitle">2. Date colectate</h2>
+			<p>Colectăm informații limitate și necesare pentru a vă oferi serviciile noastre. Acestea pot include, dar nu se limitează la, nume, telefon, adresă de e-mail și informații legate de comenzile plasate pe website-ul nostru.</p>
+		</section>
+		<section class="TextSection">
+			<h2 class="SubTitle">3. Securitatea informațiilor</h2>
+			<p>Ne angajăm să protejăm informațiile dumneavoastră. Implementăm măsuri de securitate tehnice și organizaționale pentru a preveni accesul neautorizat, pierderea sau manipularea datelor personale.</p>
+		</section>
+		<section class="TextSection" id="cookies">
+			<h2 class="SubTitle">4. Utilizarea cookie-urilor</h2>
+			<p>Website-ul nostru folosește cookie-uri pentru a îmbunătăți experiența utilizatorilor. Puteți gestiona setările cookie-urilor în browser-ul dumneavoastră conform preferințelor personale.</p>
+		</section>
+		<section class="TextSection">
+			<h2 class="SubTitle">5. Divulgarea informațiilor</h2>
+			<p>Nu vom divulga informațiile dumneavoastră personale către terți fără consimțământul dumneavoastră, cu excepția cazurilor în care legea o impune sau este necesar pentru furnizarea serviciilor noastre.</p>
+		</section>
+		<section class="TextSection">
+			<h2 class="SubTitle">6. Actualizări ale politicii</h2>
+			<p>Politica noastră de securitate poate fi revizuită periodic. Orice modificare semnificativă va fi comunicată pe această pagină. Vă recomandăm să verificați periodic această pagină pentru a fi la curent cu eventualele actualizări.</p>
+		</section>
+		<section class="TextSection">
+			<h2 class="SubTitle">7. Versiuni Suportate</h2>
+			<p>Publicăm patch-uri pentru vulnerabilități de securitate. Versiunile eligibile pentru a primi astfel de patch-uri depind de Rating-ul CVSS v3.0:</p>
+			<table>
+				<tr>
+					<th>CVSS v3.0</th>
+					<th>Versiunile Suportate</th>
+				</tr>
+				<tr>
+					<td>9.0-10.0</td>
+					<td>Lansare imediată</td>
+				</tr>
+				<tr>
+					<td>4.0-8.9</td>
+					<td>Lansare în bloc la o dată viitoare</td>
+				</tr>
+			</table>
+		</section>
+		<section class="TextSection">
+			<h2 class="SubTitle">8. Raportarea unei Vulnerabilități</h2>
+			<p>Vă rugăm să raportați vulnerabilități (suspectate) de securitate la <a href="mailto:security@melanto.ro">security@melanto.ro</a>. Veți primi un răspuns din partea noastră în decurs de 48 de ore. Dacă problema este confirmată, vom lansa un patch cât mai curând posibil în funcție de complexitate (cel mai probabil în câteva zile).</p>
+		</section>
+		<section class="TextSection">
+			<h2 class="SubTitle">9. Alte link-uri de securitate</h2>
+			<ul>
+				<li><a href="https://melanto.ro/.well-known/security.txt">https://melanto.ro/.well-known/security.txt</a> - detalii privind politicile de securitate ale acestui website</li>
+				<li><a href="https://melanto.ro/hall-of-fame">https://melanto.ro/hall-of-fame</a> - hall of fame al contribuitorilor la securitate</li>
+				<li><a href="https://melanto.ro/politica-de-securitate">https://melanto.ro/politica-de-securitate</a> - documentul curent</li>
+				<li><a href="https://github.com/ViorelMocanu/melanto/blob/main/SECURITY.md">https://github.com/ViorelMocanu/melanto/blob/main/SECURITY.md</a> - ghidul de securitate pe scurt</li>
+				<li><a href="https://github.com/ViorelMocanu/melanto/blob/main/CONTRIBUTING.md">https://github.com/ViorelMocanu/melanto/blob/main/CONTRIBUTING.md</a> - ghiduri de contribuție la codebase</li>
+			</ul>
+		</section>
+		<section class="TextSection">
+			<h2 class="SubTitle">10. Contact</h2>
+			<p>Pentru întrebări sau preocupări legate de politica noastră de securitate, vă rugăm să ne contactați la adresa de e-mail: <a href="mailto:security@melanto.ro">security@melanto.ro</a>.</p>
+		</section>
+		<section class="TextSection">
+			<h2 class="SubTitle">11. Ultima actualizare</h2>
+			<p>Ultima actualizare: 25 ianuarie 2024</p>
+		</section>
+	</main>
+	<Contact />
+</Layout>
