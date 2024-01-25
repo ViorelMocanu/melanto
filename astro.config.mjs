@@ -1,5 +1,6 @@
 import { ENV, LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL, DEBUG } from './src/config';
 import { defineConfig, squooshImageService } from 'astro/config';
+import { astroCSPHashGenerator } from './src/utils/csp-hash';
 import { fileURLToPath } from 'url';
 import path from 'path';
 // import partytown from '@astrojs/partytown';
@@ -114,6 +115,7 @@ export default defineConfig({
 				authToken: process.env.SENTRY_AUTH_TOKEN,
 			},
 		})*/
+		astroCSPHashGenerator,
 	],
 	adapter: vercelServerless({
 		webAnalytics: {
