@@ -1,7 +1,1 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-pnpm build
-pnpm lint --quiet
-pnpm typecheck
-pnpm format
+pnpm test

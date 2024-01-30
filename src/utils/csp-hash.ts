@@ -14,7 +14,7 @@ export const astroCSPHashGenerator: AstroIntegration = {
 	name: 'astro-csp-hash-generator',
 	hooks: {
 		'astro:build:done': async ({ dir, pages, logger }) => {
-			let hashes = '';
+			let hashes = [];
 			for (let i = 0; i < pages.length; i++) {
 				const filePath = fileURLToPath(`${dir.href}${pages[i]?.pathname}index.html`);
 
@@ -26,14 +26,14 @@ export const astroCSPHashGenerator: AstroIntegration = {
 						const s = scripts[j];
 						if (s !== undefined && s?.textContent !== undefined) {
 							const hash = await createCspHash(s?.textContent);
-							hashes += hash + ' ';
+							hashes.push(hash);
 						}
 					}
 				} catch (e) {
 					logger.error(`Cannot read file ${filePath}: ${e}`);
 				}
 			}
-			logger.info(hashes);
+			logger.info(hashes.join(' '));
 		},
 	},
 };
