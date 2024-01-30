@@ -39,7 +39,7 @@
 		"lint:md": "markdownlint ./src/**/*.md",
 		"lint:fix": "pnpm lint:js --fix . && pnpm lint:md --fix",
 		"lint": "pnpm lint:js . && pnpm lint:md",
-		"postinstall": "husky",
+		"postinstall": "husky init",
 		"coverage": "pnpm test:unit --coverage",
 		"typegen:astro": "astro sync",
 		"typegen:supabase": "pnpm supabase gen types typescript --project-id \"$PUBLIC_SUPABASE_REFERENCE\" --schema public > src/types/supabase.ts --debug",
