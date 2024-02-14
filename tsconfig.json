@@ -29,12 +29,12 @@
 			"@lib/*": ["src/lib/*"],
 			"@utils/*": ["src/utils/*"],
 			"@style": ["src/style/style.scss"],
-			"@customtypes/*": ["src/customtypes/*"],
+			"@customtypes/*": ["src/customtypes/*"]
 		},
 		"types": [
 			"astro/client",
 			"vitest/globals",
-			"vite/client",
+			"vite/client"
 			// "vite-plugin-pwa/info"
 		],
 		"verbatimModuleSyntax": true,
@@ -42,7 +42,7 @@
 		"strictNullChecks": true,
 		"strictFunctionTypes": true,
 		"allowJs": true,
-		"checkJs": true,
+		"checkJs": true
 	},
-	"exclude": ["node_modules", "**/node_modules/*", "dist", "coverage", "static", "eslint.config.js"],
+	"exclude": ["node_modules", "**/node_modules/*", "dist", "coverage", "static", "eslint.config.js"]
 }
