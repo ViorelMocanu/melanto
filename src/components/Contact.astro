@@ -116,28 +116,28 @@ const ejskey = import.meta.env.EMAILJS_API_KEY;
 								let msg = document.createElement('div');
 								msg.classList.add('Message', 'MessageSuccess');
 								msg.innerHTML = `
-							<button class="CloseMessage" title="Închide acest mesaj">
-								<span class="ButtonText">&times;</span>
-							</button>
-							<h3 class="SubTitle">Mesajul tău a fost trimis cu succes!</h3>
-							<p class="P">Îți mulțumim pentru interesul acordat. În cel mai scurt timp posibil îți vom răspunde la mesaj.</p>
-						`;
+									<button class="CloseMessage" title="Închide acest mesaj">
+										<span class="ButtonText">&times;</span>
+									</button>
+									<h3 class="SubTitle">Mesajul tău a fost trimis cu succes!</h3>
+									<p class="P">Îți mulțumim pentru interesul acordat. În cel mai scurt timp posibil îți vom răspunde la mesaj.</p>
+								`;
 								document.querySelector('.ContactContainer')?.appendChild(msg);
 								form.reset();
 								closeMessage();
 							},
 							(error) => {
 								mesajTrimis = false;
-								console.error(error.text);
+								console.error(error, error.text);
 								let msg = document.createElement('div');
 								msg.classList.add('Message', 'MessageError');
 								msg.innerHTML = `
-							<button class="CloseMessage" title="Închide acest mesaj">
-								<span class="ButtonText">&times;</span>
-							</button>
-							<h3 class="SubTitle">Mesajul tău NU a putut fi transmis!</h3>
-							<p class="P">Ne pare rău, dar mesajul tău nu a putut fi transmis. Contactează-ne direct la <a href="mailto:contact@melanto.ro">contact@melanto.ro</a>!</p>
-						`;
+									<button class="CloseMessage" title="Închide acest mesaj">
+										<span class="ButtonText">&times;</span>
+									</button>
+									<h3 class="SubTitle">Mesajul tău NU a putut fi transmis!</h3>
+									<p class="P">Ne pare rău, dar mesajul tău nu a putut fi transmis. Contactează-ne direct la <a href="mailto:contact@melanto.ro">contact@melanto.ro</a>!</p>
+								`;
 								document.querySelector('.ContactContainer')?.appendChild(msg);
 								closeMessage();
 							}
