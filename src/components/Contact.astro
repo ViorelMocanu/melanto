@@ -9,109 +9,9 @@
  * @returns {astro.AstroNode} The Astro component for the contact form.
  */
 
-import { PUBLIC_RECEIVER_EMAIL_1, PUBLIC_RECEIVER_EMAIL_2 } from '@config';
-import sendGrid, { type MailDataRequired } from '@sendgrid/mail';
+// import { PUBLIC_RECEIVER_EMAIL_1, PUBLIC_RECEIVER_EMAIL_2 } from '@config';
 
-sendGrid.setApiKey(import.meta.env.SENDGRID_API_KEY);
-
-let mesajTrimis = null;
-const errors = { name: '', email: '', phone: '', message: '' };
-
-function isValidEmail(email: string) {
-	return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-if (Astro.request.method === 'POST') {
-	try {
-		// Getting posted data from our contact form
-		const data = await Astro.request.formData();
-		const name = data.get('nume');
-		const phone = data.get('telefon');
-		const email = data.get('email');
-		const message = data.get('mesaj');
-
-		if (typeof name !== 'string' || name.length < 3) {
-			errors.name += 'Te rugăm să introduci un nume valid. ';
-		}
-		if (typeof email !== 'string' || !isValidEmail(email)) {
-			errors.email += 'Email-ul tău nu e valid. ';
-		}
-		if (typeof phone !== 'string' || phone.length < 10) {
-			errors.phone += 'Telefonul trebuie să aibă minim 10 cifre. ';
-		}
-		if (typeof message !== 'string' || message.length < 10) {
-			errors.message += 'Te rugăm să introduci un mesaj valid. ';
-		}
-		const hasErrors = Object.values(errors).some((msg) => msg);
-
-		const htmlTemplate = `
-			<h1>Am primit un mesaj nou de la ${name} pe Melanto.ro</h1>
-			<p><strong>Nume:</strong> ${name}</p>
-			<p><strong>Email:</strong> ${email}</p>
-			<p><strong>Telefon:</strong> ${phone}</p>
-			<p><strong>Mesaj:</strong></p>
-			<p><pre>${message}</pre></p>
-		`;
-
-		// Sending email
-		const msg: MailDataRequired = {
-			to: PUBLIC_RECEIVER_EMAIL_1,
-			from: 'contact@melanto.ro',
-			subject: `Mesaj nou pe Melanto.ro de la ${name}`,
-			text: `Nume: ${name} \nEmail: ${email} \nTelefon: ${phone} \nMesaj: ${message}`,
-			html: htmlTemplate,
-			/*
-			templateId: 'sgTemplate',
-			dynamicTemplateData: {
-				name: name,
-				email: email,
-				phone: phone,
-				message: message
-			}
-			*/
-		};
-		const msg2: MailDataRequired = {
-			to: PUBLIC_RECEIVER_EMAIL_2,
-			from: 'contact@melanto.ro',
-			subject: `Mesaj nou pe Melanto.ro de la ${name}`,
-			text: `Nume: ${name} \nEmail: ${email} \nTelefon: ${phone} \nMesaj: ${message}`,
-			html: htmlTemplate,
-		};
-		if (!hasErrors) {
-			await sendGrid
-				.send(msg)
-				.then(() => {
-					// @ts-ignore
-					console.log('Email trimis!');
-					mesajTrimis = true;
-				})
-				.catch((error) => {
-					mesajTrimis = false;
-					// @ts-ignore
-					console.error(error, msg, error.response.body.errors, error.ref.response.body.errors);
-				});
-			await sendGrid
-				.send(msg2)
-				.then(() => {
-					// @ts-ignore
-					console.log('Email trimis!');
-					mesajTrimis = true;
-				})
-				.catch((error) => {
-					mesajTrimis = false;
-					// @ts-ignore
-					console.error(error, msg2, error.response.body.errors, error.ref.response.body.errors);
-				});
-		} else {
-			return Astro.redirect('/#contact');
-		}
-	} catch (error) {
-		if (error instanceof Error) {
-			console.error(error.message);
-		}
-		mesajTrimis = false;
-	}
-}
+const ejskey = import.meta.env.EMAILJS_API_KEY;
 ---
 
 <section class="Section NavTarget Contact" id="contact">
@@ -121,25 +21,25 @@ if (Astro.request.method === 'POST') {
 		<form id="contactForm" class="Form ContactForm" method="POST">
 			<fieldset class="Fieldset">
 				<legend class="Legend">Contactează-ne</legend>
-				<label class:list={['Label', { Error: errors.name }]} for="nume">
+				<label class="Label" for="name">
 					<span class="LabelText">Nume:</span>
-					<input class="Input" type="text" id="nume" name="nume" maxlength="100" minlength="1" placeholder="Numele tău complet..." required autocomplete="name" />
-					{errors.name && <p class="Error">{errors.name}</p>}
+					<input class="Input" type="text" id="name" name="name" maxlength="100" minlength="1" placeholder="Numele tău complet..." required autocomplete="name" />
+					<p class="Error">&nbsp;</p>
 				</label>
-				<label class:list={['Label', { Error: errors.phone }]} for="telefon">
+				<label class="Label" for="phone">
 					<span class="LabelText">Telefon:</span>
-					<input class="Input" type="tel" id="telefon" name="telefon" pattern="[0-9]{10,15}" placeholder="Telefonul tău (numai cifre)..." required autocomplete="tel" />
-					{errors.phone && <p class="Error">{errors.phone}</p>}
+					<input class="Input" type="tel" id="phone" name="phone" pattern="[0-9]{10,15}" placeholder="Telefonul tău (numai cifre)..." required autocomplete="tel" />
+					<p class="Error">&nbsp;</p>
 				</label>
-				<label class:list={['Label', { Error: errors.email }]} for="email">
+				<label class="Label" for="email">
 					<span class="LabelText">E-mail:</span>
 					<input class="Input" type="email" id="email" name="email" placeholder="Adresa ta de mail..." required autocomplete="email" />
-					{errors.email && <p class="Error">{errors.email}</p>}
+					<p class="Error">&nbsp;</p>
 				</label>
-				<label class:list={['Label', { Error: errors.message }]} for="mesaj">
+				<label class="Label" for="message">
 					<span class="LabelText">Mesaj:</span>
-					<textarea class="Textarea" id="mesaj" name="mesaj" placeholder="Mesajul tău..." required></textarea>
-					{errors.message && <p class="Error">{errors.message}</p>}
+					<textarea class="Textarea" id="message" name="message" placeholder="Mesajul tău..." required></textarea>
+					<p class="Error">&nbsp;</p>
 				</label>
 				<button class="Button" type="submit" title="Trimite-ne mesajul acum">
 					<span class="ButtonText">Trimite mesaj &raquo;</span>
@@ -147,44 +47,128 @@ if (Astro.request.method === 'POST') {
 			</fieldset>
 		</form>
 
-		{
-			mesajTrimis === true && (
-				<div class="Message MessageSuccess">
-					<button class="CloseMessage" title="Închide acest mesaj">
-						<span class="ButtonText">&times;</span>
-					</button>
-					<h3 class="SubTitle">Mesajul tău a fost trimis cu succes!</h3>
-					<p class="P">Îți mulțumim pentru interesul acordat. În cel mai scurt timp posibil îți vom răspunde la mesaj.</p>
-				</div>
-			)
-		}
+		<script is:inline type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+		<script is:inline type="text/javascript" define:vars={{ ejskey }}>
+			// @ts-nocheck
+			let emailjs = window.emailjs;
+			emailjs.init({
+				publicKey: ejskey,
+			});
 
-		{
-			mesajTrimis === false && (
-				<div class="Message MessageError">
-					<button class="CloseMessage" title="Închide acest mesaj">
-						<span class="ButtonText">&times;</span>
-					</button>
-					<h3 class="SubTitle">Mesajul tău NU a putut fi transmis!</h3>
-					<p class="P">
-						Ne pare rău, dar mesajul tău nu a putut fi transmis. Contactează-ne direct la <a href="mailto:contact@melanto.ro">contact@melanto.ro</a>!
-					</p>
-				</div>
-			)
-		}
+			let uip = 'unknown';
 
-		<script>
-			// hide the message after 10 seconds or when the user clicks the close button
-			const message = document.querySelector('.Message');
-			if (message && message !== null) {
+			function closeMessage() {
+				// hide the message after 10 seconds or when the user clicks the close button
+				const messageBox = document.querySelector('.Message');
 				setTimeout(() => {
-					message.classList.add('MessageHidden');
+					messageBox?.classList.add('MessageHidden');
 				}, 10000);
-				const closeButton = message.querySelector('.CloseMessage');
+				const closeButton = messageBox?.querySelector('.CloseMessage');
 				closeButton?.addEventListener('click', () => {
-					message.classList.add('MessageHidden');
+					messageBox?.classList.add('MessageHidden');
 				});
 			}
+
+			// handle the form submission
+			const form = document.getElementById('contactForm');
+			form?.addEventListener('submit', async (event) => {
+				event.preventDefault();
+				const data = new FormData(form);
+				let mesajTrimis = null;
+				const errors = { name: '', email: '', phone: '', message: '' };
+				const name = data.get('name');
+				const phone = data.get('phone');
+				const email = data.get('email');
+				const message = data.get('message');
+
+				if (typeof name !== 'string' || name.length < 3) {
+					errors.name = 'Te rugăm să introduci un nume valid. ';
+				}
+				if (typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+					errors.email = 'Email-ul tău nu e valid. ';
+				}
+				if (typeof phone !== 'string' || phone.length < 10) {
+					errors.phone = 'Telefonul trebuie să aibă minim 10 cifre. ';
+				}
+				if (typeof message !== 'string' || message.length < 10) {
+					errors.message = 'Te rugăm să introduci un mesaj valid. ';
+				}
+				const hasErrors = Object.values(errors).some((msg) => msg);
+
+				if (!hasErrors) {
+					let yourDate = new Date();
+					const offset = yourDate.getTimezoneOffset();
+					yourDate = new Date(yourDate.getTime() - offset * 60 * 1000);
+					const udata = yourDate.toISOString().split('T')[0];
+					emailjs
+						.send('emailjs-melanto', 'template_melanto_contact', {
+							from_name: name,
+							email: email,
+							phone: phone,
+							message: message,
+							ip: uip,
+							data: udata,
+						})
+						.then(
+							(result) => {
+								mesajTrimis = true;
+								console.info(result.text);
+								let msg = document.createElement('div');
+								msg.classList.add('Message', 'MessageSuccess');
+								msg.innerHTML = `
+							<button class="CloseMessage" title="Închide acest mesaj">
+								<span class="ButtonText">&times;</span>
+							</button>
+							<h3 class="SubTitle">Mesajul tău a fost trimis cu succes!</h3>
+							<p class="P">Îți mulțumim pentru interesul acordat. În cel mai scurt timp posibil îți vom răspunde la mesaj.</p>
+						`;
+								document.querySelector('.ContactContainer')?.appendChild(msg);
+								form.reset();
+								closeMessage();
+							},
+							(error) => {
+								mesajTrimis = false;
+								console.error(error.text);
+								let msg = document.createElement('div');
+								msg.classList.add('Message', 'MessageError');
+								msg.innerHTML = `
+							<button class="CloseMessage" title="Închide acest mesaj">
+								<span class="ButtonText">&times;</span>
+							</button>
+							<h3 class="SubTitle">Mesajul tău NU a putut fi transmis!</h3>
+							<p class="P">Ne pare rău, dar mesajul tău nu a putut fi transmis. Contactează-ne direct la <a href="mailto:contact@melanto.ro">contact@melanto.ro</a>!</p>
+						`;
+								document.querySelector('.ContactContainer')?.appendChild(msg);
+								closeMessage();
+							}
+						);
+				} else {
+					mesajTrimis = false;
+					Object.entries(errors).forEach(([key, value]) => {
+						const label = form.querySelector(`label[for="${key}"]`);
+						if (label) {
+							label.classList.add('Error');
+							const error = label.querySelector('.Error');
+							if (error) {
+								error.textContent = value;
+								error.classList.add('ErrorVisible');
+							}
+						}
+					});
+					let msg = document.createElement('div');
+					msg.classList.add('Message', 'MessageError');
+					msg.innerHTML = `
+						<button class="CloseMessage" title="Închide acest mesaj">
+							<span class="ButtonText">&times;</span>
+						</button>
+						<h3 class="SubTitle">Mesajul tău NU a putut fi transmis!</h3>
+						<p class="P">Nu ai completat corect datele din formular. Încearcă din nou folosind instrucțiunile de mai sus, sau contactează-ne direct la <a href="mailto:contact@melanto.ro">contact@melanto.ro</a>!</p>
+					`;
+					document.querySelector('.ContactContainer')?.appendChild(msg);
+					closeMessage();
+				}
+				return;
+			});
 		</script>
 	</div>
 </section>

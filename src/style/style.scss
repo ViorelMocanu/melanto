@@ -147,7 +147,7 @@ a:active { color: var(--light-800); text-decoration: none; }
 .Link { @extend a; }
 
 .Form { display: block; font-size: 1.5rem; line-height: 1.5em; }
-.Form:has(:user-invalid), .Form:has(.Error) { border: 1px solid red; }
+.Form:has(:user-invalid), .Form:has(.ErrorVisible) { border: 1px solid red; }
 	.Fieldset { display: block; margin: 0; padding: 0; border: none; }
 		.Legend { @extend .SROnly; }
 		.Label { display: block; cursor: pointer; margin: 0; }
@@ -155,7 +155,8 @@ a:active { color: var(--light-800); text-decoration: none; }
 				@media (min-width: $desktop) { font-size: 1.5rem; line-height: 1.5em; }
 			}
 		.Label:hover { color: var(--light-600); }
-		.Error { display: block; padding: 1rem; margin: 0.5rem 0; background: rgba(255, 0, 0, 1); color: var(--light-900); }
+		.Section .Error { display: none; padding: 1rem; margin: 0.5rem 0; background: rgba(255, 0, 0, 1); color: var(--light-900); }
+		.Section .Error.ErrorVisible { display: block; }
 		.CheckboxLabel { display: flex; flex-direction: row; gap: 1rem; }
 			.LabelText { display: block; }
 		.Input, .Textarea { display: block; width: 100%; appearance: none; padding: 0.5rem; border: none; font-family: $fonts-condensed; font-size: 1.5rem; line-height: 1.5em; border-radius: 0.25rem; box-sizing: border-box;
@@ -184,10 +185,10 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 .Icon { display: inline-block; width: 1.5rem; height: 1.5rem; overflow: hidden; }
 
 .Message { display: block; position: fixed; top: 3.5rem; left: 0; width: 100vw; box-sizing: border-box; margin: 0; padding: 1rem; background: var(--dark-200); z-index: 2;
-	@media (min-width: $desktop) {  }
+	@media (min-width: $desktop) { top: 5.75rem; }
 }
-.Message.MessageError { background: rgba(25,0,0,1); }
-.Message.MessageSuccess { background: rgba(0,25,0,1); }
+.Message.MessageError { background: rgba(100,0,0,1); }
+.Message.MessageSuccess { background: rgba(0,100,0,1); }
 .Message.MessageHidden { display: none; }
 	.CloseMessage { display: block; width: 1em; height: 1em; float: right; margin: 0 0 0.5rem 1rem; font-size: 3rem; line-height: 1em; text-align: center; background: transparent; color: var(--light-900); border: none; }
 	.CloseMessage:hover { background: var(--accent-800); color: var(--dark-100); }
