@@ -55,7 +55,7 @@ const ejskey = import.meta.env.EMAILJS_API_KEY;
 				publicKey: ejskey,
 			});
 
-			let uip = 'unknown';
+			let uip = window.navigator.userAgent || 'unknown';
 
 			function closeMessage() {
 				// hide the message after 10 seconds or when the user clicks the close button
