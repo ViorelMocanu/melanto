@@ -50,6 +50,7 @@ const ejskey = import.meta.env.EMAILJS_API_KEY;
 		<script is:inline type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 		<script is:inline type="text/javascript" define:vars={{ ejskey }}>
 			// @ts-nocheck
+			import { error } from 'astro/dist/core/logger/core';
 			let emailjs = window.emailjs;
 			emailjs.init({
 				publicKey: ejskey,
@@ -126,6 +127,11 @@ const ejskey = import.meta.env.EMAILJS_API_KEY;
 								`;
 								document.querySelector('.ContactContainer')?.appendChild(msg);
 								form.reset();
+								const errorElements = form.querySelectorAll('.ErrorVisible');
+								errorElements.forEach((el) => {
+									el.textContent = '';
+									el.classList.remove('ErrorVisible');
+								});
 								closeMessage();
 							},
 							(error) => {
