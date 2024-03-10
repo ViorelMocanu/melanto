@@ -158,7 +158,7 @@ const ejskey = import.meta.env.EMAILJS_API_KEY;
 								error.textContent = value;
 								error.classList.add('ErrorVisible');
 								if (!focusedError) {
-									const i = error.parentElement.getElementsByTagName('input')[0];
+									const i = error.parentElement.getElementsByTagName('input')[0] || error.parentElement.getElementsByTagName('textarea')[0];
 									i.focus();
 									focusedError = true;
 								}
