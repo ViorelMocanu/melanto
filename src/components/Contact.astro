@@ -23,7 +23,7 @@ const ejskey = import.meta.env.EMAILJS_API_KEY;
 				<legend class="Legend">Contactează-ne</legend>
 				<label class="Label" for="name">
 					<span class="LabelText">Nume:</span>
-					<input class="Input" type="text" id="name" name="name" maxlength="100" minlength="1" placeholder="Numele tău complet..." required autocomplete="name" />
+					<input class="Input" type="text" id="name" name="name" maxlength="100" minlength="3" placeholder="Numele tău complet..." required autocomplete="name" />
 					<p class="Error">&nbsp;</p>
 				</label>
 				<label class="Label" for="phone">
@@ -33,7 +33,7 @@ const ejskey = import.meta.env.EMAILJS_API_KEY;
 				</label>
 				<label class="Label" for="email">
 					<span class="LabelText">E-mail:</span>
-					<input class="Input" type="email" id="email" name="email" placeholder="Adresa ta de mail..." required autocomplete="email" />
+					<input class="Input" type="email" id="email" name="email" maxlength="64" placeholder="Adresa ta de mail..." required autocomplete="email" />
 					<p class="Error">&nbsp;</p>
 				</label>
 				<label class="Label" for="message">
@@ -60,9 +60,11 @@ const ejskey = import.meta.env.EMAILJS_API_KEY;
 			function closeMessage() {
 				// hide the message after 10 seconds or when the user clicks the close button
 				const messageBox = document.querySelector('.Message');
+				/*
 				setTimeout(() => {
 					messageBox?.classList.add('MessageHidden');
 				}, 10000);
+				*/
 				const closeButton = messageBox?.querySelector('.CloseMessage');
 				closeButton?.addEventListener('click', () => {
 					messageBox?.classList.add('MessageHidden');
@@ -144,14 +146,22 @@ const ejskey = import.meta.env.EMAILJS_API_KEY;
 						);
 				} else {
 					mesajTrimis = false;
+					let focusedError = false;
+					console.log('errors', errors);
 					Object.entries(errors).forEach(([key, value]) => {
+						if (!value || value === '') return;
 						const label = form.querySelector(`label[for="${key}"]`);
 						if (label) {
-							label.classList.add('Error');
+							label.classList.add('LabelError');
 							const error = label.querySelector('.Error');
 							if (error) {
 								error.textContent = value;
 								error.classList.add('ErrorVisible');
+								if (!focusedError) {
+									const i = error.parentElement.getElementsByTagName('input')[0];
+									i.focus();
+									focusedError = true;
+								}
 							}
 						}
 					});
