@@ -57,14 +57,8 @@ const ejskey = import.meta.env.EMAILJS_API_KEY;
 
 			let uip = window.navigator.userAgent || 'unknown';
 
-			function closeMessage() {
+			function closeMessage(messageBox) {
 				// hide the message after 10 seconds or when the user clicks the close button
-				const messageBox = document.querySelector('.Message');
-				/*
-				setTimeout(() => {
-					messageBox?.classList.add('MessageHidden');
-				}, 10000);
-				*/
 				const closeButton = messageBox?.querySelector('.CloseMessage');
 				closeButton?.addEventListener('click', () => {
 					messageBox?.classList.add('MessageHidden');
@@ -115,6 +109,8 @@ const ejskey = import.meta.env.EMAILJS_API_KEY;
 							(result) => {
 								mesajTrimis = true;
 								console.info(result.text);
+								const oldMsg = document.querySelector('.Message');
+								oldMsg?.remove();
 								let msg = document.createElement('div');
 								msg.classList.add('Message', 'MessageSuccess');
 								msg.innerHTML = `
@@ -131,11 +127,13 @@ const ejskey = import.meta.env.EMAILJS_API_KEY;
 									el.textContent = '';
 									el.classList.remove('ErrorVisible');
 								});
-								closeMessage();
+								closeMessage(msg);
 							},
 							(error) => {
 								mesajTrimis = false;
 								console.error(error, error.text);
+								const oldMsg = document.querySelector('.Message');
+								oldMsg?.remove();
 								let msg = document.createElement('div');
 								msg.classList.add('Message', 'MessageError');
 								msg.innerHTML = `
@@ -146,7 +144,7 @@ const ejskey = import.meta.env.EMAILJS_API_KEY;
 									<p class="P">Ne pare rău, dar mesajul tău nu a putut fi transmis. Contactează-ne direct la <a href="mailto:contact@melanto.ro">contact@melanto.ro</a>!</p>
 								`;
 								document.querySelector('.ContactContainer')?.appendChild(msg);
-								closeMessage();
+								closeMessage(msg);
 							}
 						);
 				} else {
@@ -170,6 +168,8 @@ const ejskey = import.meta.env.EMAILJS_API_KEY;
 							}
 						}
 					});
+					const oldMsg = document.querySelector('.Message');
+					oldMsg?.remove();
 					let msg = document.createElement('div');
 					msg.classList.add('Message', 'MessageError');
 					msg.innerHTML = `
@@ -180,7 +180,7 @@ const ejskey = import.meta.env.EMAILJS_API_KEY;
 						<p class="P">Nu ai completat corect datele din formular. Încearcă din nou folosind instrucțiunile de mai sus, sau contactează-ne direct la <a href="mailto:contact@melanto.ro">contact@melanto.ro</a>!</p>
 					`;
 					document.querySelector('.ContactContainer')?.appendChild(msg);
-					closeMessage();
+					closeMessage(msg);
 				}
 				return;
 			});
