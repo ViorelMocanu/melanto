@@ -59,7 +59,7 @@
 		"astro": "4.4.15",
 		"astro-simpleanalytics-plugin": "^0.3.13",
 		"astro-webmanifest": "1.0.0",
-		"node-html-parser": "6.1.12",
+		"node-html-parser": "6.1.13",
 		"sharp": "0.33.2"
 	},
 	"devDependencies": {
