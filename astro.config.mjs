@@ -1,5 +1,5 @@
 import { ENV, LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL, DEBUG } from './src/config';
-import { defineConfig, squooshImageService } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import { astroCSPHashGenerator } from './src/utils/csp-hash';
 import { fileURLToPath } from 'url';
 import path from 'path';
@@ -23,7 +23,6 @@ export default defineConfig({
 		// '/old': '/new',
 	},
 	image: {
-		service: squooshImageService(),
 		remotePatterns: [{
 			protocol: 'https'
 		}]
