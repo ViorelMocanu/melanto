@@ -13,13 +13,13 @@ importers:
         version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2)
       '@astrojs/vercel':
         specifier: 7.8.1
-        version: 7.8.1(astro@4.16.1(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2))
+        version: 7.8.1(astro@4.16.2(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2))
       '@vercel/analytics':
         specifier: ^1.3.1
         version: 1.3.1
       astro:
-        specifier: 4.16.1
-        version: 4.16.1(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2)
+        specifier: 4.16.2
+        version: 4.16.2(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2)
       astro-simpleanalytics-plugin:
         specifier: ^0.3.17
         version: 0.3.17(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2)
@@ -47,7 +47,7 @@ importers:
         version: 8.8.0(eslint@9.12.0(jiti@2.3.1))(typescript@5.6.2)
       '@vite-pwa/astro':
         specifier: 0.4.3
-        version: 0.4.3(astro@4.16.1(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2))(vite-plugin-pwa@0.20.5(vite@5.4.8(@types/node@22.7.4)(sass@1.79.4)(terser@5.34.1))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0))
+        version: 0.4.3(astro@4.16.2(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2))(vite-plugin-pwa@0.20.5(vite@5.4.8(@types/node@22.7.4)(sass@1.79.4)(terser@5.34.1))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0))
       '@vitest/coverage-v8':
         specifier: 2.1.2
         version: 2.1.2(vitest@2.1.2(@types/node@22.7.4)(sass@1.79.4)(terser@5.34.1))
@@ -1668,8 +1668,8 @@ packages:
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
-  astro@4.16.1:
-    resolution: {integrity: sha512-ZeZd+L147HHgHmvoSkve7KM3EutV+hY0mOCa4PwARHEFAAh+omo4MUNoTWsFkfq7ozTgR0PCXQwslrZduoWHNg==}
+  astro@4.16.2:
+    resolution: {integrity: sha512-Dfkpyt6sA+nv6LnOJr+7bt+gQF5Qh02yqVgyes4c4SvcPScteq1bLX22/z/XW+VU0vlciJOMiM8GWtcDiF6gUQ==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -4715,13 +4715,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/vercel@7.8.1(astro@4.16.1(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2))':
+  '@astrojs/vercel@7.8.1(astro@4.16.2(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2))':
     dependencies:
       '@astrojs/internal-helpers': 0.4.1
       '@vercel/analytics': 1.3.1
       '@vercel/edge': 1.1.2
       '@vercel/nft': 0.27.4
-      astro: 4.16.1(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2)
+      astro: 4.16.2(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2)
       esbuild: 0.21.5
       fast-glob: 3.3.2
       web-vitals: 3.5.2
@@ -6224,9 +6224,9 @@ snapshots:
       - encoding
       - supports-color
 
-  '@vite-pwa/astro@0.4.3(astro@4.16.1(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2))(vite-plugin-pwa@0.20.5(vite@5.4.8(@types/node@22.7.4)(sass@1.79.4)(terser@5.34.1))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0))':
+  '@vite-pwa/astro@0.4.3(astro@4.16.2(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2))(vite-plugin-pwa@0.20.5(vite@5.4.8(@types/node@22.7.4)(sass@1.79.4)(terser@5.34.1))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0))':
     dependencies:
-      astro: 4.16.1(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2)
+      astro: 4.16.2(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2)
       vite-plugin-pwa: 0.20.5(vite@5.4.8(@types/node@22.7.4)(sass@1.79.4)(terser@5.34.1))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0)
 
   '@vitest/coverage-v8@2.1.2(vitest@2.1.2(@types/node@22.7.4)(sass@1.79.4)(terser@5.34.1))':
@@ -6586,7 +6586,7 @@ snapshots:
       - terser
       - typescript
 
-  astro@4.16.1(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2):
+  astro@4.16.2(@types/node@22.7.4)(rollup@2.79.2)(sass@1.79.4)(terser@5.34.1)(typescript@5.6.2):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.4.1
