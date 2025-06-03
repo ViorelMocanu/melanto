@@ -42,7 +42,13 @@
 		"strictNullChecks": true,
 		"strictFunctionTypes": true,
 		"allowJs": true,
-		"checkJs": true
+		"checkJs": true,
+		"plugins": [
+			{
+				"name": "@astrojs/ts-plugin"
+			}
+		]
 	},
+	"include": [".astro/types.d.ts", "**/*"],
 	"exclude": ["node_modules", "**/node_modules/*", "dist", "coverage", "static", "eslint.config.js"]
 }

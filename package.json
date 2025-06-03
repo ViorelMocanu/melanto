@@ -46,7 +46,7 @@
 		"test:unit": "vitest run",
 		"test:e2e": "playwright test",
 		"test": "pnpm test:unit",
-		"typecheck": "pnpm astro check && pnpm tsc --project tsconfig.json",
+		"typecheck": "pnpm astro check && pnpm tsc --project --traceResolution tsconfig.json",
 		"upd": "pnpm up --latest --recursive --interactive --verbose --ignore-scripts=false --include=optional && pnpm update",
 		"verify": "pnpm lint && pnpm typecheck && pnpm test:unit && pnpm format",
 		"verify:fix": "pnpm lint:fix && pnpm typecheck && pnpm test:unit && pnpm format:fix",
@@ -63,6 +63,7 @@
 		"sharp": "^0.34.2"
 	},
 	"devDependencies": {
+		"@astrojs/ts-plugin": "^1.10.4",
 		"@commitlint/cli": "^19.8.1",
 		"@commitlint/config-conventional": "^19.8.1",
 		"@typescript-eslint/eslint-plugin": "^8.33.1",
