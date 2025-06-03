@@ -1,9 +1,9 @@
 # Security Policy
 
--   [Security Policy](#security-policy)
-    -   [Supported Versions](#supported-versions)
-    -   [Reporting a Vulnerability](#reporting-a-vulnerability)
-    -   [Other security links](#other-security-links)
+- [Security Policy](#security-policy)
+    - [Supported Versions](#supported-versions)
+    - [Reporting a Vulnerability](#reporting-a-vulnerability)
+    - [Other security links](#other-security-links)
 
 ## Supported Versions
 
@@ -20,7 +20,7 @@ Please report (suspected) security vulnerabilities to **[security@viorelmocanu.r
 
 ## Other security links
 
--   <https://melanto.ro/.well-known/security.txt> - details regarding this website's security policies
--   <https://melanto.ro/hall-of-fame> - the hall of fame of security contributors
--   <https://melanto.ro/politica-de-securitate> - a more in-depth security policy
--   <https://github.com/ViorelMocanu/melanto/blob/main/CONTRIBUTING.md> - contribution guidelines
+- <https://melanto.ro/.well-known/security.txt> - details regarding this website's security policies
+- <https://melanto.ro/hall-of-fame> - the hall of fame of security contributors
+- <https://melanto.ro/politica-de-securitate> - a more in-depth security policy
+- <https://github.com/ViorelMocanu/melanto/blob/main/CONTRIBUTING.md> - contribution guidelines
