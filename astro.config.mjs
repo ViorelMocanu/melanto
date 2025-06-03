@@ -1,4 +1,5 @@
 import { ENV, LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL, DEBUG } from './src/config';
+// @ts-ignore
 import { defineConfig, passthroughImageService } from 'astro/config';
 import { astroCSPHashGenerator } from './src/utils/csp-hash';
 import { fileURLToPath } from 'url';
@@ -6,6 +7,7 @@ import path from 'path';
 // import partytown from '@astrojs/partytown';
 // import sentry from "@sentry/astro";
 // import sitemap from '@astrojs/sitemap';
+// @ts-ignore
 import vercel from '@astrojs/vercel';
 import webmanifest from 'astro-webmanifest';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
