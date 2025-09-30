@@ -60,7 +60,7 @@
 		"astro-simpleanalytics-plugin": "^0.3.20",
 		"astro-webmanifest": "^1.0.0",
 		"node-html-parser": "^7.0.1",
-		"sharp": "^0.34.2"
+		"sharp": "^0.34.3"
 	},
 	"devDependencies": {
 		"@astrojs/ts-plugin": "^1.10.4",
