@@ -83,6 +83,10 @@
 		"vitest": "^4.0.16"
 	},
 	"pnpm": {
-		"onlyBuiltDependencies": ["@parcel/watcher", "esbuild", "sharp"]
+		"onlyBuiltDependencies": [
+			"@parcel/watcher",
+			"esbuild",
+			"sharp"
+		]
 	}
 }
