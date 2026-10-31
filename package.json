@@ -56,7 +56,7 @@
 		"@astrojs/check": "^0.9.6",
 		"@astrojs/vercel": "^9.0.2",
 		"@vercel/analytics": "^1.6.1",
-		"astro": "^5.16.6",
+		"astro": "^5.18.2",
 		"astro-simpleanalytics-plugin": "^0.3.20",
 		"astro-webmanifest": "^1.0.0",
 		"node-html-parser": "^7.0.1",
